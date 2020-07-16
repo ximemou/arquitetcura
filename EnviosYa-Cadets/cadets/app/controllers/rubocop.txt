@@ -1,0 +1,268 @@
+Inspecting 2 files
+WW
+
+Offenses:
+
+application_controller.rb:1:1: C: Missing top-level class documentation comment.
+class ApplicationController < ActionController::Base
+^^^^^
+application_controller.rb:4:5: C: Inconsistent indentation detected.
+    def after_sign_in_path_for(resource) ...
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+application_controller.rb:5:5: C: Use 2 (not 1) spaces for indentation.
+    	CadetsHelper.save_cadet_session(current_cadet)
+    ^
+application_controller.rb:5:5: C: Tab detected.
+    	CadetsHelper.save_cadet_session(current_cadet)
+    ^
+application_controller.rb:6:5: C: Tab detected.
+    	token = CadetsHelper.get_cadet_token(current_cadet.id, 'cadet')
+    ^
+application_controller.rb:7:1: C: Tab detected.
+	    if(resource.class==Cadet)
+^
+application_controller.rb:7:6: C: Space after keyword if is missing.
+	    if(resource.class==Cadet)
+     ^^
+application_controller.rb:7:6: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+	    if(resource.class==Cadet)
+     ^^
+application_controller.rb:7:23: C: Surrounding space missing for operator ==.
+	    if(resource.class==Cadet)
+                      ^^
+application_controller.rb:8:1: C: Tab detected.
+	      ENV['SHIPMENTS_URL'] +"shipments/?cadetId="+current_cadet.id.to_s+"&Authorization=#{token}"
+^
+application_controller.rb:8:29: C: Surrounding space missing for operator +.
+	      ENV['SHIPMENTS_URL'] +"shipments/?cadetId="+current_cadet.id.to_s+"&Authorization=#{token}"
+                            ^
+application_controller.rb:8:30: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+	      ENV['SHIPMENTS_URL'] +"shipments/?cadetId="+current_cadet.id.to_s+"&Authorization=#{token}"
+                             ^^^^^^^^^^^^^^^^^^^^^
+application_controller.rb:8:51: C: Surrounding space missing for operator +.
+	      ENV['SHIPMENTS_URL'] +"shipments/?cadetId="+current_cadet.id.to_s+"&Authorization=#{token}"
+                                                  ^
+application_controller.rb:8:73: C: Surrounding space missing for operator +.
+	      ENV['SHIPMENTS_URL'] +"shipments/?cadetId="+current_cadet.id.to_s+"&Authorization=#{token}"
+                                                                        ^
+application_controller.rb:8:81: C: Line is too long. [98/80]
+	      ENV['SHIPMENTS_URL'] +"shipments/?cadetId="+current_cadet.id.to_s+"&Authorization=#{token}"
+                                                                                ^^^^^^^^^^^^^^^^^^
+application_controller.rb:9:1: C: Tab detected.
+	     end
+^
+application_controller.rb:9:7: W: end at 9, 6 is not aligned with if at 7, 5.
+	     end
+      ^^^
+application_controller.rb:10:1: C: Extra empty line detected at method body end.
+application_controller.rb:11:3: C: Tab detected.
+  	end
+  ^
+application_controller.rb:11:4: W: end at 11, 3 is not aligned with def at 4, 4.
+  	end
+   ^^^
+application_controller.rb:13:3: C: Tab detected.
+  	def authenticate_admin!
+  ^
+application_controller.rb:13:4: C: Inconsistent indentation detected.
+  	def authenticate_admin! ...
+   ^^^^^^^^^^^^^^^^^^^^^^^
+application_controller.rb:14:1: C: Extra empty line detected at method body beginning.
+application_controller.rb:15:1: C: Tab detected.
+	    token = request.headers['Authorization']
+^
+application_controller.rb:16:1: C: Tab detected.
+	    user = CadetsHelper.validate_user(token, 'admin')
+^
+application_controller.rb:17:1: C: Tab detected.
+	    if(user)
+^
+application_controller.rb:17:6: C: Space after keyword if is missing.
+	    if(user)
+     ^^
+application_controller.rb:17:6: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+	    if(user)
+     ^^
+application_controller.rb:18:1: C: Tab detected.
+	      return true
+^
+application_controller.rb:19:1: C: Tab detected.
+	    else
+^
+application_controller.rb:20:1: C: Tab detected.
+	      flash[:notice] = 'No posee los permisos necesarios'
+^
+application_controller.rb:21:6: C: Tab detected.
+     	  redirect_to ENV['MAIN_URL']
+     ^
+application_controller.rb:21:9: C: Inconsistent indentation detected.
+     	  redirect_to ENV['MAIN_URL']
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+application_controller.rb:22:6: C: Tab detected.
+     	  return false
+     ^
+application_controller.rb:22:9: C: Inconsistent indentation detected.
+     	  return false
+        ^^^^^^^^^^^^
+application_controller.rb:23:1: C: Tab detected.
+	    end
+^
+application_controller.rb:24:3: C: Tab detected.
+  	end
+  ^
+application_controller.rb:25:1: C: Extra empty line detected at class body end.
+cadets_controller.rb:1:1: C: Missing top-level class documentation comment.
+class CadetsController < ApplicationController
+^^^^^
+cadets_controller.rb:2:1: C: Extra empty line detected at class body beginning.
+cadets_controller.rb:5:44: C: Use the new Ruby 1.9 hash syntax.
+  skip_before_action :authenticate_cadet!, :only => [:new, :create, :getNearCadets, :index, :update, :show, :convert_cadet, :confirm_cadet, :reject_cadet, :get_pending_cadets], raise: false
+                                           ^^^^^^^^
+cadets_controller.rb:5:53: C: Use %i or %I for an array of symbols.
+  skip_before_action :authenticate_cadet!, :only => [:new, :create, :getNearCadets, :index, :update, :show, :convert_cadet, :confirm_cadet, :reject_cadet, :get_pending_cadets], raise: false
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cadets_controller.rb:5:81: C: Line is too long. [189/80]
+  skip_before_action :authenticate_cadet!, :only => [:new, :create, :getNearCadets, :index, :update, :show, :convert_cadet, :confirm_cadet, :reject_cadet, :get_pending_cadets], raise: false
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cadets_controller.rb:7:1: C: Tab detected.
+	def index
+^
+cadets_controller.rb:7:2: C: Inconsistent indentation detected.
+	def index ...
+ ^^^^^^^^^
+cadets_controller.rb:8:2: C: Use 2 (not 3) spaces for indentation.
+    @cadets = Cadet.all
+ ^^^
+cadets_controller.rb:10:3: W: end at 10, 2 is not aligned with def at 7, 1.
+  end
+  ^^^
+cadets_controller.rb:22:3: C: Assignment Branch Condition size for create is too high. [15.43/15]
+  def create
+  ^^^
+cadets_controller.rb:22:3: C: Method has too many lines. [15/10]
+  def create ...
+  ^^^^^^^^^^
+cadets_controller.rb:23:1: C: Extra empty line detected at method body beginning.
+cadets_controller.rb:24:5: C: Redundant begin block detected.
+    begin
+    ^^^^^
+cadets_controller.rb:25:5: C: Use 2 (not -2) spaces for indentation.
+    @cadet = Cadet.new(cadet_params)
+    ^^
+cadets_controller.rb:26:26: C: Trailing whitespace detected.
+    @cadet.pending = true 
+                         ^
+cadets_controller.rb:29:31: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      LogHelper.saveInfoInLog("Info: Se registro el cadete con los siguientes parametros: "+ @cadet.to_json)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cadets_controller.rb:29:81: C: Line is too long. [108/80]
+      LogHelper.saveInfoInLog("Info: Se registro el cadete con los siguientes parametros: "+ @cadet.to_json)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cadets_controller.rb:29:92: C: Surrounding space missing for operator +.
+      LogHelper.saveInfoInLog("Info: Se registro el cadete con los siguientes parametros: "+ @cadet.to_json)
+                                                                                           ^
+cadets_controller.rb:31:24: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      flash[:notice] = "Su solicitud ha sido enviada"
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cadets_controller.rb:33:14: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      render "new"
+             ^^^^^
+cadets_controller.rb:35:5: C: rescue at 35, 4 is not aligned with end at 38, 6.
+    rescue
+    ^^^^^^
+cadets_controller.rb:35:5: W: Avoid rescuing without specifying an error class.
+    rescue
+    ^^^^^^
+cadets_controller.rb:36:5: C: Use 2 (not 1) spaces for indentation.
+    	render "new"
+    ^
+cadets_controller.rb:36:5: C: Tab detected.
+    	render "new"
+    ^
+cadets_controller.rb:36:13: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    	render "new"
+            ^^^^^
+cadets_controller.rb:37:8: C: Inconsistent indentation detected.
+       LogHelper.saveErrorInLog("Error: no se pudo crear el cadete con los siguientes parametros: "+ cadet_params.to_json)
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cadets_controller.rb:37:33: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+       LogHelper.saveErrorInLog("Error: no se pudo crear el cadete con los siguientes parametros: "+ cadet_params.to_json)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cadets_controller.rb:37:81: C: Line is too long. [122/80]
+       LogHelper.saveErrorInLog("Error: no se pudo crear el cadete con los siguientes parametros: "+ cadet_params.to_json)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cadets_controller.rb:37:100: C: Surrounding space missing for operator +.
+       LogHelper.saveErrorInLog("Error: no se pudo crear el cadete con los siguientes parametros: "+ cadet_params.to_json)
+                                                                                                   ^
+cadets_controller.rb:54:1: C: Extra empty line detected at method body end.
+cadets_controller.rb:63:7: C: Use snake_case for method names.
+  def getNearCadets
+      ^^^^^^^^^^^^^
+cadets_controller.rb:64:1: C: Extra empty line detected at method body beginning.
+cadets_controller.rb:65:13: C: Surrounding space missing for operator =.
+    latitude=params[:originLatitude]
+            ^
+cadets_controller.rb:66:14: C: Surrounding space missing for operator =.
+    longitude=params[:originLongitude]
+             ^
+cadets_controller.rb:68:5: C: Use snake_case for variable names.
+    nearCadets=Cadet.getNearCadets(latitude,longitude)
+    ^^^^^^^^^^
+cadets_controller.rb:68:15: C: Surrounding space missing for operator =.
+    nearCadets=Cadet.getNearCadets(latitude,longitude)
+              ^
+cadets_controller.rb:68:44: C: Space missing after comma.
+    nearCadets=Cadet.getNearCadets(latitude,longitude)
+                                           ^
+cadets_controller.rb:87:1: C: Extra blank line detected.
+cadets_controller.rb:88:3: C: Use empty lines between method definitions.
+  def confirm_cadet
+  ^^^
+cadets_controller.rb:89:25: C: Use || instead of or.
+    authenticate_admin! or return
+                        ^^
+cadets_controller.rb:96:3: C: Use 2 (not 3) spaces for indentation.
+     authenticate_admin! or return
+  ^^^
+cadets_controller.rb:96:26: C: Use || instead of or.
+     authenticate_admin! or return
+                         ^^
+cadets_controller.rb:97:5: C: Inconsistent indentation detected.
+    cadet_id = params[:id]
+    ^^^^^^^^^^^^^^^^^^^^^^
+cadets_controller.rb:98:5: C: Inconsistent indentation detected.
+    Cadet.reject_cadet cadet_id
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cadets_controller.rb:99:5: C: Inconsistent indentation detected.
+    resolve_format "{'status' : 'ok'}"
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cadets_controller.rb:102:7: C: Do not prefix reader method names with get_.
+  def get_pending_cadets
+      ^^^^^^^^^^^^^^^^^^
+cadets_controller.rb:103:25: C: Use || instead of or.
+    authenticate_admin! or return
+                        ^^
+cadets_controller.rb:108:1: C: Extra blank line detected.
+cadets_controller.rb:113:5: C: Tab detected.
+    	:id_card, :profile_image, :driver_license_image,
+    ^
+cadets_controller.rb:113:6: C: Align the parameters of a method call if they span more than one line.
+    	:id_card, :profile_image, :driver_license_image,
+     ^^^^^^^^
+cadets_controller.rb:114:5: C: Tab detected.
+    	 :vehicle_information)
+    ^
+cadets_controller.rb:114:7: C: Align the parameters of a method call if they span more than one line.
+    	 :vehicle_information)
+      ^^^^^^^^^^^^^^^^^^^^
+cadets_controller.rb:119:28: C: Use the new Ruby 1.9 hash syntax.
+      format.json { render :json => obj }
+                           ^^^^^^^^
+cadets_controller.rb:123:1: C: Extra blank line detected.
+cadets_controller.rb:124:1: C: Extra blank line detected.
+cadets_controller.rb:124:1: C: Extra empty line detected at class body end.
+cadets_controller.rb:125:4: C: Final newline missing.
+end
+   
+
+2 files inspected, 95 offenses detected

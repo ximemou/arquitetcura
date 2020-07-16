@@ -1,0 +1,485 @@
+Inspecting 3 files
+CWC
+
+Offenses:
+
+log_helper.rb:2:1: C: Missing top-level module documentation comment.
+module LogHelper
+^^^^^^
+log_helper.rb:3:1: C: Extra empty line detected at module body beginning.
+log_helper.rb:4:12: C: Use snake_case for method names.
+  def self.saveInfoInLog(message)
+           ^^^^^^^^^^^^^
+log_helper.rb:6:1: C: Extra empty line detected at method body end.
+log_helper.rb:9:12: C: Use snake_case for method names.
+  def self.saveErrorInLog(message)
+           ^^^^^^^^^^^^^^
+log_helper.rb:10:1: C: Extra empty line detected at method body beginning.
+log_helper.rb:14:1: C: Extra blank line detected.
+log_helper.rb:14:1: C: Extra empty line detected at module body end.
+log_helper.rb:15:4: C: Final newline missing.
+end
+   
+admins_helper.rb:1:1: C: Missing top-level module documentation comment.
+module AdminsHelper
+^^^^^^
+admins_helper.rb:2:1: C: Extra empty line detected at module body beginning.
+admins_helper.rb:3:1: C: Use 2 (not 1) spaces for indentation.
+	def self.save_admin_session(admin)
+^
+admins_helper.rb:3:1: C: Tab detected.
+	def self.save_admin_session(admin)
+^
+admins_helper.rb:4:2: C: Use 2 (not 5) spaces for indentation.
+      response = RestClient.post "#{ENV['SESSIONS_URL']}sessions?role=admin",
+ ^^^^^
+admins_helper.rb:4:7: W: Useless assignment to variable - response.
+      response = RestClient.post "#{ENV['SESSIONS_URL']}sessions?role=admin",
+      ^^^^^^^^
+admins_helper.rb:5:9: C: Align the parameters of a method call if they span more than one line.
+        {"user" => admin}.to_json,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:5:9: C: Space inside { missing.
+        {"user" => admin}.to_json,
+        ^
+admins_helper.rb:5:10: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        {"user" => admin}.to_json,
+         ^^^^^^
+admins_helper.rb:5:25: C: Space inside } missing.
+        {"user" => admin}.to_json,
+                        ^
+admins_helper.rb:6:9: C: Align the parameters of a method call if they span more than one line.
+        {accept: 'application/json', ...
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:6:9: C: Space inside { missing.
+        {accept: 'application/json',
+        ^
+admins_helper.rb:6:9: C: Redundant curly braces around a hash parameter.
+        {accept: 'application/json', ...
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:7:9: C: Align the elements of a hash literal if they span more than one line.
+        content_type: :json}
+        ^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:7:28: C: Space inside } missing.
+        content_type: :json}
+                           ^
+admins_helper.rb:8:5: W: end at 8, 4 is not aligned with def at 3, 1.
+    end
+    ^^^
+admins_helper.rb:10:1: C: Tab detected.
+	def self.get_admin_token(logged_user, role)
+^
+admins_helper.rb:11:1: C: Tab detected.
+		response= RestClient::Request.new(
+^^
+admins_helper.rb:11:2: C: Use 2 (not 1) spaces for indentation.
+		response= RestClient::Request.new(
+ ^
+admins_helper.rb:11:11: C: Surrounding space missing for operator =.
+		response= RestClient::Request.new(
+          ^
+admins_helper.rb:12:1: C: Tab detected.
+	        :method => :get,
+^
+admins_helper.rb:12:10: C: Indent the first parameter one step more than the start of the previous line.
+	        :method => :get, ...
+         ^^^^^^^^^^^^^^^^
+admins_helper.rb:12:10: C: Use the new Ruby 1.9 hash syntax.
+	        :method => :get,
+         ^^^^^^^^^^
+admins_helper.rb:13:1: C: Tab detected.
+	        :url => "#{ENV['SESSIONS_URL']}sessions/token?user_id=#{logged_user}&role=#{role}",
+^
+admins_helper.rb:13:10: C: Use the new Ruby 1.9 hash syntax.
+	        :url => "#{ENV['SESSIONS_URL']}sessions/token?user_id=#{logged_user}&role=#{role}",
+         ^^^^^^^
+admins_helper.rb:13:81: C: Line is too long. [92/80]
+	        :url => "#{ENV['SESSIONS_URL']}sessions/token?user_id=#{logged_user}&role=#{role}",
+                                                                                ^^^^^^^^^^^^
+admins_helper.rb:14:1: C: Tab detected.
+	        :headers =>  {:accept => 'application/json', :content_type => :json}
+^
+admins_helper.rb:14:10: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json}
+         ^^^^^^^^^^^
+admins_helper.rb:14:23: C: Space inside { missing.
+	        :headers =>  {:accept => 'application/json', :content_type => :json}
+                      ^
+admins_helper.rb:14:24: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json}
+                       ^^^^^^^^^^
+admins_helper.rb:14:55: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                      ^^^^^^^^^^^^^^^^
+admins_helper.rb:14:77: C: Space inside } missing.
+	        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                                            ^
+admins_helper.rb:15:1: C: Tab detected.
+	    ).execute
+^
+admins_helper.rb:15:6: C: Indent ) the same as the start of the line where ( is.
+	    ).execute
+     ^
+admins_helper.rb:16:1: C: Tab detected.
+	    user_token = response.to_str
+^
+admins_helper.rb:16:6: C: Inconsistent indentation detected.
+	    user_token = response.to_str
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:17:1: C: Tab detected.
+	    return user_token
+^
+admins_helper.rb:17:6: C: Inconsistent indentation detected.
+	    return user_token
+     ^^^^^^^^^^^^^^^^^
+admins_helper.rb:17:6: C: Redundant return detected.
+	    return user_token
+     ^^^^^^
+admins_helper.rb:18:1: C: Tab detected.
+	end	
+^
+admins_helper.rb:18:5: C: Trailing whitespace detected.
+	end	
+    ^
+admins_helper.rb:20:5: C: Inconsistent indentation detected.
+    def self.delete_session(id) ...
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:21:1: C: Tab detected.
+		token = get_admin_token(id, 'admin')
+^^
+admins_helper.rb:21:3: C: Use 2 (not -2) spaces for indentation.
+		token = get_admin_token(id, 'admin')
+  ^^
+admins_helper.rb:22:1: C: Tab detected.
+		response= RestClient::Request.new(
+^^
+admins_helper.rb:22:3: W: Useless assignment to variable - response.
+		response= RestClient::Request.new(
+  ^^^^^^^^
+admins_helper.rb:22:11: C: Surrounding space missing for operator =.
+		response= RestClient::Request.new(
+          ^
+admins_helper.rb:23:1: C: Tab detected.
+	        :method => :delete,
+^
+admins_helper.rb:23:10: C: Indent the first parameter one step more than the start of the previous line.
+	        :method => :delete, ...
+         ^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:23:10: C: Use the new Ruby 1.9 hash syntax.
+	        :method => :delete,
+         ^^^^^^^^^^
+admins_helper.rb:24:1: C: Tab detected.
+	        :url => "#{ENV['SESSIONS_URL']}sessions",
+^
+admins_helper.rb:24:10: C: Use the new Ruby 1.9 hash syntax.
+	        :url => "#{ENV['SESSIONS_URL']}sessions",
+         ^^^^^^^
+admins_helper.rb:25:1: C: Tab detected.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+^
+admins_helper.rb:25:10: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+         ^^^^^^^^^^^
+admins_helper.rb:25:23: C: Space inside { missing.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                      ^
+admins_helper.rb:25:24: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                       ^^^^^^^^^^
+admins_helper.rb:25:55: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                      ^^^^^^^^^^^^^^^^
+admins_helper.rb:25:79: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                              ^^^^^^^^^^^^^^^^^
+admins_helper.rb:25:81: C: Line is too long. [102/80]
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:25:102: C: Space inside } missing.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                                                     ^
+admins_helper.rb:26:1: C: Tab detected.
+	    ).execute
+^
+admins_helper.rb:26:6: C: Indent ) the same as the start of the line where ( is.
+	    ).execute
+     ^
+admins_helper.rb:27:1: C: Tab detected.
+	end
+^
+admins_helper.rb:27:2: W: end at 27, 1 is not aligned with def at 20, 4.
+	end
+ ^^^
+admins_helper.rb:29:1: C: Tab detected.
+	 def self.validate_user(token, user_role)
+^
+admins_helper.rb:29:3: C: Inconsistent indentation detected.
+	 def self.validate_user(token, user_role) ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:29:3: C: Method has too many lines. [15/10]
+	 def self.validate_user(token, user_role) ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:30:3: C: Use 2 (not 4) spaces for indentation.
+      response= RestClient::Request.new(
+  ^^^^
+admins_helper.rb:30:15: C: Surrounding space missing for operator =.
+      response= RestClient::Request.new(
+              ^
+admins_helper.rb:31:11: C: Indent the first parameter one step more than the start of the previous line.
+          :method => :get, ...
+          ^^^^^^^^^^^^^^^^
+admins_helper.rb:31:11: C: Use the new Ruby 1.9 hash syntax.
+          :method => :get,
+          ^^^^^^^^^^
+admins_helper.rb:32:11: C: Use the new Ruby 1.9 hash syntax.
+          :url => "#{ENV['SESSIONS_URL']}sessions",
+          ^^^^^^^
+admins_helper.rb:33:11: C: Use the new Ruby 1.9 hash syntax.
+          :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+          ^^^^^^^^^^^
+admins_helper.rb:33:24: C: Space inside { missing.
+          :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                       ^
+admins_helper.rb:33:25: C: Use the new Ruby 1.9 hash syntax.
+          :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                        ^^^^^^^^^^
+admins_helper.rb:33:56: C: Use the new Ruby 1.9 hash syntax.
+          :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                       ^^^^^^^^^^^^^^^^
+admins_helper.rb:33:80: C: Use the new Ruby 1.9 hash syntax.
+          :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                               ^^^^^^^^^^^^^^^^^
+admins_helper.rb:33:81: C: Line is too long. [103/80]
+          :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:33:103: C: Space inside } missing.
+          :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                                                      ^
+admins_helper.rb:36:7: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+      if response.to_str != 'null'
+      ^^
+admins_helper.rb:37:7: C: Use 2 (not 0) spaces for indentation.
+      session = JSON.parse(response.to_str)
+      
+admins_helper.rb:39:5: C: Inconsistent indentation detected.
+    if(session && session['role']== user_role) ...
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:39:5: C: Space after keyword if is missing.
+    if(session && session['role']== user_role)
+    ^^
+admins_helper.rb:39:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if(session && session['role']== user_role)
+    ^^
+admins_helper.rb:39:34: C: Surrounding space missing for operator ==.
+    if(session && session['role']== user_role)
+                                 ^^
+admins_helper.rb:46:1: C: Align else with if.
+else
+^^^^
+admins_helper.rb:47:1: C: Use 2 (not 1) spaces for indentation.
+	return nil
+^
+admins_helper.rb:47:1: C: Tab detected.
+	return nil
+^
+admins_helper.rb:48:1: W: end at 48, 0 is not aligned with if at 36, 6.
+end
+^^^
+admins_helper.rb:51:3: C: Inconsistent indentation detected.
+  def self.confirmCadet(cadet_id, token) ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:51:12: C: Use snake_case for method names.
+  def self.confirmCadet(cadet_id, token)
+           ^^^^^^^^^^^^
+admins_helper.rb:52:3: C: Use 2 (not 3) spaces for indentation.
+  			response= RestClient::Request.new(
+  ^^^
+admins_helper.rb:52:3: C: Tab detected.
+  			response= RestClient::Request.new(
+  ^^^
+admins_helper.rb:52:6: W: Useless assignment to variable - response.
+  			response= RestClient::Request.new(
+     ^^^^^^^^
+admins_helper.rb:52:14: C: Surrounding space missing for operator =.
+  			response= RestClient::Request.new(
+             ^
+admins_helper.rb:53:1: C: Tab detected.
+	        :method => :put,
+^
+admins_helper.rb:53:10: C: Indent the first parameter one step more than the start of the previous line.
+	        :method => :put, ...
+         ^^^^^^^^^^^^^^^^
+admins_helper.rb:53:10: C: Use the new Ruby 1.9 hash syntax.
+	        :method => :put,
+         ^^^^^^^^^^
+admins_helper.rb:54:1: C: Tab detected.
+	        :url => "#{ENV['CADETS_URL']}cadets/#{cadet_id}/confirm",
+^
+admins_helper.rb:54:10: C: Use the new Ruby 1.9 hash syntax.
+	        :url => "#{ENV['CADETS_URL']}cadets/#{cadet_id}/confirm",
+         ^^^^^^^
+admins_helper.rb:55:1: C: Tab detected.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+^
+admins_helper.rb:55:10: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+         ^^^^^^^^^^^
+admins_helper.rb:55:23: C: Space inside { missing.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                      ^
+admins_helper.rb:55:24: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                       ^^^^^^^^^^
+admins_helper.rb:55:55: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                      ^^^^^^^^^^^^^^^^
+admins_helper.rb:55:79: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                              ^^^^^^^^^^^^^^^^^
+admins_helper.rb:55:81: C: Line is too long. [102/80]
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:55:102: C: Space inside } missing.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                                                     ^
+admins_helper.rb:56:1: C: Tab detected.
+	    ).execute
+^
+admins_helper.rb:59:3: C: Inconsistent indentation detected.
+  def self.rejectCadet(cadet_id, token) ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:59:12: C: Use snake_case for method names.
+  def self.rejectCadet(cadet_id, token)
+           ^^^^^^^^^^^
+admins_helper.rb:60:3: C: Use 2 (not 3) spaces for indentation.
+  			response= RestClient::Request.new(
+  ^^^
+admins_helper.rb:60:3: C: Tab detected.
+  			response= RestClient::Request.new(
+  ^^^
+admins_helper.rb:60:6: W: Useless assignment to variable - response.
+  			response= RestClient::Request.new(
+     ^^^^^^^^
+admins_helper.rb:60:14: C: Surrounding space missing for operator =.
+  			response= RestClient::Request.new(
+             ^
+admins_helper.rb:61:1: C: Tab detected.
+	        :method => :delete,
+^
+admins_helper.rb:61:10: C: Indent the first parameter one step more than the start of the previous line.
+	        :method => :delete, ...
+         ^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:61:10: C: Use the new Ruby 1.9 hash syntax.
+	        :method => :delete,
+         ^^^^^^^^^^
+admins_helper.rb:62:1: C: Tab detected.
+	        :url => "#{ENV['CADETS_URL']}cadets/#{cadet_id}/reject",
+^
+admins_helper.rb:62:10: C: Use the new Ruby 1.9 hash syntax.
+	        :url => "#{ENV['CADETS_URL']}cadets/#{cadet_id}/reject",
+         ^^^^^^^
+admins_helper.rb:63:1: C: Tab detected.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+^
+admins_helper.rb:63:10: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+         ^^^^^^^^^^^
+admins_helper.rb:63:23: C: Space inside { missing.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                      ^
+admins_helper.rb:63:24: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                       ^^^^^^^^^^
+admins_helper.rb:63:55: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                      ^^^^^^^^^^^^^^^^
+admins_helper.rb:63:79: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                              ^^^^^^^^^^^^^^^^^
+admins_helper.rb:63:81: C: Line is too long. [102/80]
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:63:102: C: Space inside } missing.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                                                     ^
+admins_helper.rb:64:1: C: Tab detected.
+	    ).execute
+^
+admins_helper.rb:67:3: C: Inconsistent indentation detected.
+  def self.getConfirmationPendingCadets(token) ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:67:12: C: Use snake_case for method names.
+  def self.getConfirmationPendingCadets(token)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:68:3: C: Use 2 (not 3) spaces for indentation.
+  			response= RestClient::Request.new(
+  ^^^
+admins_helper.rb:68:3: C: Tab detected.
+  			response= RestClient::Request.new(
+  ^^^
+admins_helper.rb:68:14: C: Surrounding space missing for operator =.
+  			response= RestClient::Request.new(
+             ^
+admins_helper.rb:69:1: C: Tab detected.
+	        :method => :get,
+^
+admins_helper.rb:69:10: C: Indent the first parameter one step more than the start of the previous line.
+	        :method => :get, ...
+         ^^^^^^^^^^^^^^^^
+admins_helper.rb:69:10: C: Use the new Ruby 1.9 hash syntax.
+	        :method => :get,
+         ^^^^^^^^^^
+admins_helper.rb:70:1: C: Tab detected.
+	        :url => "#{ENV['CADETS_URL']}cadets/pending",
+^
+admins_helper.rb:70:10: C: Use the new Ruby 1.9 hash syntax.
+	        :url => "#{ENV['CADETS_URL']}cadets/pending",
+         ^^^^^^^
+admins_helper.rb:71:1: C: Tab detected.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+^
+admins_helper.rb:71:10: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+         ^^^^^^^^^^^
+admins_helper.rb:71:23: C: Space inside { missing.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                      ^
+admins_helper.rb:71:24: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                       ^^^^^^^^^^
+admins_helper.rb:71:55: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                      ^^^^^^^^^^^^^^^^
+admins_helper.rb:71:79: C: Use the new Ruby 1.9 hash syntax.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                              ^^^^^^^^^^^^^^^^^
+admins_helper.rb:71:81: C: Line is too long. [102/80]
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:71:102: C: Space inside } missing.
+	        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                                                     ^
+admins_helper.rb:72:1: C: Tab detected.
+	    ).execute
+^
+admins_helper.rb:73:3: C: Tab detected.
+  		pending_cadets = JSON.parse(response.to_str)
+  ^^
+admins_helper.rb:73:5: C: Inconsistent indentation detected.
+  		pending_cadets = JSON.parse(response.to_str)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:74:3: C: Tab detected.
+  		return pending_cadets
+  ^^
+admins_helper.rb:74:5: C: Inconsistent indentation detected.
+  		return pending_cadets
+    ^^^^^^^^^^^^^^^^^^^^^
+admins_helper.rb:74:5: C: Redundant return detected.
+  		return pending_cadets
+    ^^^^^^
+admins_helper.rb:76:1: C: Extra empty line detected at module body end.
+application_helper.rb:1:1: C: Missing top-level module documentation comment.
+module ApplicationHelper
+^^^^^^
+
+3 files inspected, 164 offenses detected

@@ -1,0 +1,28 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  user: ismaelp
+  password: ismaelp
+
+development:
+  <<: *default
+  #url: postgres://lysrxmfk:C1d9CJpWcK1jI6xXL54CNDqVU04wvF0L@hanno.db.elephantsql.com:5432/lysrxmfk #quitar luego
+  database: cadets-development #para debug: enviosya-development
+  #user: lysrxmfk #quitar luego
+  #password: lysrxmfk #quitar luego
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: cadets-test
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+  database: cadets
+  user: ismaelp
+  password: ismaelp

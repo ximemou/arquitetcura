@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">EnviosYa</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><%= link_to('Nuevo envío', '/token/shipments/', method: :get) %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+           <li><%= link_to('Logout', '/token/users', method: :delete) %></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+
+
+    <div id="sendShipments" class="table-responsive">
+
+      <h3> Envíos realizados</h3>
+      <br>
+
+      <% if (@send_shipments.length==0) %>
+
+          <h4>No ha realizado ningun envío</h4>
+
+      <%end%>
+      <br>
+
+          <table class="table table-hover">
+            <thead>
+
+            <tr>
+
+              <th> <i class="fa fa-id-card-o" aria-hidden="true"> </i>    Id </th>
+              <th><i class="fa fa-map-marker" aria-hidden="true"></i>     Direccion origen</th>
+              <th><i class="fa fa-map-marker" aria-hidden="true"></i>     Direccion destino</th>
+              <th> <i class="fa fa-info" aria-hidden="true"></i>    Fecha entregado</th>
+              <th> <i class="fa fa-info" aria-hidden="true"></i>    Precio final</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+
+
+
+            <% @send_shipments.each do |s| %>
+
+                <tr class="info">
+                  <td> <%= s['id'] %></td>
+                  <td> <%= s['origin_address']%></td>
+                  <td> <%= s['destination_address']%></td>
+                  <td><%= s['shipment_delivery_time']%></td>
+                  <td><%= s['price']%></td>
+                </tr>
+
+            <%end%>
+
+            </tbody>
+
+
+          </table>
+
+
+    </div>
+
+    <br>
+    <br>
+
+
+    <div id="receivedShipments" class="table-responsive">
+
+      <h3> Envíos recibidos</h3>
+
+      <% if (@received_shipments.length==0) %>
+
+          <h4>No ha recibido ningún envío</h4>
+
+      <%end %>
+      <br>
+
+
+          <table class="table table-hover">
+            <thead>
+
+            <tr>
+
+              <th> <i class="fa fa-id-card-o" aria-hidden="true"> </i>    Id </th>
+              <th><i class="fa fa-map-marker" aria-hidden="true"></i>     Direccion origen</th>
+              <th><i class="fa fa-map-marker" aria-hidden="true"></i>     Direccion destino</th>
+              <th> <i class="fa fa-info" aria-hidden="true"></i>    Fecha entregado</th>
+              <th> <i class="fa fa-info" aria-hidden="true"></i>    Precio final</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+
+
+
+            <% @received_shipments.each do |s| %>
+
+                <tr class="info">
+                  <td> <%= s['id'] %></td>
+                  <td> <%= s['origin_address']%></td>
+                  <td> <%= s['destination_address']%></td>
+                  <td><%= s['shipment_delivery_time']%></td>
+                  <td><%= s['price']%></td>
+                </tr>
+
+            <%end%>
+
+            </tbody>
+
+
+          </table>
+
+
+    </div>
+
+
+  </div>
+
+
+  </body>
+  </html>

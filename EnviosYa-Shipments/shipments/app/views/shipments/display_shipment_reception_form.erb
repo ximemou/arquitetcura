@@ -1,0 +1,42 @@
+
+<div class="container-fluid" style="height: 50%;width: 50% ">
+
+<h1>Confirmar envio</h1>
+
+  <br>
+  <br>
+
+
+  <%= form_tag "/shipments/#{@shipment_id}/confirm?Authorization=#{@token}", multipart: true, method:"put",data:{toggle: "validator"} do %>
+
+
+      <label for='shipment[receiver_signature_image]'> Firma del destinatario </label>
+      <br>
+      <br>
+
+      <div class="form-group">
+          <label for='shipment[receiver_signature_image]'> Firma del destinatario </label>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="  glyphicon glyphicon-picture"></i></span>
+          <%= file_field_tag "shipment[receiver_signature_image]" ,required: true,class: "form-control", accept: 'image/png, image/jpg, image/jpeg, image/gif' %>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <%= submit_tag "Confirmar envio", class: 'btn btn-primary btn-block'%>
+<%end%>
+
+  <br>
+
+  <br>
+  <button class="btn btn-primary btn-block" onclick="location.href= '/shipments/<%= @shipment_id%>?Authorization=<%= @token %>'"> Volver</button>
+
+
+</div>
+
+
+
+
+

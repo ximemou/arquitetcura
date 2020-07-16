@@ -1,0 +1,131 @@
+Inspecting 3 files
+CWC
+
+Offenses:
+
+log_helper.rb:2:1: C: Missing top-level module documentation comment.
+module LogHelper
+^^^^^^
+log_helper.rb:3:1: C: Extra empty line detected at module body beginning.
+log_helper.rb:4:12: C: Use snake_case for method names.
+  def self.saveInfoInLog(message)
+           ^^^^^^^^^^^^^
+log_helper.rb:6:1: C: Extra empty line detected at method body end.
+log_helper.rb:9:12: C: Use snake_case for method names.
+  def self.saveErrorInLog(message)
+           ^^^^^^^^^^^^^^
+log_helper.rb:10:1: C: Extra empty line detected at method body beginning.
+log_helper.rb:14:1: C: Extra blank line detected.
+log_helper.rb:14:1: C: Extra empty line detected at module body end.
+log_helper.rb:15:4: C: Final newline missing.
+end
+   
+mailer_helper.rb:1:1: C: Missing top-level module documentation comment.
+module MailerHelper
+^^^^^^
+mailer_helper.rb:2:1: C: Extra empty line detected at module body beginning.
+mailer_helper.rb:3:1: C: Use 2 (not 1) spaces for indentation.
+	def self.get_discount
+^
+mailer_helper.rb:3:1: C: Tab detected.
+	def self.get_discount
+^
+mailer_helper.rb:3:11: C: Do not prefix reader method names with get_.
+	def self.get_discount
+          ^^^^^^^^^^^^
+mailer_helper.rb:4:2: C: Use 2 (not 3) spaces for indentation.
+    response= RestClient::Request.new(
+ ^^^
+mailer_helper.rb:4:13: C: Surrounding space missing for operator =.
+    response= RestClient::Request.new(
+            ^
+mailer_helper.rb:5:9: C: Indent the first parameter one step more than the start of the previous line.
+        :method => :get, ...
+        ^^^^^^^^^^^^^^^^
+mailer_helper.rb:5:9: C: Use the new Ruby 1.9 hash syntax.
+        :method => :get,
+        ^^^^^^^^^^
+mailer_helper.rb:6:9: C: Use the new Ruby 1.9 hash syntax.
+        :url => "#{ENV['DISCOUNTS_URL']}discounts",
+        ^^^^^^^
+mailer_helper.rb:7:9: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+        ^^^^^^^^^^^
+mailer_helper.rb:7:22: C: Space inside { missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                     ^
+mailer_helper.rb:7:23: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                      ^^^^^^^^^^
+mailer_helper.rb:7:54: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                     ^^^^^^^^^^^^^^^^
+mailer_helper.rb:7:76: C: Space inside } missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                                           ^
+mailer_helper.rb:10:5: C: Redundant return detected.
+    return discount.to_i
+    ^^^^^^
+mailer_helper.rb:11:3: W: end at 11, 2 is not aligned with def at 3, 1.
+  end
+  ^^^
+mailer_helper.rb:13:3: C: Inconsistent indentation detected.
+  def self.create_discount(receiver_email, sender_email) ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mailer_helper.rb:14:1: C: Extra empty line detected at method body beginning.
+mailer_helper.rb:15:1: C: Tab detected.
+		response = RestClient.post "#{ENV['DISCOUNTS_URL']}discounts?receiver_email=#{receiver_email}&sender_email=#{sender_email}",
+^^
+mailer_helper.rb:15:3: C: Use 2 (not 0) spaces for indentation.
+		response = RestClient.post "#{ENV['DISCOUNTS_URL']}discounts?receiver_email=#{receiver_email}&sender_email=#{sender_email}",
+  
+mailer_helper.rb:15:3: W: Useless assignment to variable - response.
+		response = RestClient.post "#{ENV['DISCOUNTS_URL']}discounts?receiver_email=#{receiver_email}&sender_email=#{sender_email}",
+  ^^^^^^^^
+mailer_helper.rb:15:81: C: Line is too long. [126/80]
+		response = RestClient.post "#{ENV['DISCOUNTS_URL']}discounts?receiver_email=#{receiver_email}&sender_email=#{sender_email}",
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mailer_helper.rb:16:1: C: Tab detected.
+	        {accept: 'application/json',
+^
+mailer_helper.rb:16:10: C: Align the parameters of a method call if they span more than one line.
+	        {accept: 'application/json', ...
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mailer_helper.rb:16:10: C: Space inside { missing.
+	        {accept: 'application/json',
+         ^
+mailer_helper.rb:16:10: C: Redundant curly braces around a hash parameter.
+	        {accept: 'application/json', ...
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mailer_helper.rb:17:1: C: Tab detected.
+	        content_type: :json}
+^
+mailer_helper.rb:17:10: C: Align the elements of a hash literal if they span more than one line.
+	        content_type: :json}
+         ^^^^^^^^^^^^^^^^^^^
+mailer_helper.rb:17:29: C: Space inside } missing.
+	        content_type: :json}
+                            ^
+mailer_helper.rb:20:3: C: Inconsistent indentation detected.
+  def self.convert_to_bool(data) ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mailer_helper.rb:21:1: C: Extra empty line detected at method body beginning.
+mailer_helper.rb:22:5: C: Space after keyword if is missing.
+    if(data == 'true')
+    ^^
+mailer_helper.rb:22:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if(data == 'true')
+    ^^
+mailer_helper.rb:23:7: C: Redundant return detected.
+      return true
+      ^^^^^^
+mailer_helper.rb:25:7: C: Redundant return detected.
+      return false
+      ^^^^^^
+mailer_helper.rb:29:1: C: Extra blank line detected.
+mailer_helper.rb:29:1: C: Extra empty line detected at module body end.
+application_helper.rb:1:1: C: Missing top-level module documentation comment.
+module ApplicationHelper
+^^^^^^
+
+3 files inspected, 48 offenses detected

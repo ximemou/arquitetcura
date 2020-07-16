@@ -1,0 +1,37 @@
+<html>
+
+<head>
+  <meta content = 'text/html; charset = UTF-8' http-equiv = 'Content-Type' />
+</head>
+
+<body>
+<h1>EnviosYa</h1>
+<h2>Notificacion de precio final de envio</h2>
+
+<p>
+  Envio Nro.<%= @shipment['id'] %>
+</p>
+
+
+<p>
+  Direccion de origen: <%= @shipment['origin_address'] %>
+</p>
+
+<p>
+  Direccion de destino: <%= @shipment['destination_address'] %>
+</p>
+
+
+<p>
+
+  Precio estimado: <%= @shipment['estimated_price'] %>
+
+</p>
+
+<p>
+
+  Precio final: <%= @shipment['price'] %>
+</p>
+
+
+</body>

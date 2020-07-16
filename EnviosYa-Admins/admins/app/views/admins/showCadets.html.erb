@@ -1,0 +1,92 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">EnviosYa</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><%= link_to('Logout', "/token/admins?Authorization=#{@token}", method: :delete) %><span class="glyphicon glyphicon-log-out"></span></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+
+<h1> Confirmar cadetes</h1>
+
+<br>
+
+<div class="table-responsive">
+
+
+
+  <table id="adminTable"class="table">
+    <thead>
+
+    <tr>
+
+      <th> <i class="fa fa-id-card-o" aria-hidden="true"> </i>    Nombre: </th>
+      <th><i class="fa fa-map-marker" aria-hidden="true"></i>     Apellido</th>
+      <th> <i class="fa fa-info" aria-hidden="true"></i>    Foto</th>
+      <th><i class="fa fa-info" aria-hidden="true"></i>   Aceptar  </th>
+
+      <th><i class="fa fa-info" aria-hidden="true"></i>   Rechazar  </th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <% @cadets.each do |cadet| %>
+
+        <tr class="info">
+
+          <td><%= cadet['name'] %></td>
+          <td> <%= cadet['lastname'] %> </td>
+
+          <td><img src="<%= ENV['CADETS_URL'] %><%= cadet['profile_image']['url'] %>" class="img-rounded" width="304" height="236"> </td>
+
+
+          <td>    <%= form_tag("/admins/confirmCadet?cadetId="+ cadet['id'].to_s + "&Authorization=#{@token}", method:"put") do%>
+
+                <%= submit_tag("Aceptar solicitud")%> </td>
+                <%end%>
+
+                <td>
+                  <%= form_tag("/admins/rejectCadet?cadetId="+ cadet['id'].to_s + "&Authorization=#{@token}", method:"delete") do%>
+
+                      <%= submit_tag("Rechazar solicitud")%>
+
+                      <%end%>
+
+
+                      </td>
+            </tr>
+
+
+
+    <%end%>
+
+
+    </tbody>
+
+  </table>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+

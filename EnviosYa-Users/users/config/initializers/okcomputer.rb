@@ -1,0 +1,1 @@
+OkComputer.mount_at = '/users/healthcheck'

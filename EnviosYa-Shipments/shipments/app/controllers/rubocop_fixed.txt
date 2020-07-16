@@ -1,0 +1,233 @@
+Inspecting 3 files
+WWW
+
+Offenses:
+
+rates_controller.rb:1:1: C: Missing top-level class documentation comment.
+class RatesController < ApplicationController
+^^^^^
+rates_controller.rb:6:3: C: Assignment Branch Condition size for get_shipping_cost is too high. [26.94/15]
+  def get_shipping_cost
+  ^^^
+rates_controller.rb:6:3: C: Method has too many lines. [20/10]
+  def get_shipping_cost ...
+  ^^^^^^^^^^^^^^^^^^^^^
+rates_controller.rb:6:7: C: Do not prefix reader method names with get_.
+  def get_shipping_cost
+      ^^^^^^^^^^^^^^^^^
+rates_controller.rb:13:5: W: Useless assignment to variable - is_estimated.
+    is_estimated = false
+    ^^^^^^^^^^^^
+rates_controller.rb:14:5: C: Space after keyword if is missing.
+    if(RatesHelper.no_cost_records)
+    ^^
+rates_controller.rb:18:81: C: Line is too long. [140/80]
+      cost_between_areas = RatesHelper.get_cost_from_records(origin_latitude, origin_longitude, destination_latitude, destination_longitude)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_controller.rb:20:37: C: Surrounding space missing for operator *.
+      final_cost = (cost_per_kg.to_f* package_weight.to_f) +cost_between_areas.to_f
+                                    ^
+rates_controller.rb:20:60: C: Surrounding space missing for operator +.
+      final_cost = (cost_per_kg.to_f* package_weight.to_f) +cost_between_areas.to_f
+                                                           ^
+rates_controller.rb:20:81: C: Line is too long. [83/80]
+      final_cost = (cost_per_kg.to_f* package_weight.to_f) +cost_between_areas.to_f
+                                                                                ^^^
+rates_controller.rb:23:81: C: Line is too long. [104/80]
+    final_cost_as_json = "{ \"finalPrice\" : #{final_cost}, \"isEstimatedPrice\": #{is_estimated_cost}}"
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^
+rates_controller.rb:24:7: C: Inconsistent indentation detected.
+      respond_to do |format| ...
+      ^^^^^^^^^^^^^^^^^^^^^^
+rates_controller.rb:25:20: C: Space missing to the left of {.
+        format.json{ render :json => final_cost_as_json}
+                   ^
+rates_controller.rb:25:29: C: Use the new Ruby 1.9 hash syntax.
+        format.json{ render :json => final_cost_as_json}
+                            ^^^^^^^^
+rates_controller.rb:25:56: C: Space missing inside }.
+        format.json{ render :json => final_cost_as_json}
+                                                       ^
+application_controller.rb:1:1: C: Missing top-level class documentation comment.
+class ApplicationController < ActionController::Base
+^^^^^
+application_controller.rb:4:3: W: Variable @user used in void context.
+  @user
+  ^^^^^
+application_controller.rb:5:3: W: Variable @cadet used in void context.
+  @cadet
+  ^^^^^^
+application_controller.rb:8:5: C: Redundant return detected.
+    return @user
+    ^^^^^^
+application_controller.rb:11:4: C: Inconsistent indentation detected.
+   def current_cadet ...
+   ^^^^^^^^^^^^^^^^^
+application_controller.rb:12:4: C: Use 2 (not 1) spaces for indentation.
+    return @cadet
+   ^
+application_controller.rb:12:5: C: Redundant return detected.
+    return @cadet
+    ^^^^^^
+application_controller.rb:13:3: W: end at 13, 2 is not aligned with def at 11, 3.
+  end
+  ^^^
+application_controller.rb:16:1: C: Extra empty line detected at method body beginning.
+application_controller.rb:19:5: C: Space after keyword if is missing.
+    if(user)
+    ^^
+application_controller.rb:24:34: C: Trailing whitespace detected.
+      redirect_to ENV['MAIN_URL'] 
+                                 ^
+application_controller.rb:30:1: C: Extra empty line detected at method body beginning.
+application_controller.rb:33:5: C: Space after keyword if is missing.
+    if(user)
+    ^^
+application_controller.rb:38:34: C: Trailing whitespace detected.
+      redirect_to ENV['MAIN_URL'] 
+                                 ^
+application_controller.rb:43:5: C: Inconsistent indentation detected.
+    def authenticate_cadet! ...
+    ^^^^^^^^^^^^^^^^^^^^^^^
+application_controller.rb:44:1: C: Extra empty line detected at method body beginning.
+application_controller.rb:45:5: C: Use 2 (not 0) spaces for indentation.
+    token = params[:Authorization]
+    
+application_controller.rb:47:5: C: Space after keyword if is missing.
+    if(cadet)
+    ^^
+application_controller.rb:55:3: W: end at 55, 2 is not aligned with def at 43, 4.
+  end
+  ^^^
+application_controller.rb:56:1: C: Extra empty line detected at class body end.
+shipments_controller.rb:1:1: C: Class has too many lines. [140/100]
+class ShipmentsController < ApplicationController ...
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:1:1: C: Missing top-level class documentation comment.
+class ShipmentsController < ApplicationController
+^^^^^
+shipments_controller.rb:14:3: C: Assignment Branch Condition size for create is too high. [62.75/15]
+  def create
+  ^^^
+shipments_controller.rb:14:3: C: Method has too many lines. [38/10]
+  def create ...
+  ^^^^^^^^^^
+shipments_controller.rb:14:3: C: Perceived complexity for create is too high. [8/7]
+  def create
+  ^^^
+shipments_controller.rb:19:81: C: Line is too long. [85/80]
+      user_receiver = ShipmentsHelper.exits_user_by_email(user_receiver_email, token)
+                                                                                ^^^^^
+shipments_controller.rb:23:81: C: Line is too long. [82/80]
+        @shipment.origin_latitude = origin_address[0][1, origin_address[0].length]
+                                                                                ^^
+shipments_controller.rb:24:81: C: Line is too long. [85/80]
+        @shipment.origin_longitude = origin_address[1][0, origin_address[1].length-1]
+                                                                                ^^^^^
+shipments_controller.rb:24:83: C: Surrounding space missing for operator -.
+        @shipment.origin_longitude = origin_address[1][0, origin_address[1].length-1]
+                                                                                  ^
+shipments_controller.rb:26:81: C: Line is too long. [97/80]
+        @shipment.destination_latitude = destination_address[0][1, destination_address[0].length]
+                                                                                ^^^^^^^^^^^^^^^^^
+shipments_controller.rb:27:81: C: Line is too long. [100/80]
+        @shipment.destination_longitude = destination_address[1][0, destination_address[1].length-1]
+                                                                                ^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:27:98: C: Surrounding space missing for operator -.
+        @shipment.destination_longitude = destination_address[1][0, destination_address[1].length-1]
+                                                                                                 ^
+shipments_controller.rb:36:81: C: Line is too long. [112/80]
+            @shipment.estimated_price = ShipmentsHelper.calculate_price_with_discount(@shipment.estimated_price)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:38:81: C: Line is too long. [92/80]
+            @shipment.price = ShipmentsHelper.calculate_price_with_discount(@shipment.price)
+                                                                                ^^^^^^^^^^^^
+shipments_controller.rb:44:36: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        LogHelper.save_info_in_log("INFO: Se registro un envio con los siguientes parametros: " + @shipment.to_json)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:44:81: C: Line is too long. [116/80]
+        LogHelper.save_info_in_log("INFO: Se registro un envio con los siguientes parametros: " + @shipment.to_json)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:45:26: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        flash[:notice] = "Envío realizado"
+                         ^^^^^^^^^^^^^^^^^
+shipments_controller.rb:48:26: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        flash[:notice] = "No existe el usuario al que quiere realizar el envio"
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:50:5: W: Avoid rescuing without specifying an error class.
+    rescue
+    ^^^^^^
+shipments_controller.rb:51:35: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      LogHelper.save_error_in_log("Error: no se puso crear un envio con los siguientes parametros: " + shipment_params.to_json)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:51:81: C: Line is too long. [127/80]
+      LogHelper.save_error_in_log("Error: no se puso crear un envio con los siguientes parametros: " + shipment_params.to_json)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:55:3: C: Assignment Branch Condition size for confirm_reception_shipment is too high. [44.64/15]
+  def confirm_reception_shipment
+  ^^^
+shipments_controller.rb:55:3: C: Method has too many lines. [29/10]
+  def confirm_reception_shipment ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:67:81: C: Line is too long. [124/80]
+        ShipmentsHelper.update_cadet_location(logged_cadet, @shipment.destination_latitude, @shipment.destination_longitude)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:69:81: C: Line is too long. [82/80]
+        receiver_user = ShipmentsHelper.get_user_by_id(@shipment.user_receiver_id)
+                                                                                ^^
+shipments_controller.rb:70:9: W: Useless assignment to variable - cadet.
+        cadet = ShipmentsHelper.get_cadet_by_id(logged_cadet)
+        ^^^^^
+shipments_controller.rb:77:81: C: Line is too long. [143/80]
+        NotificationJob.perform_later(@recipients, sender_user, receiver_user, shipment_email, cadet_to_send, shipment_payment_type, url_image)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:78:35: C: Surrounding space missing for operator +.
+        redirect_to shipments_path+ "?cadetId=" + logged_cadet.to_s + "&Authorization=#{@token}"
+                                  ^
+shipments_controller.rb:78:37: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        redirect_to shipments_path+ "?cadetId=" + logged_cadet.to_s + "&Authorization=#{@token}"
+                                    ^^^^^^^^^^^
+shipments_controller.rb:78:81: C: Line is too long. [96/80]
+        redirect_to shipments_path+ "?cadetId=" + logged_cadet.to_s + "&Authorization=#{@token}"
+                                                                                ^^^^^^^^^^^^^^^^
+shipments_controller.rb:82:5: W: Avoid rescuing without specifying an error class.
+    rescue
+    ^^^^^^
+shipments_controller.rb:83:35: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      LogHelper.save_error_in_log("Error: no se pudo confirmar el envio cuyos datos son: " + @shipment.to_json)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:83:81: C: Line is too long. [111/80]
+      LogHelper.save_error_in_log("Error: no se pudo confirmar el envio cuyos datos son: " + @shipment.to_json)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:93:3: C: Assignment Branch Condition size for show_shipment_details is too high. [16.16/15]
+  def show_shipment_details
+  ^^^
+shipments_controller.rb:93:3: C: Method has too many lines. [12/10]
+  def show_shipment_details ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:104:81: C: Line is too long. [82/80]
+      flash[:notice] = 'No tiene los permisos para ver los detalles de este envio'
+                                                                                ^^
+shipments_controller.rb:108:3: C: Assignment Branch Condition size for show_cadet_shipments is too high. [20.15/15]
+  def show_cadet_shipments
+  ^^^
+shipments_controller.rb:108:3: C: Method has too many lines. [17/10]
+  def show_cadet_shipments ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:112:5: C: Use 2 (not 0) spaces for indentation.
+    @cadet = current_cadet
+    
+shipments_controller.rb:128:7: C: Do not prefix reader method names with get_.
+  def get_user_shipments
+      ^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:136:81: C: Line is too long. [83/80]
+    params.require(:shipment).permit(:origin_postal_code, :destination_postal_code,
+                                                                                ^^^
+shipments_controller.rb:137:81: C: Line is too long. [140/80]
+                                     :cadet_id, :estimated_price, :price, :payed_by, :package_weight, :origin_address, :destination_address,
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:149:28: C: Use the new Ruby 1.9 hash syntax.
+      format.json { render :json => obj }
+                           ^^^^^^^^
+
+3 files inspected, 78 offenses detected

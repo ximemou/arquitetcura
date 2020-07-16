@@ -1,0 +1,35 @@
+%h2 Registro de cadetes
+
+= form_tag cadets_path, :multipart => true, :method => :post do
+
+  = label :cadet, :name, 'Nombre'
+  = text_field :cadet, :name
+
+  = label :cadet, :lastname, 'Apellido'
+  = text_field :cadet, :lastname
+
+  = label :cadet, :email, 'Email'
+  = text_field :cadet, :email
+
+  = label :cadet, :id_card, 'Cedula de identidad'
+  = text_field :cadet, :id_card
+
+  = label :cadet, :password, 'Contrasena'
+  = text_field :cadet, :password
+
+  = label :cadet, :password_confirmation, 'Confirme contrasena'
+  = text_field :cadet, :password_confirmation
+
+  = label :cadet, :profile_image, 'Imagen de perfil'
+  = file_field :cadet, :profile_image
+
+  = label :cadet, :driver_license_image, 'Imagen de la licencia de conducir'
+  = file_field :cadet, :driver_license_image
+
+  = label :cadet, :vehicle_information, 'Documentacion del vehiculo'
+  = file_field :cadet, :vehicle_information
+
+
+
+  = submit_tag 'Save Changes'
+

@@ -1,0 +1,37 @@
+Inspecting 2 files
+CW
+
+Offenses:
+
+admins_controller.rb:1:1: C: Missing top-level class documentation comment.
+class AdminsController < ApplicationController
+^^^^^
+admins_controller.rb:4:7: C: Use snake_case for method names.
+  def acceptCadet
+      ^^^^^^^^^^^
+admins_controller.rb:5:13: C: Surrounding space missing for operator =.
+    cadet_id=params[:cadetId].to_i
+            ^
+admins_controller.rb:13:7: C: Use snake_case for method names.
+  def rejectCadet
+      ^^^^^^^^^^^
+admins_controller.rb:14:13: C: Surrounding space missing for operator =.
+    cadet_id=params[:cadetId].to_i
+            ^
+admins_controller.rb:22:7: C: Use snake_case for method names.
+  def showCadets
+      ^^^^^^^^^^
+application_controller.rb:1:1: C: Missing top-level class documentation comment.
+class ApplicationController < ActionController::Base
+^^^^^
+application_controller.rb:4:3: W: Variable @user used in void context.
+  @user
+  ^^^^^
+application_controller.rb:6:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if resource.class == Admin
+    ^^
+application_controller.rb:16:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if user
+    ^^
+
+2 files inspected, 10 offenses detected

@@ -1,0 +1,40 @@
+Inspecting 2 files
+CC
+
+Offenses:
+
+discounts_controller.rb:1:1: C: Missing top-level class documentation comment.
+class DiscountsController < ApplicationController
+^^^^^
+discounts_controller.rb:7:29: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    LogHelper.saveInfoInLog("Se creo un descuento")
+                            ^^^^^^^^^^^^^^^^^^^^^^
+discounts_controller.rb:11:7: C: Do not prefix reader method names with get_.
+  def get_discount
+      ^^^^^^^^^^^^
+discounts_controller.rb:16:7: C: Rename has_discount to discount?.
+  def has_discount
+      ^^^^^^^^^^^^
+discounts_controller.rb:19:30: C: Space inside { missing.
+    has_discount_to_return = {:has_discount => discount}
+                             ^
+discounts_controller.rb:19:31: C: Use the new Ruby 1.9 hash syntax.
+    has_discount_to_return = {:has_discount => discount}
+                              ^^^^^^^^^^^^^^^^
+discounts_controller.rb:19:56: C: Space inside } missing.
+    has_discount_to_return = {:has_discount => discount}
+                                                       ^
+discounts_controller.rb:32:32: C: Use the new Ruby 1.9 hash syntax.
+    has_discount_to_return = { :verify_discount => discount}
+                               ^^^^^^^^^^^^^^^^^^^
+discounts_controller.rb:32:60: C: Space inside } missing.
+    has_discount_to_return = { :verify_discount => discount}
+                                                           ^
+discounts_controller.rb:40:28: C: Use the new Ruby 1.9 hash syntax.
+      format.json { render :json => obj }
+                           ^^^^^^^^
+application_controller.rb:1:1: C: Missing top-level class documentation comment.
+class ApplicationController < ActionController::Base
+^^^^^
+
+2 files inspected, 11 offenses detected

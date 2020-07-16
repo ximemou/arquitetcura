@@ -1,0 +1,139 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">EnviosYa</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><%= link_to('Logout',"#{ENV['CADETS_URL']}token/cadets?Authorization=#{@token}", method: :delete) %><span class="glyphicon glyphicon-log-out"></span></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <h2>Hola <%= @cadet['name'] %></h2>
+
+
+
+<% if (@cadet['pending'])%>
+
+      <div class="container-fluid">
+
+        <h5>  <mark>Su solicitud no ha sido aceptada todavia. </mark></h5>
+    <h5> Se le enviara mail informandole si la misma fue aceptada o rechazada</h5>
+
+      </div>
+
+<% else %>
+
+      <br>
+      <br>
+
+  <h3> Envios pendientes</h3>
+      <br>
+
+  <div id="pendingShipments" class="table-responsive">
+
+    <% if (@pending_shipments.length==0) %>
+
+        <h4>No tiene envíos pendientes</h4>
+
+    <%end%>
+    <br>
+
+    <table class="table table-hover">
+      <thead>
+
+      <tr>
+
+        <th> <i class="fa fa-id-card-o" aria-hidden="true"> </i>    Id </th>
+        <th><i class="fa fa-map-marker" aria-hidden="true"></i>     Direccion origen</th>
+        <th><i class="fa fa-map-marker" aria-hidden="true"></i>     Direccion destino</th>
+        <th> <i class="fa fa-info" aria-hidden="true"></i>    Detalles del envio</th>
+
+      </tr>
+      </thead>
+      <tbody>
+
+
+
+        <% @pending_shipments.each do |s| %>
+
+        <tr class="info">
+          <td> <%= s.id %></td>
+          <td> <%= s.origin_address%></td>
+          <td> <%= s.destination_address%></td>
+          <td><%= link_to "Ver detalles", '/shipments/'+s.id.to_s + "?Authorization=#{@token}"  %></td>
+
+        </tr>
+
+        <%end%>
+
+      </tbody>
+
+
+    </table>
+
+
+  </div>
+
+      <br>
+      <br>
+
+
+
+  <h3> Envios realizados</h3>
+
+      <br>
+
+      <% if (@delivered_shipments.length==0) %>
+
+          <h4> No tiene envios realizados</h4>
+      <%end%>
+      <br>
+
+  <div id="deliveredShipments" class="table-responsive">
+
+
+    <table class="table">
+      <thead>
+
+      <tr>
+
+        <th> <i class="fa fa-id-card-o" aria-hidden="true"> </i>    Id </th>
+        <th><i class="fa fa-map-marker" aria-hidden="true"></i>     Direccion origen</th>
+        <th><i class="fa fa-map-marker" aria-hidden="true"></i>     Direccion destino</th>
+        <th> <i class="fa fa-info" aria-hidden="true"></i>    Detalles del envio</th>
+
+      </tr>
+      </thead>
+      <tbody>
+
+      <% @delivered_shipments.each do |s| %>
+
+          <tr class="success">
+            <td> <%= s.id %></td>
+            <td> <%= s.origin_address%></td>
+            <td> <%= s.destination_address%></td>
+            <td><%= link_to "Ver detalles", '/shipments/'+s.id.to_s + "?Authorization=#{@token}" %></td>
+
+          </tr>
+
+      <%end%>
+
+      </tbody>
+    </table>
+
+  </div>
+
+<%end%>
+
+</div>

@@ -1,0 +1,130 @@
+Inspecting 2 files
+WW
+
+Offenses:
+
+admins_controller.rb:1:1: C: Missing top-level class documentation comment.
+class AdminsController < ApplicationController
+^^^^^
+admins_controller.rb:2:1: C: Extra empty line detected at class body beginning.
+admins_controller.rb:3:1: C: Use 2 (not 0) spaces for indentation.
+before_action :authenticate_admin!
+
+admins_controller.rb:5:3: C: Inconsistent indentation detected.
+  def acceptCadet ...
+  ^^^^^^^^^^^^^^^
+admins_controller.rb:5:7: C: Use snake_case for method names.
+  def acceptCadet
+      ^^^^^^^^^^^
+admins_controller.rb:6:1: C: Extra empty line detected at method body beginning.
+admins_controller.rb:7:13: C: Surrounding space missing for operator =.
+    cadet_id=params[:cadetId].to_i
+            ^
+admins_controller.rb:12:22: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    flash[:notice] = "El cadete ha sido confirmado"
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+admins_controller.rb:16:1: C: Extra empty line detected at method body end.
+admins_controller.rb:19:1: C: Extra blank line detected.
+admins_controller.rb:20:3: C: Use empty lines between method definitions.
+  def rejectCadet
+  ^^^
+admins_controller.rb:20:3: C: Inconsistent indentation detected.
+  def rejectCadet ...
+  ^^^^^^^^^^^^^^^
+admins_controller.rb:20:7: C: Use snake_case for method names.
+  def rejectCadet
+      ^^^^^^^^^^^
+admins_controller.rb:21:1: C: Extra empty line detected at method body beginning.
+admins_controller.rb:22:13: C: Surrounding space missing for operator =.
+    cadet_id=params[:cadetId].to_i
+            ^
+admins_controller.rb:25:22: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    flash[:notice] = "El cadete ha sido rechazado"
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+admins_controller.rb:30:1: C: Extra blank line detected.
+admins_controller.rb:31:3: C: Use empty lines between method definitions.
+  def showCadets
+  ^^^
+admins_controller.rb:31:3: C: Inconsistent indentation detected.
+  def showCadets ...
+  ^^^^^^^^^^^^^^
+admins_controller.rb:31:7: C: Use snake_case for method names.
+  def showCadets
+      ^^^^^^^^^^
+admins_controller.rb:32:1: C: Extra empty line detected at method body beginning.
+admins_controller.rb:33:3: C: Use 2 (not 1) spaces for indentation.
+  	@token = params[:Authorization]
+  ^
+admins_controller.rb:33:3: C: Tab detected.
+  	@token = params[:Authorization]
+  ^
+admins_controller.rb:34:5: C: Inconsistent indentation detected.
+    @cadets=AdminsHelper.getConfirmationPendingCadets(@token)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+admins_controller.rb:34:12: C: Surrounding space missing for operator =.
+    @cadets=AdminsHelper.getConfirmationPendingCadets(@token)
+           ^
+admins_controller.rb:35:1: C: Extra empty line detected at method body end.
+admins_controller.rb:38:4: C: Inconsistent indentation detected.
+   def delete_admin_session ...
+   ^^^^^^^^^^^^^^^^^^^^^^^^
+admins_controller.rb:39:4: C: Use 2 (not 1) spaces for indentation.
+    AdminsHelper.delete_session(current_admin.id)
+   ^
+admins_controller.rb:42:3: W: end at 42, 2 is not aligned with def at 38, 3.
+  end
+  ^^^
+admins_controller.rb:43:1: C: Extra empty line detected at class body end.
+admins_controller.rb:44:4: C: Final newline missing.
+end
+   
+application_controller.rb:1:1: C: Missing top-level class documentation comment.
+class ApplicationController < ActionController::Base
+^^^^^
+application_controller.rb:4:3: W: Variable @user used in void context.
+  @user 
+  ^^^^^
+application_controller.rb:4:8: C: Trailing whitespace detected.
+  @user 
+       ^
+application_controller.rb:5:4: C: Inconsistent indentation detected.
+   def after_sign_in_path_for(resource) ...
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+application_controller.rb:6:1: C: Extra empty line detected at method body beginning.
+application_controller.rb:7:4: C: Use 2 (not 1) spaces for indentation.
+    if(resource.class==Admin)
+   ^
+application_controller.rb:7:5: C: Space after keyword if is missing.
+    if(resource.class==Admin)
+    ^^
+application_controller.rb:7:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if(resource.class==Admin)
+    ^^
+application_controller.rb:7:22: C: Surrounding space missing for operator ==.
+    if(resource.class==Admin)
+                     ^^
+application_controller.rb:12:3: W: end at 12, 2 is not aligned with def at 5, 3.
+  end
+  ^^^
+application_controller.rb:14:4: C: Inconsistent indentation detected.
+   def authenticate_admin! ...
+   ^^^^^^^^^^^^^^^^^^^^^^^
+application_controller.rb:15:1: C: Extra empty line detected at method body beginning.
+application_controller.rb:16:4: C: Use 2 (not 1) spaces for indentation.
+    token = params[:Authorization]
+   ^
+application_controller.rb:18:5: C: Space after keyword if is missing.
+    if(user)
+    ^^
+application_controller.rb:18:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if(user)
+    ^^
+application_controller.rb:21:5: C: Use 2 (not 3) spaces for indentation.
+       flash[:notice] = 'No posee los permisos necesarios'
+    ^^^
+application_controller.rb:25:3: W: end at 25, 2 is not aligned with def at 14, 3.
+  end
+  ^^^
+application_controller.rb:26:1: C: Extra empty line detected at class body end.
+
+2 files inspected, 49 offenses detected

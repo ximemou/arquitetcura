@@ -1,0 +1,812 @@
+Inspecting 4 files
+CWWW
+
+Offenses:
+
+sessions_controller.rb:1:1: C: Missing top-level class documentation comment.
+class SessionsController < Devise::SessionsController
+^^^^^
+sessions_controller.rb:2:1: C: Extra empty line detected at class body beginning.
+sessions_controller.rb:3:1: C: Extra blank line detected.
+sessions_controller.rb:4:1: C: Use 2 (not 1) spaces for indentation.
+	def new
+^
+sessions_controller.rb:4:1: C: Tab detected.
+	def new
+^
+sessions_controller.rb:5:1: C: Tab detected.
+		super
+^^
+sessions_controller.rb:5:2: C: Use 2 (not 1) spaces for indentation.
+		super
+ ^
+sessions_controller.rb:6:1: C: Tab detected.
+	end
+^
+sessions_controller.rb:8:1: C: Tab detected.
+	def create
+^
+sessions_controller.rb:9:1: C: Tab detected.
+		super
+^^
+sessions_controller.rb:9:2: C: Use 2 (not 1) spaces for indentation.
+		super
+ ^
+sessions_controller.rb:10:1: C: Tab detected.
+	end
+^
+sessions_controller.rb:12:1: C: Tab detected.
+	def destroy
+^
+sessions_controller.rb:13:1: C: Extra empty line detected at method body beginning.
+sessions_controller.rb:14:1: C: Tab detected.
+		super
+^^
+sessions_controller.rb:14:2: C: Use 2 (not 1) spaces for indentation.
+		super
+ ^
+sessions_controller.rb:15:1: C: Tab detected.
+	end
+^
+users_controller.rb:1:1: C: Missing top-level class documentation comment.
+class UsersController < ApplicationController
+^^^^^
+users_controller.rb:2:1: C: Extra empty line detected at class body beginning.
+users_controller.rb:5:1: C: Tab detected.
+	def index
+^
+users_controller.rb:5:2: C: Inconsistent indentation detected.
+	def index ...
+ ^^^^^^^^^
+users_controller.rb:5:2: C: Method has too many lines. [12/10]
+	def index ...
+ ^^^^^^^^^
+users_controller.rb:6:1: C: Extra empty line detected at method body beginning.
+users_controller.rb:7:1: C: Tab detected.
+		authenticate_user!
+^^
+users_controller.rb:7:2: C: Use 2 (not 1) spaces for indentation.
+		authenticate_user!
+ ^
+users_controller.rb:9:1: C: Tab detected.
+		logged_user=current_user.id
+^^
+users_controller.rb:9:14: C: Surrounding space missing for operator =.
+		logged_user=current_user.id
+             ^
+users_controller.rb:11:1: C: Tab detected.
+		user_shipments= UsersHelper.get_user_shipments(logged_user)
+^^
+users_controller.rb:11:17: C: Surrounding space missing for operator =.
+		user_shipments= UsersHelper.get_user_shipments(logged_user)
+                ^
+users_controller.rb:13:1: C: Tab detected.
+		@send_shipments=[]
+^^
+users_controller.rb:13:18: C: Surrounding space missing for operator =.
+		@send_shipments=[]
+                 ^
+users_controller.rb:14:1: C: Tab detected.
+		@received_shipments=[]
+^^
+users_controller.rb:14:22: C: Surrounding space missing for operator =.
+		@received_shipments=[]
+                     ^
+users_controller.rb:16:1: C: Tab detected.
+		user_shipments.each do |s|
+^^
+users_controller.rb:17:1: C: Extra empty line detected at block body beginning.
+users_controller.rb:18:1: C: Extra blank line detected.
+users_controller.rb:19:1: C: Tab detected.
+			if(s['user_sender_id']==logged_user)
+^^^
+users_controller.rb:19:3: C: Use 2 (not 1) spaces for indentation.
+			if(s['user_sender_id']==logged_user)
+  ^
+users_controller.rb:19:4: C: Space after keyword if is missing.
+			if(s['user_sender_id']==logged_user)
+   ^^
+users_controller.rb:19:26: C: Surrounding space missing for operator ==.
+			if(s['user_sender_id']==logged_user)
+                         ^^
+users_controller.rb:21:1: C: Tab detected.
+				@send_shipments.push(s)
+^^^^
+users_controller.rb:21:4: C: Use 2 (not 1) spaces for indentation.
+				@send_shipments.push(s)
+   ^
+users_controller.rb:22:1: C: Tab detected.
+			else
+^^^
+users_controller.rb:23:1: C: Tab detected.
+				@received_shipments.push(s)
+^^^^
+users_controller.rb:23:4: C: Use 2 (not 1) spaces for indentation.
+				@received_shipments.push(s)
+   ^
+users_controller.rb:24:1: C: Tab detected.
+			end
+^^^
+users_controller.rb:26:1: C: Extra blank line detected.
+users_controller.rb:26:1: C: Extra empty line detected at block body end.
+users_controller.rb:27:1: C: Tab detected.
+		end
+^^
+users_controller.rb:29:1: C: Extra blank line detected.
+users_controller.rb:29:1: C: Extra empty line detected at method body end.
+users_controller.rb:30:1: C: Tab detected.
+	end
+^
+users_controller.rb:32:1: C: Tab detected.
+	def new
+^
+users_controller.rb:32:2: C: Inconsistent indentation detected.
+	def new ...
+ ^^^^^^^
+users_controller.rb:33:1: C: Tab detected.
+		set_user_params
+^^
+users_controller.rb:33:2: C: Use 2 (not 1) spaces for indentation.
+		set_user_params
+ ^
+users_controller.rb:34:1: C: Tab detected.
+	end
+^
+users_controller.rb:36:1: C: Tab detected.
+	def create
+^
+users_controller.rb:36:2: C: Inconsistent indentation detected.
+	def create ...
+ ^^^^^^^^^^
+users_controller.rb:36:2: C: Assignment Branch Condition size for create is too high. [28.23/15]
+	def create
+ ^^^
+users_controller.rb:36:2: C: Method has too many lines. [22/10]
+	def create ...
+ ^^^^^^^^^^
+users_controller.rb:37:1: C: Extra empty line detected at method body beginning.
+users_controller.rb:38:1: C: Tab detected.
+		begin
+^^
+users_controller.rb:38:2: C: Use 2 (not 1) spaces for indentation.
+		begin
+ ^
+users_controller.rb:38:3: C: Redundant begin block detected.
+		begin
+  ^^^^^
+users_controller.rb:39:1: C: Extra empty line detected at begin body beginning.
+users_controller.rb:40:1: C: Tab detected.
+			@user=User.new(user_params)
+^^^
+users_controller.rb:40:3: C: Use 2 (not 1) spaces for indentation.
+			@user=User.new(user_params)
+  ^
+users_controller.rb:40:9: C: Surrounding space missing for operator =.
+			@user=User.new(user_params)
+        ^
+users_controller.rb:42:1: C: Tab detected.
+				if(CiUY.validate(@user.id_card))
+^^^^
+users_controller.rb:42:5: C: Inconsistent indentation detected.
+				if(CiUY.validate(@user.id_card)) ...
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+users_controller.rb:42:5: C: Space after keyword if is missing.
+				if(CiUY.validate(@user.id_card))
+    ^^
+users_controller.rb:44:1: C: Tab detected.
+					if (@user.save)
+^^^^^
+users_controller.rb:44:5: C: Use 2 (not 1) spaces for indentation.
+					if (@user.save)
+    ^
+users_controller.rb:44:9: C: Don't use parentheses around the condition of an if.
+					if (@user.save)
+        ^^^^^^^^^^^^
+users_controller.rb:44:9: C: Don't use parentheses around a method call.
+					if (@user.save)
+        ^^^^^^^^^^^^
+users_controller.rb:46:1: C: Tab detected.
+			      LogHelper.saveInfoInLog("Se ha registrado el usuario: "+@user.email)
+^^^
+users_controller.rb:46:6: C: Use 2 (not 4) spaces for indentation.
+			      LogHelper.saveInfoInLog("Se ha registrado el usuario: "+@user.email)
+     ^^^^
+users_controller.rb:46:34: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+			      LogHelper.saveInfoInLog("Se ha registrado el usuario: "+@user.email)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+users_controller.rb:46:65: C: Surrounding space missing for operator +.
+			      LogHelper.saveInfoInLog("Se ha registrado el usuario: "+@user.email)
+                                                                ^
+users_controller.rb:47:13: C: Inconsistent indentation detected.
+            flash[:notice] = "Usuario creado"
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+users_controller.rb:47:30: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+            flash[:notice] = "Usuario creado"
+                             ^^^^^^^^^^^^^^^^
+users_controller.rb:48:16: C: Inconsistent indentation detected.
+               FacebooksHelper.save_user_session @user
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+users_controller.rb:49:1: C: Tab detected.
+			      sign_in_and_redirect @user
+^^^
+users_controller.rb:50:1: C: Tab detected.
+					else
+^^^^^
+users_controller.rb:51:6: C: Use 2 (not 7) spaces for indentation.
+            respond_to do |format|
+     ^^^^^^^
+users_controller.rb:52:1: C: Tab detected.
+						format.html { render :new }
+^^^^^^
+users_controller.rb:52:7: C: Use 2 (not -8) spaces for indentation.
+						format.html { render :new }
+      ^^^^^^^^
+users_controller.rb:53:1: C: Tab detected.
+						format.json { render json: @user.errors, status: :unprocessable_entity }
+^^^^^^
+users_controller.rb:54:15: W: end at 54, 14 is not aligned with respond_to do |format| at 51, 12.
+              end
+              ^^^
+users_controller.rb:55:1: C: Tab detected.
+					end
+^^^^^
+users_controller.rb:56:1: C: Tab detected.
+				else
+^^^^
+users_controller.rb:58:5: C: Use 2 (not 8) spaces for indentation.
+            respond_to do |format|
+    ^^^^^^^^
+users_controller.rb:59:15: C: Use 2 (not 0) spaces for indentation.
+              format.html { redirect_to new_user_path(user: JSON.parse(user_fb_params.to_json)), notice: 'Cedula de identidad no valida' }
+              
+users_controller.rb:59:81: C: Line is too long. [138/80]
+              format.html { redirect_to new_user_path(user: JSON.parse(user_fb_params.to_json)), notice: 'Cedula de identidad no valida' }
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+users_controller.rb:60:1: C: Extra empty line detected at block body end.
+users_controller.rb:61:15: W: end at 61, 14 is not aligned with respond_to do |format| at 58, 12.
+              end
+              ^^^
+users_controller.rb:62:1: C: Tab detected.
+				end
+^^^^
+users_controller.rb:64:1: C: Extra blank line detected.
+users_controller.rb:64:1: C: Extra empty line detected before the rescue.
+users_controller.rb:65:1: C: Tab detected.
+		rescue
+^^
+users_controller.rb:65:3: W: Avoid rescuing without specifying an error class.
+		rescue
+  ^^^^^^
+users_controller.rb:66:1: C: Extra empty line detected after the rescue.
+users_controller.rb:67:1: C: Tab detected.
+			LogHelper.saveErrorInLog("Error: No se pudo crear un usuario con los siguiente parametros: "+user_params.to_json)
+^^^
+users_controller.rb:67:3: C: Use 2 (not 1) spaces for indentation.
+			LogHelper.saveErrorInLog("Error: No se pudo crear un usuario con los siguiente parametros: "+user_params.to_json)
+  ^
+users_controller.rb:67:29: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+			LogHelper.saveErrorInLog("Error: No se pudo crear un usuario con los siguiente parametros: "+user_params.to_json)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+users_controller.rb:67:81: C: Line is too long. [116/80]
+			LogHelper.saveErrorInLog("Error: No se pudo crear un usuario con los siguiente parametros: "+user_params.to_json)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+users_controller.rb:67:96: C: Surrounding space missing for operator +.
+			LogHelper.saveErrorInLog("Error: No se pudo crear un usuario con los siguiente parametros: "+user_params.to_json)
+                                                                                               ^
+users_controller.rb:68:1: C: Extra empty line detected at begin body end.
+users_controller.rb:69:1: C: Tab detected.
+		end
+^^
+users_controller.rb:70:3: W: end at 70, 2 is not aligned with def at 36, 1.
+  end
+  ^^^
+users_controller.rb:72:1: C: Tab detected.
+	def destroy
+^
+users_controller.rb:72:2: C: Inconsistent indentation detected.
+	def destroy ...
+ ^^^^^^^^^^^
+users_controller.rb:72:2: C: Put empty method definitions on a single line.
+	def destroy ...
+ ^^^^^^^^^^^
+users_controller.rb:73:1: C: Extra empty line detected at method body beginning.
+users_controller.rb:74:1: C: Tab detected.
+	end
+^
+users_controller.rb:76:1: C: Tab detected.
+	def get_users_emails
+^
+users_controller.rb:76:2: C: Inconsistent indentation detected.
+	def get_users_emails ...
+ ^^^^^^^^^^^^^^^^^^^^
+users_controller.rb:76:6: C: Do not prefix reader method names with get_.
+	def get_users_emails
+     ^^^^^^^^^^^^^^^^
+users_controller.rb:77:1: C: Tab detected.
+		authenticate_token!
+^^
+users_controller.rb:77:2: C: Use 2 (not 1) spaces for indentation.
+		authenticate_token!
+ ^
+users_controller.rb:78:1: C: Tab detected.
+		users = User.pluck(:email)
+^^
+users_controller.rb:79:1: C: Tab detected.
+		resolve_format users
+^^
+users_controller.rb:80:1: C: Tab detected.
+	end
+^
+users_controller.rb:82:1: C: Tab detected.
+	def get_user_by_email
+^
+users_controller.rb:82:2: C: Inconsistent indentation detected.
+	def get_user_by_email ...
+ ^^^^^^^^^^^^^^^^^^^^^
+users_controller.rb:82:6: C: Do not prefix reader method names with get_.
+	def get_user_by_email
+     ^^^^^^^^^^^^^^^^^
+users_controller.rb:83:1: C: Tab detected.
+		user_email = params[:email]
+^^
+users_controller.rb:83:2: C: Use 2 (not 1) spaces for indentation.
+		user_email = params[:email]
+ ^
+users_controller.rb:84:1: C: Tab detected.
+		user = User.exits_user_by_email(user_email)
+^^
+users_controller.rb:85:1: C: Tab detected.
+		resolve_format user
+^^
+users_controller.rb:86:1: C: Tab detected.
+	end
+^
+users_controller.rb:88:1: C: Tab detected.
+	def show
+^
+users_controller.rb:88:2: C: Inconsistent indentation detected.
+	def show ...
+ ^^^^^^^^
+users_controller.rb:89:1: C: Tab detected.
+		id = params[:id].to_i
+^^
+users_controller.rb:89:2: C: Use 2 (not 1) spaces for indentation.
+		id = params[:id].to_i
+ ^
+users_controller.rb:90:1: C: Tab detected.
+		user = User.getUserById(id)
+^^
+users_controller.rb:91:1: C: Tab detected.
+		resolve_format user
+^^
+users_controller.rb:92:1: C: Tab detected.
+	end
+^
+users_controller.rb:94:1: C: Tab detected.
+	def create_shipment
+^
+users_controller.rb:94:2: C: Inconsistent indentation detected.
+	def create_shipment ...
+ ^^^^^^^^^^^^^^^^^^^
+users_controller.rb:95:1: C: Extra empty line detected at method body beginning.
+users_controller.rb:96:1: C: Tab detected.
+		token = UsersHelper.get_user_token(current_user.id)
+^^
+users_controller.rb:96:2: C: Use 2 (not 1) spaces for indentation.
+		token = UsersHelper.get_user_token(current_user.id)
+ ^
+users_controller.rb:97:1: C: Tab detected.
+		redirect_to "#{ENV['SHIPMENTS_URL']}shipments/new?Authorization=#{token}"
+^^
+users_controller.rb:98:1: C: Tab detected.
+	end
+^
+users_controller.rb:100:1: C: Tab detected.
+	def delete_user_session
+^
+users_controller.rb:100:2: C: Inconsistent indentation detected.
+	def delete_user_session ...
+ ^^^^^^^^^^^^^^^^^^^^^^^
+users_controller.rb:101:1: C: Tab detected.
+		UsersHelper.delete_session(current_user.id)
+^^
+users_controller.rb:101:2: C: Use 2 (not 1) spaces for indentation.
+		UsersHelper.delete_session(current_user.id)
+ ^
+users_controller.rb:102:1: C: Tab detected.
+		sign_out current_user
+^^
+users_controller.rb:103:1: C: Tab detected.
+		redirect_to ENV['MAIN_URL']
+^^
+users_controller.rb:104:1: C: Tab detected.
+	end
+^
+users_controller.rb:108:1: C: Tab detected.
+	def user_fb_params
+^
+users_controller.rb:108:2: C: Inconsistent indentation detected.
+	def user_fb_params ...
+ ^^^^^^^^^^^^^^^^^^
+users_controller.rb:109:1: C: Tab detected.
+		params.require(:user).permit(:name, :email, :profile_image)
+^^
+users_controller.rb:109:2: C: Use 2 (not 1) spaces for indentation.
+		params.require(:user).permit(:name, :email, :profile_image)
+ ^
+users_controller.rb:110:1: C: Tab detected.
+	end
+^
+users_controller.rb:112:1: C: Tab detected.
+	def set_user_params
+^
+users_controller.rb:112:2: C: Inconsistent indentation detected.
+	def set_user_params ...
+ ^^^^^^^^^^^^^^^^^^^
+users_controller.rb:113:1: C: Extra empty line detected at method body beginning.
+users_controller.rb:114:1: C: Tab detected.
+		@user = User.new(user_fb_params)
+^^
+users_controller.rb:114:2: C: Use 2 (not 1) spaces for indentation.
+		@user = User.new(user_fb_params)
+ ^
+users_controller.rb:115:1: C: Tab detected.
+		lastname = @user.name.split(' ')
+^^
+users_controller.rb:116:1: C: Tab detected.
+		@user.name = lastname[0]
+^^
+users_controller.rb:117:1: C: Tab detected.
+		@user.lastname = lastname[1]
+^^
+users_controller.rb:118:1: C: Tab detected.
+	end
+^
+users_controller.rb:120:1: C: Tab detected.
+	def save_user_auth(user)
+^
+users_controller.rb:120:2: C: Inconsistent indentation detected.
+	def save_user_auth(user) ...
+ ^^^^^^^^^^^^^^^^^^^^^^^^
+users_controller.rb:121:1: C: Tab detected.
+		provider = session[:auth]["provider"]
+^^
+users_controller.rb:121:2: C: Use 2 (not 1) spaces for indentation.
+		provider = session[:auth]["provider"]
+ ^
+users_controller.rb:121:29: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+		provider = session[:auth]["provider"]
+                            ^^^^^^^^^^
+users_controller.rb:122:1: C: Tab detected.
+		uid = session[:auth]["uid"]
+^^
+users_controller.rb:122:24: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+		uid = session[:auth]["uid"]
+                       ^^^^^
+users_controller.rb:123:1: C: Tab detected.
+		user.authorizations.build :provider => provider, :uid => uid
+^^
+users_controller.rb:123:29: C: Use the new Ruby 1.9 hash syntax.
+		user.authorizations.build :provider => provider, :uid => uid
+                            ^^^^^^^^^^^^
+users_controller.rb:123:52: C: Use the new Ruby 1.9 hash syntax.
+		user.authorizations.build :provider => provider, :uid => uid
+                                                   ^^^^^^^
+users_controller.rb:124:1: C: Tab detected.
+		user.save!
+^^
+users_controller.rb:125:1: C: Tab detected.
+		session[:auth] = nil
+^^
+users_controller.rb:126:1: C: Tab detected.
+	end
+^
+users_controller.rb:128:3: C: Tab detected.
+  	def user_params
+  ^
+users_controller.rb:128:4: C: Inconsistent indentation detected.
+  	def user_params ...
+   ^^^^^^^^^^^^^^^
+users_controller.rb:129:5: C: Tab detected.
+    	params.require(:user).permit(:name, :lastname, :email, 
+    ^
+users_controller.rb:129:60: C: Trailing whitespace detected.
+    	params.require(:user).permit(:name, :lastname, :email, 
+                                                           ^
+users_controller.rb:130:5: C: Tab detected.
+    	:id_card, :profile_image)
+    ^
+users_controller.rb:130:6: C: Align the parameters of a method call if they span more than one line.
+    	:id_card, :profile_image)
+     ^^^^^^^^
+users_controller.rb:131:1: C: Tab detected.
+		end
+^^
+users_controller.rb:131:3: W: end at 131, 2 is not aligned with def at 128, 3.
+		end
+  ^^^
+users_controller.rb:133:1: C: Tab detected.
+	def resolve_format(obj)
+^
+users_controller.rb:133:2: C: Inconsistent indentation detected.
+	def resolve_format(obj) ...
+ ^^^^^^^^^^^^^^^^^^^^^^^
+users_controller.rb:134:2: C: Use 2 (not 4) spaces for indentation.
+    	respond_to do |format|
+ ^^^^
+users_controller.rb:134:5: C: Tab detected.
+    	respond_to do |format|
+    ^
+users_controller.rb:135:7: C: Tab detected.
+      		format.json { render :json => obj }
+      ^^
+users_controller.rb:135:9: C: Use 2 (not 0) spaces for indentation.
+      		format.json { render :json => obj }
+        
+users_controller.rb:135:30: C: Use the new Ruby 1.9 hash syntax.
+      		format.json { render :json => obj }
+                             ^^^^^^^^
+users_controller.rb:136:8: C: Tab detected.
+       	end
+       ^
+users_controller.rb:136:9: W: end at 136, 8 is not aligned with respond_to do |format| at 134, 5.
+       	end
+        ^^^
+users_controller.rb:137:2: C: Tab detected.
+ 	end
+ ^
+users_controller.rb:137:3: W: end at 137, 2 is not aligned with def at 133, 1.
+ 	end
+  ^^^
+users_controller.rb:139:1: C: Extra blank line detected.
+users_controller.rb:140:1: C: Extra blank line detected.
+users_controller.rb:140:1: C: Extra empty line detected at class body end.
+users_controller.rb:141:4: C: Final newline missing.
+end
+   
+application_controller.rb:1:1: C: Missing top-level class documentation comment.
+class ApplicationController < ActionController::Base
+^^^^^
+application_controller.rb:4:2: C: Inconsistent indentation detected.
+ def after_sign_in_path_for(resource) ...
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+application_controller.rb:5:1: C: Extra empty line detected at method body beginning.
+application_controller.rb:6:2: C: Use 2 (not 1) spaces for indentation.
+  if(resource.class==User)
+ ^
+application_controller.rb:6:3: C: Space after keyword if is missing.
+  if(resource.class==User)
+  ^^
+application_controller.rb:6:3: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+  if(resource.class==User)
+  ^^
+application_controller.rb:6:3: C: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+  if(resource.class==User)
+  ^^
+application_controller.rb:6:20: C: Surrounding space missing for operator ==.
+  if(resource.class==User)
+                   ^^
+application_controller.rb:7:3: C: Use 2 (not 4) spaces for indentation.
+      users_path
+  ^^^^
+application_controller.rb:9:1: W: end at 9, 0 is not aligned with def at 4, 1.
+end
+^^^
+application_controller.rb:10:1: C: Tab detected.
+	def authenticate_token!
+^
+application_controller.rb:10:2: C: Use empty lines between method definitions.
+	def authenticate_token!
+ ^^^
+application_controller.rb:10:2: C: Inconsistent indentation detected.
+	def authenticate_token! ...
+ ^^^^^^^^^^^^^^^^^^^^^^^
+application_controller.rb:11:1: C: Tab detected.
+		token = request.headers['Authorization']
+^^
+application_controller.rb:11:2: C: Use 2 (not 1) spaces for indentation.
+		token = request.headers['Authorization']
+ ^
+application_controller.rb:12:1: C: Tab detected.
+		return UsersHelper.validate_user_token(token)
+^^
+application_controller.rb:12:3: C: Redundant return detected.
+		return UsersHelper.validate_user_token(token)
+  ^^^^^^
+application_controller.rb:13:1: C: Tab detected.
+	end
+^
+application_controller.rb:14:1: C: Extra empty line detected at class body end.
+facebooks_controller.rb:1:1: C: Missing top-level class documentation comment.
+class FacebooksController < Devise::OmniauthCallbacksController
+^^^^^
+facebooks_controller.rb:2:1: C: Extra empty line detected at class body beginning.
+facebooks_controller.rb:5:3: C: Put empty method definitions on a single line.
+  def new ...
+  ^^^^^^^
+facebooks_controller.rb:6:1: C: Tab detected.
+	end
+^
+facebooks_controller.rb:6:2: W: end at 6, 1 is not aligned with def at 5, 2.
+	end
+ ^^^
+facebooks_controller.rb:8:3: C: Put empty method definitions on a single line.
+  def index ...
+  ^^^^^^^^^
+facebooks_controller.rb:9:1: C: Extra empty line detected at method body beginning.
+facebooks_controller.rb:13:3: C: Use 2 (not 1) spaces for indentation.
+  	render :text => "Sorry, but you didn't allow access to our app!"
+  ^
+facebooks_controller.rb:13:3: C: Tab detected.
+  	render :text => "Sorry, but you didn't allow access to our app!"
+  ^
+facebooks_controller.rb:13:11: C: Use the new Ruby 1.9 hash syntax.
+  	render :text => "Sorry, but you didn't allow access to our app!"
+          ^^^^^^^^
+facebooks_controller.rb:16:3: C: Assignment Branch Condition size for facebook is too high. [25.57/15]
+  def facebook
+  ^^^
+facebooks_controller.rb:16:3: C: Method has too many lines. [16/10]
+  def facebook ...
+  ^^^^^^^^^^^^
+facebooks_controller.rb:17:3: C: Use 2 (not 1) spaces for indentation.
+  	auth_hash = request.env['omniauth.auth']
+  ^
+facebooks_controller.rb:17:3: C: Tab detected.
+  	auth_hash = request.env['omniauth.auth']
+  ^
+facebooks_controller.rb:18:2: C: Tab detected.
+ 		@user = nil
+ ^^
+facebooks_controller.rb:19:5: C: Inconsistent indentation detected.
+    user_registered= User.find_by_email(auth_hash["info"]["email"])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+facebooks_controller.rb:19:20: C: Surrounding space missing for operator =.
+    user_registered= User.find_by_email(auth_hash["info"]["email"])
+                   ^
+facebooks_controller.rb:19:51: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    user_registered= User.find_by_email(auth_hash["info"]["email"])
+                                                  ^^^^^^
+facebooks_controller.rb:19:59: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    user_registered= User.find_by_email(auth_hash["info"]["email"])
+                                                          ^^^^^^^
+facebooks_controller.rb:21:5: C: Inconsistent indentation detected.
+    if user_registered ...
+    ^^^^^^^^^^^^^^^^^^
+facebooks_controller.rb:22:1: C: Tab detected.
+			LogHelper.saveInfoInLog("Se ha logueado el usuario: "+user_registered.email)
+^^^
+facebooks_controller.rb:22:4: C: Use 2 (not -1) spaces for indentation.
+			LogHelper.saveInfoInLog("Se ha logueado el usuario: "+user_registered.email)
+   ^
+facebooks_controller.rb:22:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+			LogHelper.saveInfoInLog("Se ha logueado el usuario: "+user_registered.email)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+facebooks_controller.rb:22:57: C: Surrounding space missing for operator +.
+			LogHelper.saveInfoInLog("Se ha logueado el usuario: "+user_registered.email)
+                                                        ^
+facebooks_controller.rb:23:7: C: Inconsistent indentation detected.
+      if user_signed_in? ...
+      ^^^^^^^^^^^^^^^^^^
+facebooks_controller.rb:31:5: C: Use 2 (not 1) spaces for indentation.
+    	@user = User.new :name => auth_hash["info"]["name"], :email => auth_hash["info"]["email"], :profile_image => auth_hash["info"]["image"]
+    ^
+facebooks_controller.rb:31:5: C: Tab detected.
+    	@user = User.new :name => auth_hash["info"]["name"], :email => auth_hash["info"]["email"], :profile_image => auth_hash["info"]["image"]
+    ^
+facebooks_controller.rb:31:23: C: Use the new Ruby 1.9 hash syntax.
+    	@user = User.new :name => auth_hash["info"]["name"], :email => auth_hash["info"]["email"], :profile_image => auth_hash["info"]["image"]
+                      ^^^^^^^^
+facebooks_controller.rb:31:42: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    	@user = User.new :name => auth_hash["info"]["name"], :email => auth_hash["info"]["email"], :profile_image => auth_hash["info"]["image"]
+                                         ^^^^^^
+facebooks_controller.rb:31:50: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    	@user = User.new :name => auth_hash["info"]["name"], :email => auth_hash["info"]["email"], :profile_image => auth_hash["info"]["image"]
+                                                 ^^^^^^
+facebooks_controller.rb:31:59: C: Use the new Ruby 1.9 hash syntax.
+    	@user = User.new :name => auth_hash["info"]["name"], :email => auth_hash["info"]["email"], :profile_image => auth_hash["info"]["image"]
+                                                          ^^^^^^^^^
+facebooks_controller.rb:31:79: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    	@user = User.new :name => auth_hash["info"]["name"], :email => auth_hash["info"]["email"], :profile_image => auth_hash["info"]["image"]
+                                                                              ^^^^^^
+facebooks_controller.rb:31:81: C: Line is too long. [140/80]
+    	@user = User.new :name => auth_hash["info"]["name"], :email => auth_hash["info"]["email"], :profile_image => auth_hash["info"]["image"]
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+facebooks_controller.rb:31:87: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    	@user = User.new :name => auth_hash["info"]["name"], :email => auth_hash["info"]["email"], :profile_image => auth_hash["info"]["image"]
+                                                                                      ^^^^^^^
+facebooks_controller.rb:31:97: C: Use the new Ruby 1.9 hash syntax.
+    	@user = User.new :name => auth_hash["info"]["name"], :email => auth_hash["info"]["email"], :profile_image => auth_hash["info"]["image"]
+                                                                                                ^^^^^^^^^^^^^^^^^
+facebooks_controller.rb:31:125: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    	@user = User.new :name => auth_hash["info"]["name"], :email => auth_hash["info"]["email"], :profile_image => auth_hash["info"]["image"]
+                                                                                                                            ^^^^^^
+facebooks_controller.rb:31:133: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    	@user = User.new :name => auth_hash["info"]["name"], :email => auth_hash["info"]["email"], :profile_image => auth_hash["info"]["image"]
+                                                                                                                                    ^^^^^^^
+facebooks_controller.rb:32:1: C: Tab detected.
+		  session[:auth] =  {:provider => auth_hash["provider"], :uid => auth_hash["uid"]}
+^^
+facebooks_controller.rb:32:5: C: Inconsistent indentation detected.
+		  session[:auth] =  {:provider => auth_hash["provider"], :uid => auth_hash["uid"]}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+facebooks_controller.rb:32:20: C: Operator = should be surrounded by a single space.
+		  session[:auth] =  {:provider => auth_hash["provider"], :uid => auth_hash["uid"]}
+                   ^
+facebooks_controller.rb:32:23: C: Space inside { missing.
+		  session[:auth] =  {:provider => auth_hash["provider"], :uid => auth_hash["uid"]}
+                      ^
+facebooks_controller.rb:32:24: C: Use the new Ruby 1.9 hash syntax.
+		  session[:auth] =  {:provider => auth_hash["provider"], :uid => auth_hash["uid"]}
+                       ^^^^^^^^^^^^
+facebooks_controller.rb:32:47: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+		  session[:auth] =  {:provider => auth_hash["provider"], :uid => auth_hash["uid"]}
+                                              ^^^^^^^^^^
+facebooks_controller.rb:32:60: C: Use the new Ruby 1.9 hash syntax.
+		  session[:auth] =  {:provider => auth_hash["provider"], :uid => auth_hash["uid"]}
+                                                           ^^^^^^^
+facebooks_controller.rb:32:78: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+		  session[:auth] =  {:provider => auth_hash["provider"], :uid => auth_hash["uid"]}
+                                                                             ^^^^^
+facebooks_controller.rb:32:81: C: Line is too long. [84/80]
+		  session[:auth] =  {:provider => auth_hash["provider"], :uid => auth_hash["uid"]}
+                                                                                ^^^^
+facebooks_controller.rb:32:84: C: Space inside } missing.
+		  session[:auth] =  {:provider => auth_hash["provider"], :uid => auth_hash["uid"]}
+                                                                                   ^
+facebooks_controller.rb:33:5: C: Tab detected.
+    	modify_and_redirect(@user)
+    ^
+facebooks_controller.rb:35:1: C: Tab detected.
+		end
+^^
+facebooks_controller.rb:35:3: W: end at 35, 2 is not aligned with if at 21, 4.
+		end
+  ^^^
+facebooks_controller.rb:36:1: C: Tab detected.
+	end
+^
+facebooks_controller.rb:36:2: W: end at 36, 1 is not aligned with def at 16, 2.
+	end
+ ^^^
+facebooks_controller.rb:38:1: C: Tab detected.
+	def destroy
+^
+facebooks_controller.rb:38:2: C: Inconsistent indentation detected.
+	def destroy ...
+ ^^^^^^^^^^^
+facebooks_controller.rb:39:1: C: Tab detected.
+			id = params[:id]
+^^^
+facebooks_controller.rb:40:1: C: Tab detected.
+			UsersHelper.delete_session(id)
+^^^
+facebooks_controller.rb:41:3: C: Tab detected.
+  	end
+  ^
+facebooks_controller.rb:41:4: W: end at 41, 3 is not aligned with def at 38, 1.
+  	end
+   ^^^
+facebooks_controller.rb:43:3: C: Tab detected.
+  	private
+  ^
+facebooks_controller.rb:43:4: C: Indent access modifiers like private.
+  	private
+   ^^^^^^^
+facebooks_controller.rb:45:3: C: Tab detected.
+  	def modify_and_redirect(user)
+  ^
+facebooks_controller.rb:45:4: C: Inconsistent indentation detected.
+  	def modify_and_redirect(user) ...
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+facebooks_controller.rb:46:5: C: Tab detected.
+    	redirect_to new_user_path(user: JSON.parse(user.attributes.to_json))
+    ^
+facebooks_controller.rb:47:3: C: Tab detected.
+  	end
+  ^
+facebooks_controller.rb:48:4: C: Final newline missing.
+end
+   
+
+4 files inspected, 287 offenses detected

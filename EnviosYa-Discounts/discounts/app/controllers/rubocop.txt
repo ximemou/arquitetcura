@@ -1,0 +1,195 @@
+Inspecting 2 files
+WC
+
+Offenses:
+
+discounts_controller.rb:1:1: C: Missing top-level class documentation comment.
+class DiscountsController < ApplicationController
+^^^^^
+discounts_controller.rb:2:1: C: Extra empty line detected at class body beginning.
+discounts_controller.rb:5:1: C: Tab detected.
+	def create_discount
+^
+discounts_controller.rb:5:2: C: Inconsistent indentation detected.
+	def create_discount ...
+ ^^^^^^^^^^^^^^^^^^^
+discounts_controller.rb:6:1: C: Tab detected.
+		receiver_email = params[:receiver_email]
+^^
+discounts_controller.rb:6:2: C: Use 2 (not 1) spaces for indentation.
+		receiver_email = params[:receiver_email]
+ ^
+discounts_controller.rb:7:1: C: Tab detected.
+		sender_email = params[:sender_email]
+^^
+discounts_controller.rb:8:1: C: Tab detected.
+		Discount.create_discount(receiver_email, sender_email)
+^^
+discounts_controller.rb:9:1: C: Tab detected.
+		LogHelper.saveInfoInLog("Se creo un descuento")
+^^
+discounts_controller.rb:9:27: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+		LogHelper.saveInfoInLog("Se creo un descuento")
+                          ^^^^^^^^^^^^^^^^^^^^^^
+discounts_controller.rb:10:1: C: Tab detected.
+		resolve_format "{'status' : 'ok'}"
+^^
+discounts_controller.rb:11:1: C: Tab detected.
+	end
+^
+discounts_controller.rb:13:1: C: Tab detected.
+	def get_discount
+^
+discounts_controller.rb:13:2: C: Inconsistent indentation detected.
+	def get_discount ...
+ ^^^^^^^^^^^^^^^^
+discounts_controller.rb:13:6: C: Do not prefix reader method names with get_.
+	def get_discount
+     ^^^^^^^^^^^^
+discounts_controller.rb:14:1: C: Tab detected.
+		discount = Discount.get_discount
+^^
+discounts_controller.rb:14:2: C: Use 2 (not 1) spaces for indentation.
+		discount = Discount.get_discount
+ ^
+discounts_controller.rb:15:1: C: Tab detected.
+		resolve_format discount
+^^
+discounts_controller.rb:16:1: C: Tab detected.
+	end
+^
+discounts_controller.rb:18:1: C: Tab detected.
+	def has_discount
+^
+discounts_controller.rb:18:2: C: Inconsistent indentation detected.
+	def has_discount ...
+ ^^^^^^^^^^^^^^^^
+discounts_controller.rb:18:6: C: Rename has_discount to discount?.
+	def has_discount
+     ^^^^^^^^^^^^
+discounts_controller.rb:19:1: C: Tab detected.
+		user_email = params[:email]
+^^
+discounts_controller.rb:19:2: C: Use 2 (not 1) spaces for indentation.
+		user_email = params[:email]
+ ^
+discounts_controller.rb:20:1: C: Tab detected.
+		discount = Discount.has_discount(user_email)
+^^
+discounts_controller.rb:21:1: C: Tab detected.
+		has_discount_to_return = {:has_discount => discount}
+^^
+discounts_controller.rb:21:28: C: Space inside { missing.
+		has_discount_to_return = {:has_discount => discount}
+                           ^
+discounts_controller.rb:21:29: C: Use the new Ruby 1.9 hash syntax.
+		has_discount_to_return = {:has_discount => discount}
+                            ^^^^^^^^^^^^^^^^
+discounts_controller.rb:21:54: C: Space inside } missing.
+		has_discount_to_return = {:has_discount => discount}
+                                                     ^
+discounts_controller.rb:22:1: C: Tab detected.
+		resolve_format has_discount_to_return.to_json
+^^
+discounts_controller.rb:23:1: C: Tab detected.
+	end
+^
+discounts_controller.rb:25:1: C: Tab detected.
+	def calculate_price_with_discount
+^
+discounts_controller.rb:25:2: C: Inconsistent indentation detected.
+	def calculate_price_with_discount ...
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+discounts_controller.rb:26:1: C: Tab detected.
+		price_param = params[:price]
+^^
+discounts_controller.rb:26:2: C: Use 2 (not 1) spaces for indentation.
+		price_param = params[:price]
+ ^
+discounts_controller.rb:27:1: C: Tab detected.
+		price = Discount.calculate_price_with_discount(price_param.to_f)
+^^
+discounts_controller.rb:28:1: C: Tab detected.
+		resolve_format price
+^^
+discounts_controller.rb:29:1: C: Tab detected.
+	end
+^
+discounts_controller.rb:31:1: C: Tab detected.
+	def verify_discount
+^
+discounts_controller.rb:31:2: C: Inconsistent indentation detected.
+	def verify_discount ...
+ ^^^^^^^^^^^^^^^^^^^
+discounts_controller.rb:32:1: C: Tab detected.
+		user_email = params[:email]
+^^
+discounts_controller.rb:32:2: C: Use 2 (not 1) spaces for indentation.
+		user_email = params[:email]
+ ^
+discounts_controller.rb:33:1: C: Tab detected.
+		discount = Discount.verify_discount(user_email)
+^^
+discounts_controller.rb:34:1: C: Tab detected.
+		has_discount_to_return = { :verify_discount => discount}
+^^
+discounts_controller.rb:34:30: C: Use the new Ruby 1.9 hash syntax.
+		has_discount_to_return = { :verify_discount => discount}
+                             ^^^^^^^^^^^^^^^^^^^
+discounts_controller.rb:34:58: C: Space inside } missing.
+		has_discount_to_return = { :verify_discount => discount}
+                                                         ^
+discounts_controller.rb:35:1: C: Tab detected.
+		resolve_format has_discount_to_return.to_json
+^^
+discounts_controller.rb:36:1: C: Tab detected.
+	end
+^
+discounts_controller.rb:38:1: C: Tab detected.
+	private
+^
+discounts_controller.rb:38:2: C: Indent access modifiers like private.
+	private
+ ^^^^^^^
+discounts_controller.rb:38:2: C: Keep a blank line before and after private.
+	private
+ ^^^^^^^
+discounts_controller.rb:39:1: C: Tab detected.
+	def resolve_format(obj)
+^
+discounts_controller.rb:39:2: C: Inconsistent indentation detected.
+	def resolve_format(obj) ...
+ ^^^^^^^^^^^^^^^^^^^^^^^
+discounts_controller.rb:40:2: C: Use 2 (not 4) spaces for indentation.
+    	respond_to do |format|
+ ^^^^
+discounts_controller.rb:40:5: C: Tab detected.
+    	respond_to do |format|
+    ^
+discounts_controller.rb:41:7: C: Tab detected.
+      		format.json { render :json => obj }
+      ^^
+discounts_controller.rb:41:9: C: Use 2 (not 0) spaces for indentation.
+      		format.json { render :json => obj }
+        
+discounts_controller.rb:41:30: C: Use the new Ruby 1.9 hash syntax.
+      		format.json { render :json => obj }
+                             ^^^^^^^^
+discounts_controller.rb:42:8: C: Tab detected.
+       	end
+       ^
+discounts_controller.rb:42:9: W: end at 42, 8 is not aligned with respond_to do |format| at 40, 5.
+       	end
+        ^^^
+discounts_controller.rb:43:2: C: Tab detected.
+ 	end
+ ^
+discounts_controller.rb:43:3: W: end at 43, 2 is not aligned with def at 39, 1.
+ 	end
+  ^^^
+discounts_controller.rb:44:1: C: Extra empty line detected at class body end.
+application_controller.rb:1:1: C: Missing top-level class documentation comment.
+class ApplicationController < ActionController::Base
+^^^^^
+
+2 files inspected, 64 offenses detected

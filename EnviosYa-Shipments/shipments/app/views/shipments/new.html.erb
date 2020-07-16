@@ -1,0 +1,465 @@
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">EnviosYa</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><%= link_to('Logout', "#{ENV['USERS_URL']}token/users?Authorization=#{@token}", method: :delete) %></span></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+<h2 id='title' style="margin-left: 30px"> Nuevo envío</h2>
+
+<div class="container" style="padding-left:5%;width:80%">
+<div id='map'></div>
+
+</div>
+
+    <br>
+    <br>
+
+  <%if @applies_discount %>
+        <div id="discount">
+
+          <h4> Le corresponde un descuento del <%= @discount %></h4>
+
+        </div>
+  <%end%>
+
+    <br>
+    <br>
+
+
+ <div class="container" style="padding-left:5%;width:80%"  >
+<form  action="/shipments?Authorization=<%= @token %>" method="post" data-toggle="validator" onsubmit="return checkHasPrice() && checkHasCadet()">
+
+
+
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input id="autocomplete" type="text" class="form-control" name="user_receiver_email" placeholder="Email destinatario" required>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+      <input type="text" class="form-control" name="shipment[origin_postal_code]" placeholder="Direccion postal origen" required>
+    </div>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+      <input type="text" class="form-control" name="shipment[destination_postal_code]" placeholder="Direccion postal destino" required>
+    </div>
+  </div>
+  <br>
+
+
+
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-gift"></i></span>
+      <input type="text" id="packageWeight" class="form-control" name="shipment[package_weight]" placeholder="Peso de paquete" required>
+    </div>
+  </div>
+
+  <br>
+
+
+ <% cache @user_cache do  %>
+
+  <input type='button' value='Buscar cadetes cercanos' class="btn btn-info" onclick="searchNearCadets()"> <br>
+
+  <div id="showCadets" style="display:none" >
+
+    <h4> Cadetes disponibles</h4>
+
+    <div id='cadets'></div>
+
+
+   </div>
+
+   <%end %>
+
+  <br>
+  <br>
+
+
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+      <input type="text" id="originAddress" name="shipment[origin_address]" class="form-control" placeholder="Direccion origen" required>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+      <input type="text" id="destinationAddress" name="shipment[destination_address]" class="form-control" placeholder="Direccion destino" required>
+    </div>
+  </div>
+
+<input type="text" id="originCoordinates" name="originCoordinates"  style="display:none">
+<input type="text" id="destinationCoordinates" name="destinationCoordinates" style="display:none">
+
+  <br>
+  <br>
+
+
+
+
+  <input type='button' value='Calcular precio' class="btn btn-info" onclick="calculatePrice()">
+  <div class="alert alert-danger" id="no_package_weight_error" style="display: none" role="alert"></div>
+
+    <br>
+
+<div id="payed_by"  style="display:none" >
+
+
+  <div id="priceDiv">
+
+
+
+    <div class="form-group" id="estimatedPriceDiv">
+      <label>Precio estimado:</label>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-gift"></i></span>
+        <input type="text" id="estimatedPrice" class="form-control" name="shipment[estimated_price]">
+
+      </div>
+      <p>Atencion: este precio es un estimado, se le informara
+        por mail el precio final</p>
+    </div>
+
+
+
+    <div class="form-group" id="finalpriceDiv">
+      <label>Precio final:</label>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-gift"></i></span>
+        <input type="text" id="finalPrice" class="form-control" name="shipment[price]">
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <h4>Seleccione quien paga la Comision</h4>
+
+  <input type="radio" name="shipment[payed_by]" checked value="<%= @payment_types["sender"] %>">  Usuario que envia <br>
+  <input type="radio" name="shipment[payed_by]" value="<%= @payment_types["receiver"] %>"> Usuario que recibe<br>
+  <input type="radio" name="shipment[payed_by]" value="<%= @payment_types["both"] %>">  Ambos usuarios (a partes iguales)
+
+</div>
+  <br>
+  <br>
+
+    <div class="alert alert-danger" id="no_price_error" style="display: none" role="alert"></div>
+
+
+
+<input type='submit' class="btn btn-primary btn-block"  value='Confirmar envio'>
+
+</form>
+
+ </div>
+
+      </div>
+
+
+
+    <script>
+  var userCache=<%= raw @user_cache %>
+
+	var map;
+	var markers = [];
+	google.maps.event.addDomListener(window, "load", initMap);
+
+	
+	function initMap(){
+
+		map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.8207362, lng: -56.3765245},
+          zoom: 11
+        });
+
+
+
+        google.maps.event.addListener(map,'click', displayLocation);
+	}
+
+	function displayLocation(current){
+		if(markers.length == 2)
+		{
+			deleteOverlays();
+
+		}
+		else{
+			var marker = new google.maps.Marker({
+	    	position: current.latLng,
+	    	map: map,
+	   	 	title: 'Hello World!'
+	  		});
+	  		var geocoder=new google.maps.Geocoder;
+
+	  		geocoder.geocode({'location':current.latLng}, function (results,status){
+
+	  		    if(status==='OK'){
+	  		        if(results[1]){
+
+
+                       if (markers.length == 0) {
+
+                           document.getElementById("originAddress").value = results[1].formatted_address;
+                       }
+                       else {
+                           document.getElementById("destinationAddress").value = results[1].formatted_address;
+                       }
+                       markers.push(marker);
+
+
+                       if(!(results[1].formatted_address.includes("Montevideo"))) {
+                           deleteOverlays();
+                           alert("Debe elegir una direccion dentro de Montevideo");
+
+                       }
+
+                   }
+                }
+
+        });
+
+
+		}
+
+	}
+
+
+	function checkHasCadet(){
+      if($('#cadets').find('input[type=checkbox]:checked').length == 0)
+      {
+          $('#no_price_error').empty();
+
+          $('#no_price_error').append("Debe seleccionar un cadete");
+
+          $('#no_price_error').css({"display":"block"});
+          return false;
+      }
+      else{
+          $('#no_price_error').empty();
+          $('#no_price_error').css({"display":"none"});
+          return true;
+      }
+  }
+
+	function deleteOverlays() {
+ 		while(markers.length) { markers.pop().setMap(null); }
+      document.getElementById("originAddress").value=null;
+      document.getElementById("destinationAddress").value=null;
+      $("#showCadets").css({"display":"none"});
+	}
+
+
+
+  $( "#autocomplete" ).autocomplete({
+
+      source: function( request, response ) {
+          var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+          response( $.grep( userCache, function( item ){
+              return matcher.test( item );
+          }) );
+      },
+      select: function(event, ui){
+        if(ui.item.value == 'no_results'){
+          var email_to = $('#autocomplete').val();
+          var name_from =  '<%= @logged_user['name'] %>';
+          var lastname_from = '<%= @logged_user['lastname'] %>' ;
+          var email_from = '<%= @logged_user['email'] %>' ;
+          window.location.assign('<%= ENV['NOTIFICATIONS_URL'] %>' +'mailer/invite?email_to='+email_to+'&name_from=' +
+              name_from +'&lastname_from=' + lastname_from + '&email_from=' + email_from );
+        }
+      },
+
+      response: function(event, ui)
+      {
+        if(ui.content.length === 0){
+          var noResult = { value:"no_results", label: "No se encontro, haga click para invitar ususario"};
+          ui.content.push(noResult);
+        }
+      }
+    });
+
+
+	function searchNearCadets(){
+
+	    $('#cadets').empty();
+
+       var address=(markers[0].position.toString()).split(', ');
+       var latitude=address[0].substring(1,address[0].length);
+	     var longitude=address[1].substring(0,address[1].length-1);
+
+	   $.ajax({
+
+	      url: '<%= ENV['CADETS_URL'] %>' + "cadets/nearestCadets.json",
+        type:'POST',
+         dataType: 'json',
+         crossDomain: true,
+         data: {
+             originLatitude: latitude,
+             originLongitude: longitude
+
+     }, success: function(data){
+
+
+	          $("#showCadets").css({"display":"block"});
+	          for(var i=0;i<data.length;i++){
+
+	              if(i==0){
+
+                    $("#cadets").append('<ul class="list-group">')
+
+                }
+
+	              $("#cadets").append('<li class="list-group-item" style="width:30%" id"'+data[i].id+ ' "> Nombre: '+data[i].name+' <br> Apellido:'+ data[i].lastname+' <br> Email:'+ data[i].email +'  <input type="checkbox" class= "cadetsCheckbox" name="shipment[cadet_id]" value="'+data[i].id+'"> </li><br><br>');
+	              if(i==data.length){
+                    $("#cadets").append('</ul>')
+                }
+
+            }
+
+            $('#priceDiv').css({"display":"block"});
+
+             $('#originCoordinates').val(markers[0].position.toString());
+             $('#destinationCoordinates').val(markers[1].position.toString());
+
+
+     },
+  error:function(data){
+
+  }});
+
+  }
+
+
+
+  function checkHasPrice(){
+
+	    finalPrice=$('#finalPrice').val();
+	    estimatedPrice=$('#estimatedPrice').val();
+	    if(finalPrice=="" && estimatedPrice==""){
+          $('#no_price_error').empty();
+
+	        $('#no_price_error').append("Debe calcular el precio antes de confirmar");
+
+          $('#no_price_error').css({"display":"block"});
+
+	        return false;
+      }
+      else{
+          $('#no_price_error_error').empty();
+	        return true;
+      }
+
+
+  }
+
+
+
+
+
+  function calculatePrice(){
+
+      if($('#packageWeight').val()==""){
+
+          $('#no_package_weight_error').empty();
+
+          $('#no_package_weight_error').append("Debe ingresar el peso del paquete.");
+
+          $('#no_package_weight_error').css({"display":"block"});
+
+          return false;
+
+
+      }
+
+      else {
+
+
+          $('#no_package_weight_error').empty();
+          $('#no_package_weight_error').css({"display":"none"});
+
+          var addressOrigin = (markers[0].position.toString()).split(', ');
+          var originLatitude = addressOrigin[0].substring(1, addressOrigin[0].length);
+          var originLongitude = addressOrigin[1].substring(0, addressOrigin[1].length - 1);
+
+          var address = (markers[1].position.toString()).split(', ');
+          var destinationLatitude = address[0].substring(1, address[0].length);
+          var destinationLongitude = address[1].substring(0, address[1].length - 1);
+
+          var packageWeight = $('#packageWeight').val();
+
+
+          $.ajax({
+
+              url: "/shipping-rates",
+              type: 'GET',
+              dataType: 'json',
+              data: {
+                  originLatitude: originLatitude,
+                  originLongitude: originLongitude,
+                  destinationLatitude: destinationLatitude,
+                  destinationLongitude: destinationLongitude,
+                  packageWeight: packageWeight
+
+              }, success: function (data) {
+
+
+                  if (data['isEstimatedPrice']) {
+                      $("#finalpriceDiv").css({"display": "none"});
+                      $("#estimatedPrice").val(data['finalPrice']);
+                  }
+                  else {
+                      $("#estimatedPriceDiv").css({"display": "none"});
+                      $("#finalPrice").val(data['finalPrice']);
+                  }
+
+                  $("#payed_by").css({"display": "block"});
+
+              },
+              error: function (data) {
+
+                  alert("Hubo error");
+              }
+          });
+
+
+      }
+
+
+  }
+
+  $(document).on('click','.cadetsCheckbox', function(){
+      $('.cadetsCheckbox').prop('checked', false);
+      $(this).prop('checked', true);
+  });
+
+</script>

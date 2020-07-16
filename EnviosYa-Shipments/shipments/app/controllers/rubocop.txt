@@ -1,0 +1,712 @@
+Inspecting 3 files
+WWW
+
+Offenses:
+
+rates_controller.rb:1:1: C: Missing top-level class documentation comment.
+class RatesController < ApplicationController
+^^^^^
+rates_controller.rb:2:1: C: Extra empty line detected at class body beginning.
+rates_controller.rb:8:3: C: Assignment Branch Condition size for getShippingCost is too high. [26.94/15]
+  def getShippingCost
+  ^^^
+rates_controller.rb:8:3: C: Method has too many lines. [20/10]
+  def getShippingCost ...
+  ^^^^^^^^^^^^^^^^^^^
+rates_controller.rb:8:7: C: Use snake_case for method names.
+  def getShippingCost
+      ^^^^^^^^^^^^^^^
+rates_controller.rb:9:1: C: Extra empty line detected at method body beginning.
+rates_controller.rb:10:5: C: Use snake_case for variable names.
+    originLatitude=params[:originLatitude]
+    ^^^^^^^^^^^^^^
+rates_controller.rb:10:19: C: Surrounding space missing for operator =.
+    originLatitude=params[:originLatitude]
+                  ^
+rates_controller.rb:11:5: C: Use snake_case for variable names.
+    originLongitude=params[:originLongitude]
+    ^^^^^^^^^^^^^^^
+rates_controller.rb:11:20: C: Surrounding space missing for operator =.
+    originLongitude=params[:originLongitude]
+                   ^
+rates_controller.rb:12:5: C: Use snake_case for variable names.
+    destinationLatitude=params[:destinationLatitude]
+    ^^^^^^^^^^^^^^^^^^^
+rates_controller.rb:12:24: C: Surrounding space missing for operator =.
+    destinationLatitude=params[:destinationLatitude]
+                       ^
+rates_controller.rb:13:5: C: Use snake_case for variable names.
+    destinationLongitude=params[:destinationLongitude]
+    ^^^^^^^^^^^^^^^^^^^^
+rates_controller.rb:13:25: C: Surrounding space missing for operator =.
+    destinationLongitude=params[:destinationLongitude]
+                        ^
+rates_controller.rb:14:5: C: Use snake_case for variable names.
+    packageWeight=params[:packageWeight]
+    ^^^^^^^^^^^^^
+rates_controller.rb:14:18: C: Surrounding space missing for operator =.
+    packageWeight=params[:packageWeight]
+                 ^
+rates_controller.rb:16:15: C: Surrounding space missing for operator =.
+    final_cost=0
+              ^
+rates_controller.rb:17:5: W: Useless assignment to variable - is_estimated.
+    is_estimated=false
+    ^^^^^^^^^^^^
+rates_controller.rb:17:17: C: Surrounding space missing for operator =.
+    is_estimated=false
+                ^
+rates_controller.rb:19:5: C: Space after keyword if is missing.
+    if(RatesHelper.noCostRecords)
+    ^^
+rates_controller.rb:21:17: C: Surrounding space missing for operator =.
+      final_cost=RatesHelper.defaultCost(packageWeight)
+                ^
+rates_controller.rb:22:24: C: Surrounding space missing for operator =.
+      is_estimated_cost=true
+                       ^
+rates_controller.rb:25:25: C: Surrounding space missing for operator =.
+      cost_between_areas=RatesHelper.getCostFromRecords(originLatitude,originLongitude,destinationLatitude,destinationLongitude)
+                        ^
+rates_controller.rb:25:71: C: Space missing after comma.
+      cost_between_areas=RatesHelper.getCostFromRecords(originLatitude,originLongitude,destinationLatitude,destinationLongitude)
+                                                                      ^
+rates_controller.rb:25:81: C: Line is too long. [128/80]
+      cost_between_areas=RatesHelper.getCostFromRecords(originLatitude,originLongitude,destinationLatitude,destinationLongitude)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_controller.rb:25:87: C: Space missing after comma.
+      cost_between_areas=RatesHelper.getCostFromRecords(originLatitude,originLongitude,destinationLatitude,destinationLongitude)
+                                                                                      ^
+rates_controller.rb:25:107: C: Space missing after comma.
+      cost_between_areas=RatesHelper.getCostFromRecords(originLatitude,originLongitude,destinationLatitude,destinationLongitude)
+                                                                                                          ^
+rates_controller.rb:26:18: C: Surrounding space missing for operator =.
+      cost_per_kg=RatesHelper.getKgPriceFromRecord
+                 ^
+rates_controller.rb:27:17: C: Surrounding space missing for operator =.
+      final_cost= (cost_per_kg.to_f* packageWeight.to_f) +cost_between_areas.to_f
+                ^
+rates_controller.rb:27:36: C: Surrounding space missing for operator *.
+      final_cost= (cost_per_kg.to_f* packageWeight.to_f) +cost_between_areas.to_f
+                                   ^
+rates_controller.rb:27:58: C: Surrounding space missing for operator +.
+      final_cost= (cost_per_kg.to_f* packageWeight.to_f) +cost_between_areas.to_f
+                                                         ^
+rates_controller.rb:27:81: C: Line is too long. [81/80]
+      final_cost= (cost_per_kg.to_f* packageWeight.to_f) +cost_between_areas.to_f
+                                                                                ^
+rates_controller.rb:28:24: C: Surrounding space missing for operator =.
+      is_estimated_cost=RatesHelper.costIsEstimated
+                       ^
+rates_controller.rb:32:7: C: Inconsistent indentation detected.
+      final_cost_as_json= "{ \"finalPrice\" : #{final_cost}, \"isEstimatedPrice\": #{is_estimated_cost}}"
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_controller.rb:32:25: C: Surrounding space missing for operator =.
+      final_cost_as_json= "{ \"finalPrice\" : #{final_cost}, \"isEstimatedPrice\": #{is_estimated_cost}}"
+                        ^
+rates_controller.rb:32:81: C: Line is too long. [105/80]
+      final_cost_as_json= "{ \"finalPrice\" : #{final_cost}, \"isEstimatedPrice\": #{is_estimated_cost}}"
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_controller.rb:34:7: C: Inconsistent indentation detected.
+      respond_to do |format| ...
+      ^^^^^^^^^^^^^^^^^^^^^^
+rates_controller.rb:35:20: C: Space missing to the left of {.
+        format.json{ render :json => final_cost_as_json}
+                   ^
+rates_controller.rb:35:29: C: Use the new Ruby 1.9 hash syntax.
+        format.json{ render :json => final_cost_as_json}
+                            ^^^^^^^^
+rates_controller.rb:35:56: C: Space missing inside }.
+        format.json{ render :json => final_cost_as_json}
+                                                       ^
+rates_controller.rb:38:1: C: Extra blank line detected.
+rates_controller.rb:38:1: C: Extra empty line detected at method body end.
+rates_controller.rb:41:1: C: Extra blank line detected.
+rates_controller.rb:41:1: C: Extra empty line detected at class body end.
+application_controller.rb:1:1: C: Missing top-level class documentation comment.
+class ApplicationController < ActionController::Base
+^^^^^
+application_controller.rb:4:3: W: Variable @user used in void context.
+  @user
+  ^^^^^
+application_controller.rb:5:3: W: Variable @cadet used in void context.
+  @cadet
+  ^^^^^^
+application_controller.rb:8:5: C: Redundant return detected.
+    return @user
+    ^^^^^^
+application_controller.rb:11:4: C: Inconsistent indentation detected.
+   def current_cadet ...
+   ^^^^^^^^^^^^^^^^^
+application_controller.rb:12:4: C: Use 2 (not 1) spaces for indentation.
+    return @cadet
+   ^
+application_controller.rb:12:5: C: Redundant return detected.
+    return @cadet
+    ^^^^^^
+application_controller.rb:13:3: W: end at 13, 2 is not aligned with def at 11, 3.
+  end
+  ^^^
+application_controller.rb:16:1: C: Extra empty line detected at method body beginning.
+application_controller.rb:19:5: C: Space after keyword if is missing.
+    if(user)
+    ^^
+application_controller.rb:24:34: C: Trailing whitespace detected.
+      redirect_to ENV['MAIN_URL'] 
+                                 ^
+application_controller.rb:30:1: C: Extra empty line detected at method body beginning.
+application_controller.rb:33:5: C: Space after keyword if is missing.
+    if(user)
+    ^^
+application_controller.rb:38:34: C: Trailing whitespace detected.
+      redirect_to ENV['MAIN_URL'] 
+                                 ^
+application_controller.rb:43:5: C: Inconsistent indentation detected.
+    def authenticate_cadet! ...
+    ^^^^^^^^^^^^^^^^^^^^^^^
+application_controller.rb:44:1: C: Extra empty line detected at method body beginning.
+application_controller.rb:45:5: C: Use 2 (not 0) spaces for indentation.
+    token = params[:Authorization]
+    
+application_controller.rb:47:5: C: Space after keyword if is missing.
+    if(cadet)
+    ^^
+application_controller.rb:55:3: W: end at 55, 2 is not aligned with def at 43, 4.
+  end
+  ^^^
+application_controller.rb:56:1: C: Extra empty line detected at class body end.
+shipments_controller.rb:1:1: C: Class has too many lines. [141/100]
+class ShipmentsController < ApplicationController ...
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:1:1: C: Missing top-level class documentation comment.
+class ShipmentsController < ApplicationController
+^^^^^
+shipments_controller.rb:2:1: C: Extra empty line detected at class body beginning.
+shipments_controller.rb:4:3: C: Missing space after #.
+  #before_action :authenticate_user!
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:6:3: C: Missing space after #.
+  #before_action :authenticate_cadet!
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:7:3: C: Missing space after #.
+  #skip_before_action :authenticate_cadet!, :except =>[:show_cadet_shipments]
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:10:1: C: Extra empty line detected at method body beginning.
+shipments_controller.rb:14:16: C: Surrounding space missing for operator =.
+    @user_cache= ShipmentsHelper.get_users_for_cache(@token)
+               ^
+shipments_controller.rb:15:1: C: Tab detected.
+		@shipment = Shipment.new
+^^
+shipments_controller.rb:15:3: C: Inconsistent indentation detected.
+		@shipment = Shipment.new
+  ^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:16:14: C: Surrounding space missing for operator =.
+    @discount=ShipmentsHelper.get_discount
+             ^
+shipments_controller.rb:17:19: C: Surrounding space missing for operator =.
+    @payment_types=Shipment.payment_types
+                  ^
+shipments_controller.rb:18:22: C: Surrounding space missing for operator =.
+    @applies_discount=ShipmentsHelper.has_discount(current_user['email'])
+                     ^
+shipments_controller.rb:19:1: C: Extra empty line detected at method body end.
+shipments_controller.rb:20:1: C: Tab detected.
+	end
+^
+shipments_controller.rb:20:2: W: end at 20, 1 is not aligned with def at 9, 2.
+	end
+ ^^^
+shipments_controller.rb:22:1: C: Tab detected.
+	def create
+^
+shipments_controller.rb:22:2: C: Inconsistent indentation detected.
+	def create ...
+ ^^^^^^^^^^
+shipments_controller.rb:22:2: C: Assignment Branch Condition size for create is too high. [62.75/15]
+	def create
+ ^^^
+shipments_controller.rb:22:2: C: Method has too many lines. [38/10]
+	def create ...
+ ^^^^^^^^^^
+shipments_controller.rb:22:2: C: Perceived complexity for create is too high. [8/7]
+	def create
+ ^^^
+shipments_controller.rb:23:1: C: Extra empty line detected at method body beginning.
+shipments_controller.rb:24:2: C: Use 2 (not 3) spaces for indentation.
+    authenticate_user!
+ ^^^
+shipments_controller.rb:26:5: C: Use 2 (not -2) spaces for indentation.
+    user_receiver_email=params[:user_receiver_email]
+    ^^
+shipments_controller.rb:26:24: C: Surrounding space missing for operator =.
+    user_receiver_email=params[:user_receiver_email]
+                       ^
+shipments_controller.rb:29:18: C: Surrounding space missing for operator =.
+    user_receiver=ShipmentsHelper.exits_user_by_email(user_receiver_email, token)
+                 ^
+shipments_controller.rb:29:81: C: Line is too long. [81/80]
+    user_receiver=ShipmentsHelper.exits_user_by_email(user_receiver_email, token)
+                                                                                ^
+shipments_controller.rb:31:5: C: Space after keyword if is missing.
+    if(user_receiver)
+    ^^
+shipments_controller.rb:33:1: C: Tab detected.
+		@shipment = Shipment.create!(shipment_params)
+^^
+shipments_controller.rb:33:3: C: Use 2 (not -2) spaces for indentation.
+		@shipment = Shipment.create!(shipment_params)
+  ^^
+shipments_controller.rb:35:6: C: Inconsistent indentation detected.
+     origin_address=params[:originCoordinates].split(', ')
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:35:20: C: Surrounding space missing for operator =.
+     origin_address=params[:originCoordinates].split(', ')
+                   ^
+shipments_controller.rb:36:6: C: Inconsistent indentation detected.
+     @shipment.origin_latitude=origin_address[0][1,origin_address[0].length]
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:36:31: C: Surrounding space missing for operator =.
+     @shipment.origin_latitude=origin_address[0][1,origin_address[0].length]
+                              ^
+shipments_controller.rb:36:51: C: Space missing after comma.
+     @shipment.origin_latitude=origin_address[0][1,origin_address[0].length]
+                                                  ^
+shipments_controller.rb:37:6: C: Inconsistent indentation detected.
+     @shipment.origin_longitude=origin_address[1][0,origin_address[1].length-1]
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:37:32: C: Surrounding space missing for operator =.
+     @shipment.origin_longitude=origin_address[1][0,origin_address[1].length-1]
+                               ^
+shipments_controller.rb:37:52: C: Space missing after comma.
+     @shipment.origin_longitude=origin_address[1][0,origin_address[1].length-1]
+                                                   ^
+shipments_controller.rb:37:77: C: Surrounding space missing for operator -.
+     @shipment.origin_longitude=origin_address[1][0,origin_address[1].length-1]
+                                                                            ^
+shipments_controller.rb:39:1: C: Extra blank line detected.
+shipments_controller.rb:40:5: C: Inconsistent indentation detected.
+    destination_address=params[:destinationCoordinates].split(', ')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:40:24: C: Surrounding space missing for operator =.
+    destination_address=params[:destinationCoordinates].split(', ')
+                       ^
+shipments_controller.rb:41:5: C: Inconsistent indentation detected.
+    @shipment.destination_latitude=destination_address[0][1,destination_address[0].length]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:41:35: C: Surrounding space missing for operator =.
+    @shipment.destination_latitude=destination_address[0][1,destination_address[0].length]
+                                  ^
+shipments_controller.rb:41:60: C: Space missing after comma.
+    @shipment.destination_latitude=destination_address[0][1,destination_address[0].length]
+                                                           ^
+shipments_controller.rb:41:81: C: Line is too long. [90/80]
+    @shipment.destination_latitude=destination_address[0][1,destination_address[0].length]
+                                                                                ^^^^^^^^^^
+shipments_controller.rb:42:5: C: Inconsistent indentation detected.
+    @shipment.destination_longitude=destination_address[1][0,destination_address[1].length-1]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:42:36: C: Surrounding space missing for operator =.
+    @shipment.destination_longitude=destination_address[1][0,destination_address[1].length-1]
+                                   ^
+shipments_controller.rb:42:61: C: Space missing after comma.
+    @shipment.destination_longitude=destination_address[1][0,destination_address[1].length-1]
+                                                            ^
+shipments_controller.rb:42:81: C: Line is too long. [93/80]
+    @shipment.destination_longitude=destination_address[1][0,destination_address[1].length-1]
+                                                                                ^^^^^^^^^^^^^
+shipments_controller.rb:42:91: C: Surrounding space missing for operator -.
+    @shipment.destination_longitude=destination_address[1][0,destination_address[1].length-1]
+                                                                                          ^
+shipments_controller.rb:44:5: C: Inconsistent indentation detected.
+    @shipment.delivered=false;
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:44:24: C: Surrounding space missing for operator =.
+    @shipment.delivered=false;
+                       ^
+shipments_controller.rb:44:30: C: Do not use semicolons to terminate expressions.
+    @shipment.delivered=false;
+                             ^
+shipments_controller.rb:45:5: C: Inconsistent indentation detected.
+    @shipment.shipment_solicitude_time=Time.zone.now
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:45:39: C: Surrounding space missing for operator =.
+    @shipment.shipment_solicitude_time=Time.zone.now
+                                      ^
+shipments_controller.rb:46:5: C: Inconsistent indentation detected.
+    @shipment.commission=10
+    ^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:46:25: C: Surrounding space missing for operator =.
+    @shipment.commission=10
+                        ^
+shipments_controller.rb:47:5: C: Inconsistent indentation detected.
+    @shipment.user_receiver_id=user_receiver['id'].to_i
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:47:31: C: Surrounding space missing for operator =.
+    @shipment.user_receiver_id=user_receiver['id'].to_i
+                              ^
+shipments_controller.rb:49:5: C: Inconsistent indentation detected.
+    @shipment.user_sender_id=current_user['id'].to_i
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:49:29: C: Surrounding space missing for operator =.
+    @shipment.user_sender_id=current_user['id'].to_i
+                            ^
+shipments_controller.rb:51:1: C: Extra blank line detected.
+shipments_controller.rb:52:5: C: Inconsistent indentation detected.
+    if(ShipmentsHelper.verify_discount(current_user['email'])) ...
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:52:5: C: Space after keyword if is missing.
+    if(ShipmentsHelper.verify_discount(current_user['email']))
+    ^^
+shipments_controller.rb:54:33: C: Surrounding space missing for operator =.
+      @shipment.applies_discount=true
+                                ^
+shipments_controller.rb:55:7: C: Space after keyword if is missing.
+      if(@shipment.estimated_price)
+      ^^
+shipments_controller.rb:57:34: C: Surrounding space missing for operator =.
+        @shipment.estimated_price= ShipmentsHelper.calculate_price_with_discount(@shipment.estimated_price)
+                                 ^
+shipments_controller.rb:57:81: C: Line is too long. [107/80]
+        @shipment.estimated_price= ShipmentsHelper.calculate_price_with_discount(@shipment.estimated_price)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:59:24: C: Surrounding space missing for operator =.
+        @shipment.price= ShipmentsHelper.calculate_price_with_discount(@shipment.price)
+                       ^
+shipments_controller.rb:59:81: C: Line is too long. [87/80]
+        @shipment.price= ShipmentsHelper.calculate_price_with_discount(@shipment.price)
+                                                                                ^^^^^^^
+shipments_controller.rb:63:33: C: Surrounding space missing for operator =.
+      @shipment.applies_discount=false
+                                ^
+shipments_controller.rb:66:1: C: Extra blank line detected.
+shipments_controller.rb:67:5: C: Inconsistent indentation detected.
+    @shipment.save!
+    ^^^^^^^^^^^^^^^
+shipments_controller.rb:68:5: C: Inconsistent indentation detected.
+    LogHelper.saveInfoInLog("INFO: Se registro un envio con los siguientes parametros: "+@shipment.to_json)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:68:29: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    LogHelper.saveInfoInLog("INFO: Se registro un envio con los siguientes parametros: "+@shipment.to_json)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:68:81: C: Line is too long. [107/80]
+    LogHelper.saveInfoInLog("INFO: Se registro un envio con los siguientes parametros: "+@shipment.to_json)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:68:89: C: Surrounding space missing for operator +.
+    LogHelper.saveInfoInLog("INFO: Se registro un envio con los siguientes parametros: "+@shipment.to_json)
+                                                                                        ^
+shipments_controller.rb:69:5: C: Inconsistent indentation detected.
+    flash[:notice]="Envío realizado"
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:69:19: C: Surrounding space missing for operator =.
+    flash[:notice]="Envío realizado"
+                  ^
+shipments_controller.rb:69:20: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    flash[:notice]="Envío realizado"
+                   ^^^^^^^^^^^^^^^^^
+shipments_controller.rb:70:1: C: Tab detected.
+		redirect_to "#{ENV['USERS_URL']}users"
+^^
+shipments_controller.rb:74:21: C: Surrounding space missing for operator =.
+      flash[:notice]="No existe el usuario al que quiere realizar el envio"
+                    ^
+shipments_controller.rb:74:22: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      flash[:notice]="No existe el usuario al que quiere realizar el envio"
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:77:1: C: Extra empty line detected before the rescue.
+shipments_controller.rb:78:5: C: rescue at 78, 4 is not aligned with end at 81, 6.
+    rescue
+    ^^^^^^
+shipments_controller.rb:78:5: W: Avoid rescuing without specifying an error class.
+    rescue
+    ^^^^^^
+shipments_controller.rb:79:1: C: Extra empty line detected after the rescue.
+shipments_controller.rb:80:32: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      LogHelper.saveErrorInLog("Error: no se puso crear un envio con los siguientes parametros: "+ shipment_params.to_json)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:80:81: C: Line is too long. [123/80]
+      LogHelper.saveErrorInLog("Error: no se puso crear un envio con los siguientes parametros: "+ shipment_params.to_json)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:80:98: C: Surrounding space missing for operator +.
+      LogHelper.saveErrorInLog("Error: no se puso crear un envio con los siguientes parametros: "+ shipment_params.to_json)
+                                                                                                 ^
+shipments_controller.rb:82:3: W: end at 82, 2 is not aligned with def at 22, 1.
+  end
+  ^^^
+shipments_controller.rb:84:1: C: Extra blank line detected.
+shipments_controller.rb:85:3: C: Use empty lines between method definitions.
+  def confirm_reception_shipment
+  ^^^
+shipments_controller.rb:85:3: C: Assignment Branch Condition size for confirm_reception_shipment is too high. [44.64/15]
+  def confirm_reception_shipment
+  ^^^
+shipments_controller.rb:85:3: C: Method has too many lines. [29/10]
+  def confirm_reception_shipment ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:86:1: C: Extra empty line detected at method body beginning.
+shipments_controller.rb:90:16: C: Surrounding space missing for operator =.
+    shipment_id=params[:id].to_i
+               ^
+shipments_controller.rb:92:17: C: Surrounding space missing for operator =.
+    logged_cadet=current_cadet['id'].to_i
+                ^
+shipments_controller.rb:94:14: C: Surrounding space missing for operator =.
+    @shipment=Shipment.getShipmentByIdAndCadet(logged_cadet,shipment_id)
+             ^
+shipments_controller.rb:94:60: C: Space missing after comma.
+    @shipment=Shipment.getShipmentByIdAndCadet(logged_cadet,shipment_id)
+                                                           ^
+shipments_controller.rb:97:1: C: Extra empty line detected at begin body beginning.
+shipments_controller.rb:98:5: C: Use 2 (not -2) spaces for indentation.
+    if(@shipment)
+    ^^
+shipments_controller.rb:98:5: C: Space after keyword if is missing.
+    if(@shipment)
+    ^^
+shipments_controller.rb:101:26: C: Surrounding space missing for operator =.
+      @shipment.delivered=true
+                         ^
+shipments_controller.rb:102:39: C: Surrounding space missing for operator =.
+      @shipment.shipment_delivery_time=Time.zone.now
+                                      ^
+shipments_controller.rb:104:57: C: Space missing after comma.
+      ShipmentsHelper.update_cadet_location(logged_cadet,@shipment.destination_latitude,@shipment.destination_longitude)
+                                                        ^
+shipments_controller.rb:104:81: C: Line is too long. [120/80]
+      ShipmentsHelper.update_cadet_location(logged_cadet,@shipment.destination_latitude,@shipment.destination_longitude)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:104:88: C: Space missing after comma.
+      ShipmentsHelper.update_cadet_location(logged_cadet,@shipment.destination_latitude,@shipment.destination_longitude)
+                                                                                       ^
+shipments_controller.rb:108:7: W: Useless assignment to variable - cadet.
+      cadet=ShipmentsHelper.get_cadet_by_id(logged_cadet)
+      ^^^^^
+shipments_controller.rb:108:12: C: Surrounding space missing for operator =.
+      cadet=ShipmentsHelper.get_cadet_by_id(logged_cadet)
+           ^
+shipments_controller.rb:109:20: C: Surrounding space missing for operator =.
+      cadet_to_send=ShipmentsHelper.convert_cadet(logged_cadet)
+                   ^
+shipments_controller.rb:111:1: C: Extra blank line detected.
+shipments_controller.rb:112:21: C: Surrounding space missing for operator =.
+      shipment_email=Shipment.convertShipmentToSendEmail(@shipment)
+                    ^
+shipments_controller.rb:113:18: C: Surrounding space missing for operator =.
+      @recipients=[sender_user['email'],receiver_user['email']]
+                 ^
+shipments_controller.rb:113:40: C: Space missing after comma.
+      @recipients=[sender_user['email'],receiver_user['email']]
+                                       ^
+shipments_controller.rb:117:7: C: Missing space after #.
+      #url_image = "#{ENV['SHIPMENTS_URL']}/public#{@shipment.receiver_signature_image_url}"
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:117:81: C: Line is too long. [92/80]
+      #url_image = "#{ENV['SHIPMENTS_URL']}/public#{@shipment.receiver_signature_image_url}"
+                                                                                ^^^^^^^^^^^^
+shipments_controller.rb:120:48: C: Space missing after comma.
+      NotificationJob.perform_later(@recipients,sender_user, receiver_user,shipment_email,cadet_to_send, shipment_payment_type, url_image)
+                                               ^
+shipments_controller.rb:120:75: C: Space missing after comma.
+      NotificationJob.perform_later(@recipients,sender_user, receiver_user,shipment_email,cadet_to_send, shipment_payment_type, url_image)
+                                                                          ^
+shipments_controller.rb:120:81: C: Line is too long. [138/80]
+      NotificationJob.perform_later(@recipients,sender_user, receiver_user,shipment_email,cadet_to_send, shipment_payment_type, url_image)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:120:90: C: Space missing after comma.
+      NotificationJob.perform_later(@recipients,sender_user, receiver_user,shipment_email,cadet_to_send, shipment_payment_type, url_image)
+                                                                                         ^
+shipments_controller.rb:121:33: C: Surrounding space missing for operator +.
+      redirect_to shipments_path+"?cadetId="+logged_cadet.to_s+"&Authorization=#{@token}"
+                                ^
+shipments_controller.rb:121:34: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      redirect_to shipments_path+"?cadetId="+logged_cadet.to_s+"&Authorization=#{@token}"
+                                 ^^^^^^^^^^^
+shipments_controller.rb:121:45: C: Surrounding space missing for operator +.
+      redirect_to shipments_path+"?cadetId="+logged_cadet.to_s+"&Authorization=#{@token}"
+                                            ^
+shipments_controller.rb:121:63: C: Surrounding space missing for operator +.
+      redirect_to shipments_path+"?cadetId="+logged_cadet.to_s+"&Authorization=#{@token}"
+                                                              ^
+shipments_controller.rb:121:81: C: Line is too long. [89/80]
+      redirect_to shipments_path+"?cadetId="+logged_cadet.to_s+"&Authorization=#{@token}"
+                                                                                ^^^^^^^^^
+shipments_controller.rb:125:21: C: Surrounding space missing for operator =.
+      flash[:notice]="No tiene los permisos para confirmar el envio"
+                    ^
+shipments_controller.rb:125:22: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      flash[:notice]="No tiene los permisos para confirmar el envio"
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:128:1: C: Extra empty line detected before the rescue.
+shipments_controller.rb:129:5: C: rescue at 129, 4 is not aligned with end at 132, 6.
+    rescue
+    ^^^^^^
+shipments_controller.rb:129:5: W: Avoid rescuing without specifying an error class.
+    rescue
+    ^^^^^^
+shipments_controller.rb:130:1: C: Extra empty line detected after the rescue.
+shipments_controller.rb:131:32: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      LogHelper.saveErrorInLog("Error: no se pudo confirmar el envio cuyos datos son: "+ @shipment.to_json)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:131:81: C: Line is too long. [107/80]
+      LogHelper.saveErrorInLog("Error: no se pudo confirmar el envio cuyos datos son: "+ @shipment.to_json)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:131:88: C: Surrounding space missing for operator +.
+      LogHelper.saveErrorInLog("Error: no se pudo confirmar el envio cuyos datos son: "+ @shipment.to_json)
+                                                                                       ^
+shipments_controller.rb:133:1: C: Extra empty line detected at method body end.
+shipments_controller.rb:137:1: C: Extra empty line detected at method body beginning.
+shipments_controller.rb:140:17: C: Surrounding space missing for operator =.
+    @shipment_id=params[:id]
+                ^
+shipments_controller.rb:141:1: C: Extra empty line detected at method body end.
+shipments_controller.rb:144:1: C: Extra blank line detected.
+shipments_controller.rb:145:1: C: Extra blank line detected.
+shipments_controller.rb:146:3: C: Use empty lines between method definitions.
+  def show_shipment_details
+  ^^^
+shipments_controller.rb:146:3: C: Assignment Branch Condition size for show_shipment_details is too high. [16.16/15]
+  def show_shipment_details
+  ^^^
+shipments_controller.rb:146:3: C: Method has too many lines. [12/10]
+  def show_shipment_details ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:147:1: C: Extra empty line detected at method body beginning.
+shipments_controller.rb:150:16: C: Surrounding space missing for operator =.
+    shipment_id=params[:id].to_i
+               ^
+shipments_controller.rb:152:18: C: Surrounding space missing for operator =.
+    @logged_cadet=current_cadet['id']
+                 ^
+shipments_controller.rb:154:13: C: Surrounding space missing for operator =.
+    shipment=Shipment.getShipmentByIdAndCadet(@logged_cadet,shipment_id)
+            ^
+shipments_controller.rb:154:60: C: Space missing after comma.
+    shipment=Shipment.getShipmentByIdAndCadet(@logged_cadet,shipment_id)
+                                                           ^
+shipments_controller.rb:156:5: C: Space after keyword if is missing.
+    if(shipment)
+    ^^
+shipments_controller.rb:158:1: C: Extra blank line detected.
+shipments_controller.rb:159:19: C: Surrounding space missing for operator =.
+      @sender_user=ShipmentsHelper.get_user_by_id(shipment.user_sender_id)
+                  ^
+shipments_controller.rb:160:21: C: Surrounding space missing for operator =.
+      @receiver_user=ShipmentsHelper.get_user_by_id(shipment.user_receiver_id)
+                    ^
+shipments_controller.rb:161:16: C: Surrounding space missing for operator =.
+      @shipment=shipment
+               ^
+shipments_controller.rb:165:21: C: Surrounding space missing for operator =.
+      flash[:notice]="No tiene los permisos para ver los detalles de este envio"
+                    ^
+shipments_controller.rb:165:22: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      flash[:notice]="No tiene los permisos para ver los detalles de este envio"
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:167:1: C: Extra empty line detected at method body end.
+shipments_controller.rb:170:1: C: Extra blank line detected.
+shipments_controller.rb:171:3: C: Use empty lines between method definitions.
+  def show_cadet_shipments
+  ^^^
+shipments_controller.rb:171:3: C: Assignment Branch Condition size for show_cadet_shipments is too high. [20.15/15]
+  def show_cadet_shipments
+  ^^^
+shipments_controller.rb:171:3: C: Method has too many lines. [17/10]
+  def show_cadet_shipments ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:172:1: C: Extra empty line detected at method body beginning.
+shipments_controller.rb:173:25: C: Use || instead of or.
+    authenticate_cadet! or return
+                        ^^
+shipments_controller.rb:176:8: C: Don't use parentheses around the condition of an if.
+    if (current_cadet['id'].to_i==params[:cadetId].to_i)
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:176:33: C: Surrounding space missing for operator ==.
+    if (current_cadet['id'].to_i==params[:cadetId].to_i)
+                                ^^
+shipments_controller.rb:178:5: C: Use 2 (not 0) spaces for indentation.
+    @cadet=current_cadet
+    
+shipments_controller.rb:178:11: C: Surrounding space missing for operator =.
+    @cadet=current_cadet
+          ^
+shipments_controller.rb:180:14: C: Surrounding space missing for operator =.
+    shipments=Shipment.get_cadet_shipments(current_cadet['id'])
+             ^
+shipments_controller.rb:182:23: C: Surrounding space missing for operator =.
+    @pending_shipments=[]
+                      ^
+shipments_controller.rb:183:25: C: Surrounding space missing for operator =.
+    @delivered_shipments=[]
+                        ^
+shipments_controller.rb:186:1: C: Extra empty line detected at block body beginning.
+shipments_controller.rb:187:10: C: Don't use parentheses around the condition of an if.
+      if (s.delivered)
+         ^^^^^^^^^^^^^
+shipments_controller.rb:187:10: C: Don't use parentheses around a method call.
+      if (s.delivered)
+         ^^^^^^^^^^^^^
+shipments_controller.rb:192:1: C: Extra empty line detected at block body end.
+shipments_controller.rb:197:21: C: Surrounding space missing for operator =.
+      flash[:notice]="No tiene los permisos para ver los envios del cadete"
+                    ^
+shipments_controller.rb:197:22: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      flash[:notice]="No tiene los permisos para ver los envios del cadete"
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:199:5: W: end at 199, 4 is not aligned with def at 171, 2.
+    end
+    ^^^
+shipments_controller.rb:201:5: C: Inconsistent indentation detected.
+    def get_user_shipments ...
+    ^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:201:9: C: Do not prefix reader method names with get_.
+    def get_user_shipments
+        ^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:208:1: C: Extra blank line detected.
+shipments_controller.rb:209:3: C: Use empty lines between method definitions.
+  def shipment_params
+  ^^^
+shipments_controller.rb:210:81: C: Line is too long. [83/80]
+    params.require(:shipment).permit(:origin_postal_code, :destination_postal_code,
+                                                                                ^^^
+shipments_controller.rb:211:34: C: Align the parameters of a method call if they span more than one line.
+                                 :cadet_id, :estimated_price,:price,:payed_by,:package_weight,:origin_address,:destination_address,
+                                 ^^^^^^^^^
+shipments_controller.rb:211:61: C: Space missing after comma.
+                                 :cadet_id, :estimated_price,:price,:payed_by,:package_weight,:origin_address,:destination_address,
+                                                            ^
+shipments_controller.rb:211:68: C: Space missing after comma.
+                                 :cadet_id, :estimated_price,:price,:payed_by,:package_weight,:origin_address,:destination_address,
+                                                                   ^
+shipments_controller.rb:211:78: C: Space missing after comma.
+                                 :cadet_id, :estimated_price,:price,:payed_by,:package_weight,:origin_address,:destination_address,
+                                                                             ^
+shipments_controller.rb:211:81: C: Line is too long. [131/80]
+                                 :cadet_id, :estimated_price,:price,:payed_by,:package_weight,:origin_address,:destination_address,
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:211:94: C: Space missing after comma.
+                                 :cadet_id, :estimated_price,:price,:payed_by,:package_weight,:origin_address,:destination_address,
+                                                                                             ^
+shipments_controller.rb:211:110: C: Space missing after comma.
+                                 :cadet_id, :estimated_price,:price,:payed_by,:package_weight,:origin_address,:destination_address,
+                                                                                                             ^
+shipments_controller.rb:212:35: C: Align the parameters of a method call if they span more than one line.
+                                  :Authorization)
+                                  ^^^^^^^^^^^^^^
+shipments_controller.rb:221:5: C: Inconsistent indentation detected.
+    def resolve_format(obj) ...
+    ^^^^^^^^^^^^^^^^^^^^^^^
+shipments_controller.rb:223:32: C: Use the new Ruby 1.9 hash syntax.
+          format.json { render :json => obj }
+                               ^^^^^^^^
+shipments_controller.rb:224:9: W: end at 224, 8 is not aligned with respond_to do |format| at 222, 6.
+        end
+        ^^^
+shipments_controller.rb:225:3: W: end at 225, 2 is not aligned with def at 221, 4.
+  end
+  ^^^
+shipments_controller.rb:226:1: C: Extra empty line detected at class body end.
+shipments_controller.rb:227:4: C: Final newline missing.
+end
+   
+
+3 files inspected, 261 offenses detected

@@ -1,0 +1,2 @@
+9999 /proc/sys/fs/inotify/max_user_instances
+fs.inotify.max_user_instances = 9999 /etc/sysctl.conf

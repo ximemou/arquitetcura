@@ -1,0 +1,15 @@
+---
+stack: cflinuxfs2
+buildpack: "https://github.com/cloudfoundry/ruby-buildpack.git#v1.7.3"
+services:
+- cadets-postgres-db
+applications:
+- name: enviosya-cadets-moure-puricelli
+  instances: 1
+  memory: 128M
+  disk_quota: 1024M
+  routes:
+  - route: enviosya-cadets-moure-puricelli.mybluemix.net
+  command: rake db:migrate && rails server -p $PORT
+  services:
+  - availability-monitoring-auto

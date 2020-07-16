@@ -1,0 +1,178 @@
+Inspecting 2 files
+CC
+
+Offenses:
+
+mailer_controller.rb:1:1: C: Missing top-level class documentation comment.
+class MailerController < ApplicationController
+^^^^^
+mailer_controller.rb:2:1: C: Use 2 (not 1) spaces for indentation.
+	skip_before_action :verify_authenticity_token
+^
+mailer_controller.rb:2:1: C: Tab detected.
+	skip_before_action :verify_authenticity_token
+^
+mailer_controller.rb:4:1: C: Tab detected.
+	def send_invitation
+^
+mailer_controller.rb:5:1: C: Tab detected.
+		email_from = params[:email_from]
+^^
+mailer_controller.rb:5:2: C: Use 2 (not 1) spaces for indentation.
+		email_from = params[:email_from]
+ ^
+mailer_controller.rb:6:1: C: Tab detected.
+		email_to = params[:email_to]
+^^
+mailer_controller.rb:7:1: C: Tab detected.
+		name_from = params[:name_from]
+^^
+mailer_controller.rb:8:1: C: Tab detected.
+		lastname_from = params[:lastname_from]
+^^
+mailer_controller.rb:9:1: C: Tab detected.
+		InvitationMailer.send_invitation(email_to, name_from, lastname_from).deliver_later
+^^
+mailer_controller.rb:9:81: C: Line is too long. [84/80]
+		InvitationMailer.send_invitation(email_to, name_from, lastname_from).deliver_later
+                                                                                ^^^^
+mailer_controller.rb:10:1: C: Tab detected.
+		MailerHelper.create_discount(email_to, email_from)
+^^
+mailer_controller.rb:11:1: C: Tab detected.
+		LogHelper.saveInfoInLog("Info: Se envio un mail de invitacion a #{email_to}")
+^^
+mailer_controller.rb:12:1: C: Tab detected.
+		redirect_to "#{ENV['USERS_URL']}users"
+^^
+mailer_controller.rb:13:1: C: Tab detected.
+	end
+^
+mailer_controller.rb:15:1: C: Tab detected.
+	def send_status_notification
+^
+mailer_controller.rb:16:1: C: Tab detected.
+		cadet_email = params[:email] 
+^^
+mailer_controller.rb:16:2: C: Use 2 (not 1) spaces for indentation.
+		cadet_email = params[:email] 
+ ^
+mailer_controller.rb:16:31: C: Trailing whitespace detected.
+		cadet_email = params[:email] 
+                              ^
+mailer_controller.rb:17:1: C: Tab detected.
+		accepted = params[:accepted]
+^^
+mailer_controller.rb:18:1: C: Tab detected.
+		accepted_bool = MailerHelper.convert_to_bool(accepted)
+^^
+mailer_controller.rb:19:1: C: Tab detected.
+		CadetMailer.send_status_notification(cadet_email, accepted_bool).deliver_later
+^^
+mailer_controller.rb:20:1: C: Tab detected.
+		LogHelper.saveInfoInLog("Info: Se envio un mail de notificacion a #{cadet_email}")
+^^
+mailer_controller.rb:20:81: C: Line is too long. [84/80]
+		LogHelper.saveInfoInLog("Info: Se envio un mail de notificacion a #{cadet_email}")
+                                                                                ^^^^
+mailer_controller.rb:21:1: C: Tab detected.
+	end
+^
+mailer_controller.rb:23:1: C: Tab detected.
+	def send_price_notification_email
+^
+mailer_controller.rb:24:1: C: Tab detected.
+		email_to = params[:email_to]
+^^
+mailer_controller.rb:24:2: C: Use 2 (not 1) spaces for indentation.
+		email_to = params[:email_to]
+ ^
+mailer_controller.rb:25:1: C: Tab detected.
+		shipment = JSON.parse(request.raw_post)['shipment']
+^^
+mailer_controller.rb:26:1: C: Tab detected.
+		PriceMailer.send_price_notification_email(email_to, shipment).deliver_later
+^^
+mailer_controller.rb:27:1: C: Tab detected.
+		LogHelper.saveInfoInLog("Info: Se envio un mail de actualizacion de precio a #{email_to}")
+^^
+mailer_controller.rb:27:81: C: Line is too long. [92/80]
+		LogHelper.saveInfoInLog("Info: Se envio un mail de actualizacion de precio a #{email_to}")
+                                                                                ^^^^^^^^^^^^
+mailer_controller.rb:28:1: C: Tab detected.
+	end
+^
+mailer_controller.rb:30:1: C: Tab detected.
+	def send_confirmation_mail
+^
+mailer_controller.rb:30:2: C: Assignment Branch Condition size for send_confirmation_mail is too high. [32.76/15]
+	def send_confirmation_mail
+ ^^^
+mailer_controller.rb:31:1: C: Extra empty line detected at method body beginning.
+mailer_controller.rb:32:1: C: Tab detected.
+		recipients =  JSON.parse(request.raw_post)['recipients']
+^^
+mailer_controller.rb:32:2: C: Use 2 (not 1) spaces for indentation.
+		recipients =  JSON.parse(request.raw_post)['recipients']
+ ^
+mailer_controller.rb:32:14: C: Operator = should be surrounded by a single space.
+		recipients =  JSON.parse(request.raw_post)['recipients']
+             ^
+mailer_controller.rb:32:15: C: Unnecessary spacing detected.
+		recipients =  JSON.parse(request.raw_post)['recipients']
+              ^
+mailer_controller.rb:33:1: C: Tab detected.
+		sender_user =  JSON.parse(request.raw_post)['sender_user']
+^^
+mailer_controller.rb:33:15: C: Operator = should be surrounded by a single space.
+		sender_user =  JSON.parse(request.raw_post)['sender_user']
+              ^
+mailer_controller.rb:33:16: C: Unnecessary spacing detected.
+		sender_user =  JSON.parse(request.raw_post)['sender_user']
+               ^
+mailer_controller.rb:34:1: C: Tab detected.
+		receiver_user =  JSON.parse(request.raw_post)['receiver_user']
+^^
+mailer_controller.rb:35:1: C: Tab detected.
+		shipment_details = JSON.parse(request.raw_post)['shipment']
+^^
+mailer_controller.rb:36:1: C: Tab detected.
+		cadet =  JSON.parse(request.raw_post)['cadet']
+^^
+mailer_controller.rb:37:1: C: Tab detected.
+		payed_by =  JSON.parse(request.raw_post)['payed_by']
+^^
+mailer_controller.rb:38:1: C: Tab detected.
+		url_image = JSON.parse(request.raw_post)['url_image']
+^^
+mailer_controller.rb:40:1: C: Tab detected.
+		ConfirmationMailer.send_confirmation_mail(recipients,sender_user,receiver_user, shipment_details,cadet, payed_by, url_image).deliver_later
+^^
+mailer_controller.rb:40:55: C: Space missing after comma.
+		ConfirmationMailer.send_confirmation_mail(recipients,sender_user,receiver_user, shipment_details,cadet, payed_by, url_image).deliver_later
+                                                      ^
+mailer_controller.rb:40:67: C: Space missing after comma.
+		ConfirmationMailer.send_confirmation_mail(recipients,sender_user,receiver_user, shipment_details,cadet, payed_by, url_image).deliver_later
+                                                                  ^
+mailer_controller.rb:40:81: C: Line is too long. [140/80]
+		ConfirmationMailer.send_confirmation_mail(recipients,sender_user,receiver_user, shipment_details,cadet, payed_by, url_image).deliver_later
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mailer_controller.rb:40:99: C: Space missing after comma.
+		ConfirmationMailer.send_confirmation_mail(recipients,sender_user,receiver_user, shipment_details,cadet, payed_by, url_image).deliver_later
+                                                                                                  ^
+mailer_controller.rb:41:1: C: Tab detected.
+		LogHelper.saveInfoInLog("Info: Se envio un mail de confirmacion de envio a #{recipients.to_json}")
+^^
+mailer_controller.rb:41:81: C: Line is too long. [100/80]
+		LogHelper.saveInfoInLog("Info: Se envio un mail de confirmacion de envio a #{recipients.to_json}")
+                                                                                ^^^^^^^^^^^^^^^^^^^^
+mailer_controller.rb:42:1: C: Tab detected.
+	end
+^
+mailer_controller.rb:43:1: C: Extra empty line detected at class body end.
+mailer_controller.rb:45:1: C: 2 trailing blank lines detected.
+application_controller.rb:1:1: C: Missing top-level class documentation comment.
+class ApplicationController < ActionController::Base
+^^^^^
+
+2 files inspected, 59 offenses detected

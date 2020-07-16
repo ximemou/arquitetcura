@@ -1,0 +1,76 @@
+<html>
+   
+   <head>
+      <meta content = 'text/html; charset = UTF-8' http-equiv = 'Content-Type' />
+   </head>
+   
+   <body>
+      <h1>EnviosYa</h1>
+      <h2>Recibo</h2>
+      
+      <p>
+         Envio Nro.<%= @shipment_details['id'] %>
+      </p>
+
+
+
+      <p>
+        Remitente: <%= @sender_user['name'] %>  <%= @sender_user['lastname'] %>
+
+      </p>
+
+
+      <p>
+       Destinatario: <%= @receiver_user['name'] %> <%= @receiver_user['lastname'] %>
+
+      </p>
+
+      <p>
+        Cadete que realizo el envio: <%= @cadet['name'] %> <%= @cadet['lastname'] %>
+      </p>
+
+      <p>
+        Hora solicitud de envio: <%= @shipment_details['shipment_solicitude_time']%>
+      </p>
+
+        <p>
+         Hora de recepcion: <%= @shipment_details['shipment_delivery_time'] %>
+
+      </p>
+
+      <p>
+         Direccion de origen: <%= @shipment_details['origin_address'] %>
+      </p>
+
+       <p>
+         Direccion de destino: <%= @shipment_details['destination_address'] %>
+      </p>
+
+
+      <p>
+        <% if @shipment_details['applies_discount'] %>
+
+           Precio final con el descuento del <%= @discount %> es <%= @shipment_details['price']%>
+
+         <%else %>
+
+        Precio final: <%= @shipment_details['price']%>
+
+        <% end %>
+
+      </p>
+
+   <p>
+     <%= @payed_by %>
+   </p>
+
+   <p>
+     Firma del destinatario: <br>
+
+     <img src="<%= @url_img %>" class="img-rounded" width="500" height="400">
+
+   </p>
+
+      
+   </body>
+</html>

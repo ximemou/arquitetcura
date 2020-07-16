@@ -1,0 +1,1164 @@
+Inspecting 4 files
+WCWC
+
+Offenses:
+
+shipments_helper.rb:1:1: C: Module has too many lines. [133/100]
+module ShipmentsHelper ...
+^^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:1:1: C: Missing top-level module documentation comment.
+module ShipmentsHelper
+^^^^^^
+shipments_helper.rb:2:1: C: Extra empty line detected at module body beginning.
+shipments_helper.rb:3:1: C: Extra blank line detected.
+shipments_helper.rb:4:3: C: Method has too many lines. [15/10]
+  def self.validate_user(token, user_role) ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:5:3: C: Use 2 (not 4) spaces for indentation.
+      response= RestClient::Request.new(
+  ^^^^
+shipments_helper.rb:5:15: C: Surrounding space missing for operator =.
+      response= RestClient::Request.new(
+              ^
+shipments_helper.rb:6:11: C: Indent the first parameter one step more than the start of the previous line.
+          :method => :get, ...
+          ^^^^^^^^^^^^^^^^
+shipments_helper.rb:6:11: C: Use the new Ruby 1.9 hash syntax.
+          :method => :get,
+          ^^^^^^^^^^
+shipments_helper.rb:7:11: C: Use the new Ruby 1.9 hash syntax.
+          :url => "#{ENV['SESSIONS_URL']}sessions",
+          ^^^^^^^
+shipments_helper.rb:8:11: C: Use the new Ruby 1.9 hash syntax.
+          :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+          ^^^^^^^^^^^
+shipments_helper.rb:8:24: C: Space inside { missing.
+          :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                       ^
+shipments_helper.rb:8:25: C: Use the new Ruby 1.9 hash syntax.
+          :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                        ^^^^^^^^^^
+shipments_helper.rb:8:56: C: Use the new Ruby 1.9 hash syntax.
+          :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                       ^^^^^^^^^^^^^^^^
+shipments_helper.rb:8:80: C: Use the new Ruby 1.9 hash syntax.
+          :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                               ^^^^^^^^^^^^^^^^^
+shipments_helper.rb:8:81: C: Line is too long. [103/80]
+          :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:8:103: C: Space inside } missing.
+          :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                                                      ^
+shipments_helper.rb:11:7: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+      if response.to_str != 'null'
+      ^^
+shipments_helper.rb:15:9: C: Space after keyword if is missing.
+        if(session && session['role']== user_role)
+        ^^
+shipments_helper.rb:15:9: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+        if(session && session['role']== user_role)
+        ^^
+shipments_helper.rb:15:38: C: Surrounding space missing for operator ==.
+        if(session && session['role']== user_role)
+                                     ^^
+shipments_helper.rb:19:9: C: Use 2 (not 3) spaces for indentation.
+           return session
+        ^^^
+shipments_helper.rb:20:10: W: end at 20, 9 is not aligned with if at 15, 8.
+         end
+         ^^^
+shipments_helper.rb:28:13: C: Surrounding space missing for operator =.
+    response= RestClient::Request.new(
+            ^
+shipments_helper.rb:29:9: C: Indent the first parameter one step more than the start of the previous line.
+        :method => :get, ...
+        ^^^^^^^^^^^^^^^^
+shipments_helper.rb:29:9: C: Use the new Ruby 1.9 hash syntax.
+        :method => :get,
+        ^^^^^^^^^^
+shipments_helper.rb:30:9: C: Use the new Ruby 1.9 hash syntax.
+        :url => "#{ENV['USERS_URL']}users/emails",
+        ^^^^^^^
+shipments_helper.rb:31:9: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+        ^^^^^^^^^^^
+shipments_helper.rb:31:22: C: Space inside { missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                     ^
+shipments_helper.rb:31:23: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                      ^^^^^^^^^^
+shipments_helper.rb:31:54: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                     ^^^^^^^^^^^^^^^^
+shipments_helper.rb:31:78: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                             ^^^^^^^^^^^^^^^^^
+shipments_helper.rb:31:81: C: Line is too long. [101/80]
+        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                                ^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:31:101: C: Space inside } missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                                                    ^
+shipments_helper.rb:34:5: C: Redundant return detected.
+    return users
+    ^^^^^^
+shipments_helper.rb:38:13: C: Surrounding space missing for operator =.
+    response= RestClient::Request.new(
+            ^
+shipments_helper.rb:39:9: C: Indent the first parameter one step more than the start of the previous line.
+        :method => :get, ...
+        ^^^^^^^^^^^^^^^^
+shipments_helper.rb:39:9: C: Use the new Ruby 1.9 hash syntax.
+        :method => :get,
+        ^^^^^^^^^^
+shipments_helper.rb:40:9: C: Use the new Ruby 1.9 hash syntax.
+        :url => "#{ENV['USERS_URL']}users/email?email=#{user_receiver_email}",
+        ^^^^^^^
+shipments_helper.rb:41:9: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+        ^^^^^^^^^^^
+shipments_helper.rb:41:22: C: Space inside { missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                     ^
+shipments_helper.rb:41:23: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                      ^^^^^^^^^^
+shipments_helper.rb:41:54: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                     ^^^^^^^^^^^^^^^^
+shipments_helper.rb:41:78: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                             ^^^^^^^^^^^^^^^^^
+shipments_helper.rb:41:81: C: Line is too long. [101/80]
+        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                                ^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:41:101: C: Space inside } missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json, :Authorization => token}
+                                                                                                    ^
+shipments_helper.rb:44:5: C: Redundant return detected.
+    return user
+    ^^^^^^
+shipments_helper.rb:47:12: C: Do not prefix reader method names with get_.
+  def self.get_discount
+           ^^^^^^^^^^^^
+shipments_helper.rb:48:13: C: Surrounding space missing for operator =.
+    response= RestClient::Request.new(
+            ^
+shipments_helper.rb:49:9: C: Indent the first parameter one step more than the start of the previous line.
+        :method => :get, ...
+        ^^^^^^^^^^^^^^^^
+shipments_helper.rb:49:9: C: Use the new Ruby 1.9 hash syntax.
+        :method => :get,
+        ^^^^^^^^^^
+shipments_helper.rb:50:9: C: Use the new Ruby 1.9 hash syntax.
+        :url => "#{ENV['DISCOUNTS_URL']}discounts",
+        ^^^^^^^
+shipments_helper.rb:51:9: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+        ^^^^^^^^^^^
+shipments_helper.rb:51:22: C: Space inside { missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                     ^
+shipments_helper.rb:51:23: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                      ^^^^^^^^^^
+shipments_helper.rb:51:54: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                     ^^^^^^^^^^^^^^^^
+shipments_helper.rb:51:76: C: Space inside } missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                                           ^
+shipments_helper.rb:54:5: C: Redundant return detected.
+    return discount.to_i
+    ^^^^^^
+shipments_helper.rb:57:12: C: Rename has_discount to discount?.
+  def self.has_discount(email)
+           ^^^^^^^^^^^^
+shipments_helper.rb:58:13: C: Surrounding space missing for operator =.
+    response= RestClient::Request.new(
+            ^
+shipments_helper.rb:59:9: C: Indent the first parameter one step more than the start of the previous line.
+        :method => :get, ...
+        ^^^^^^^^^^^^^^^^
+shipments_helper.rb:59:9: C: Use the new Ruby 1.9 hash syntax.
+        :method => :get,
+        ^^^^^^^^^^
+shipments_helper.rb:60:9: C: Use the new Ruby 1.9 hash syntax.
+        :url => "#{ENV['DISCOUNTS_URL']}discounts/hasDiscount?email=#{email}",
+        ^^^^^^^
+shipments_helper.rb:61:9: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+        ^^^^^^^^^^^
+shipments_helper.rb:61:22: C: Space inside { missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                     ^
+shipments_helper.rb:61:23: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                      ^^^^^^^^^^
+shipments_helper.rb:61:54: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                     ^^^^^^^^^^^^^^^^
+shipments_helper.rb:61:76: C: Space inside } missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                                           ^
+shipments_helper.rb:65:5: C: Redundant return detected.
+    return discount_bool
+    ^^^^^^
+shipments_helper.rb:69:13: C: Surrounding space missing for operator =.
+    response= RestClient::Request.new(
+            ^
+shipments_helper.rb:70:9: C: Indent the first parameter one step more than the start of the previous line.
+        :method => :put, ...
+        ^^^^^^^^^^^^^^^^
+shipments_helper.rb:70:9: C: Use the new Ruby 1.9 hash syntax.
+        :method => :put,
+        ^^^^^^^^^^
+shipments_helper.rb:71:9: C: Use the new Ruby 1.9 hash syntax.
+        :url => "#{ENV['DISCOUNTS_URL']}discounts/verifyDiscount?email=#{email}",
+        ^^^^^^^
+shipments_helper.rb:71:81: C: Line is too long. [81/80]
+        :url => "#{ENV['DISCOUNTS_URL']}discounts/verifyDiscount?email=#{email}",
+                                                                                ^
+shipments_helper.rb:72:9: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+        ^^^^^^^^^^^
+shipments_helper.rb:72:22: C: Space inside { missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                     ^
+shipments_helper.rb:72:23: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                      ^^^^^^^^^^
+shipments_helper.rb:72:54: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                     ^^^^^^^^^^^^^^^^
+shipments_helper.rb:72:76: C: Space inside } missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                                           ^
+shipments_helper.rb:76:5: C: Redundant return detected.
+    return discount_bool
+    ^^^^^^
+shipments_helper.rb:80:13: C: Surrounding space missing for operator =.
+    response= RestClient::Request.new(
+            ^
+shipments_helper.rb:81:9: C: Indent the first parameter one step more than the start of the previous line.
+        :method => :get, ...
+        ^^^^^^^^^^^^^^^^
+shipments_helper.rb:81:9: C: Use the new Ruby 1.9 hash syntax.
+        :method => :get,
+        ^^^^^^^^^^
+shipments_helper.rb:82:9: C: Use the new Ruby 1.9 hash syntax.
+        :url => "#{ENV['DISCOUNTS_URL']}discounts/calculatePrice?price=#{price}",
+        ^^^^^^^
+shipments_helper.rb:82:81: C: Line is too long. [81/80]
+        :url => "#{ENV['DISCOUNTS_URL']}discounts/calculatePrice?price=#{price}",
+                                                                                ^
+shipments_helper.rb:83:9: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+        ^^^^^^^^^^^
+shipments_helper.rb:83:22: C: Space inside { missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                     ^
+shipments_helper.rb:83:23: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                      ^^^^^^^^^^
+shipments_helper.rb:83:54: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                     ^^^^^^^^^^^^^^^^
+shipments_helper.rb:83:76: C: Space inside } missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                                           ^
+shipments_helper.rb:86:5: C: Redundant return detected.
+    return price_with_discount.to_f
+    ^^^^^^
+shipments_helper.rb:90:13: C: Surrounding space missing for operator =.
+    response= RestClient::Request.new(
+            ^
+shipments_helper.rb:91:9: C: Indent the first parameter one step more than the start of the previous line.
+        :method => :get, ...
+        ^^^^^^^^^^^^^^^^
+shipments_helper.rb:91:9: C: Use the new Ruby 1.9 hash syntax.
+        :method => :get,
+        ^^^^^^^^^^
+shipments_helper.rb:92:9: C: Use the new Ruby 1.9 hash syntax.
+        :url => "#{ENV['USERS_URL']}users/#{id}",
+        ^^^^^^^
+shipments_helper.rb:93:9: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+        ^^^^^^^^^^^
+shipments_helper.rb:93:22: C: Space inside { missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                     ^
+shipments_helper.rb:93:23: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                      ^^^^^^^^^^
+shipments_helper.rb:93:54: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                     ^^^^^^^^^^^^^^^^
+shipments_helper.rb:93:76: C: Space inside } missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                                           ^
+shipments_helper.rb:96:5: C: Redundant return detected.
+    return user
+    ^^^^^^
+shipments_helper.rb:100:13: C: Surrounding space missing for operator =.
+    response= RestClient::Request.new(
+            ^
+shipments_helper.rb:101:9: C: Indent the first parameter one step more than the start of the previous line.
+        :method => :get, ...
+        ^^^^^^^^^^^^^^^^
+shipments_helper.rb:101:9: C: Use the new Ruby 1.9 hash syntax.
+        :method => :get,
+        ^^^^^^^^^^
+shipments_helper.rb:102:9: C: Use the new Ruby 1.9 hash syntax.
+        :url => "#{ENV['CADETS_URL']}cadets/#{id}",
+        ^^^^^^^
+shipments_helper.rb:103:9: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+        ^^^^^^^^^^^
+shipments_helper.rb:103:22: C: Space inside { missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                     ^
+shipments_helper.rb:103:23: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                      ^^^^^^^^^^
+shipments_helper.rb:103:54: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                     ^^^^^^^^^^^^^^^^
+shipments_helper.rb:103:76: C: Space inside } missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                                           ^
+shipments_helper.rb:106:5: C: Redundant return detected.
+    return cadet
+    ^^^^^^
+shipments_helper.rb:109:1: C: Extra blank line detected.
+shipments_helper.rb:110:3: C: Use empty lines between method definitions.
+  def self.convert_cadet(id)
+  ^^^
+shipments_helper.rb:111:13: C: Surrounding space missing for operator =.
+    response= RestClient::Request.new(
+            ^
+shipments_helper.rb:112:9: C: Indent the first parameter one step more than the start of the previous line.
+        :method => :get, ...
+        ^^^^^^^^^^^^^^^^
+shipments_helper.rb:112:9: C: Use the new Ruby 1.9 hash syntax.
+        :method => :get,
+        ^^^^^^^^^^
+shipments_helper.rb:113:9: C: Use the new Ruby 1.9 hash syntax.
+        :url => "#{ENV['CADETS_URL']}cadets/#{id}/convert",
+        ^^^^^^^
+shipments_helper.rb:114:9: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+        ^^^^^^^^^^^
+shipments_helper.rb:114:22: C: Space inside { missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                     ^
+shipments_helper.rb:114:23: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                      ^^^^^^^^^^
+shipments_helper.rb:114:54: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                     ^^^^^^^^^^^^^^^^
+shipments_helper.rb:114:76: C: Space inside } missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                                           ^
+shipments_helper.rb:117:5: C: Redundant return detected.
+    return cadet
+    ^^^^^^
+shipments_helper.rb:120:1: C: Extra blank line detected.
+shipments_helper.rb:121:3: C: Use empty lines between method definitions.
+  def self.update_cadet_location(id, lat, lng)
+  ^^^
+shipments_helper.rb:122:5: W: Useless assignment to variable - response.
+    response= RestClient::Request.new(
+    ^^^^^^^^
+shipments_helper.rb:122:13: C: Surrounding space missing for operator =.
+    response= RestClient::Request.new(
+            ^
+shipments_helper.rb:123:9: C: Indent the first parameter one step more than the start of the previous line.
+        :method => :put, ...
+        ^^^^^^^^^^^^^^^^
+shipments_helper.rb:123:9: C: Use the new Ruby 1.9 hash syntax.
+        :method => :put,
+        ^^^^^^^^^^
+shipments_helper.rb:124:9: C: Use the new Ruby 1.9 hash syntax.
+        :url => "#{ENV['CADETS_URL']}cadets/#{id}?latitude=#{lat}&longitude=#{lng}",
+        ^^^^^^^
+shipments_helper.rb:124:81: C: Line is too long. [84/80]
+        :url => "#{ENV['CADETS_URL']}cadets/#{id}?latitude=#{lat}&longitude=#{lng}",
+                                                                                ^^^^
+shipments_helper.rb:125:9: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+        ^^^^^^^^^^^
+shipments_helper.rb:125:22: C: Space inside { missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                     ^
+shipments_helper.rb:125:23: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                      ^^^^^^^^^^
+shipments_helper.rb:125:54: C: Use the new Ruby 1.9 hash syntax.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                     ^^^^^^^^^^^^^^^^
+shipments_helper.rb:125:76: C: Space inside } missing.
+        :headers =>  {:accept => 'application/json', :content_type => :json}
+                                                                           ^
+shipments_helper.rb:130:1: C: Extra empty line detected at method body beginning.
+shipments_helper.rb:131:3: C: Use 2 (not 4) spaces for indentation.
+      response = RestClient.post "#{ENV['NOTIFICATIONS_URL']}mailer/price_notification?email_to=#{email}",
+  ^^^^
+shipments_helper.rb:131:7: W: Useless assignment to variable - response.
+      response = RestClient.post "#{ENV['NOTIFICATIONS_URL']}mailer/price_notification?email_to=#{email}",
+      ^^^^^^^^
+shipments_helper.rb:131:81: C: Line is too long. [106/80]
+      response = RestClient.post "#{ENV['NOTIFICATIONS_URL']}mailer/price_notification?email_to=#{email}",
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:132:9: C: Align the parameters of a method call if they span more than one line.
+        {"shipment" => shipment}.to_json,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:132:9: C: Space inside { missing.
+        {"shipment" => shipment}.to_json,
+        ^
+shipments_helper.rb:132:10: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        {"shipment" => shipment}.to_json,
+         ^^^^^^^^^^
+shipments_helper.rb:132:32: C: Space inside } missing.
+        {"shipment" => shipment}.to_json,
+                               ^
+shipments_helper.rb:133:9: C: Align the parameters of a method call if they span more than one line.
+        {accept: 'application/json', ...
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:133:9: C: Space inside { missing.
+        {accept: 'application/json',
+        ^
+shipments_helper.rb:133:9: C: Redundant curly braces around a hash parameter.
+        {accept: 'application/json', ...
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:134:9: C: Align the elements of a hash literal if they span more than one line.
+        content_type: :json}
+        ^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:134:28: C: Space inside } missing.
+        content_type: :json}
+                           ^
+shipments_helper.rb:137:34: C: Avoid parameter lists longer than 5 parameters. [7/5]
+  def self.send_confirmation_mail(recipients,sender_user, receiver_user,shipment_email,cadet_to_send, shipment_payment_type, url_image)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:137:45: C: Space missing after comma.
+  def self.send_confirmation_mail(recipients,sender_user, receiver_user,shipment_email,cadet_to_send, shipment_payment_type, url_image)
+                                            ^
+shipments_helper.rb:137:72: C: Space missing after comma.
+  def self.send_confirmation_mail(recipients,sender_user, receiver_user,shipment_email,cadet_to_send, shipment_payment_type, url_image)
+                                                                       ^
+shipments_helper.rb:137:81: C: Line is too long. [135/80]
+  def self.send_confirmation_mail(recipients,sender_user, receiver_user,shipment_email,cadet_to_send, shipment_payment_type, url_image)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:137:87: C: Space missing after comma.
+  def self.send_confirmation_mail(recipients,sender_user, receiver_user,shipment_email,cadet_to_send, shipment_payment_type, url_image)
+                                                                                      ^
+shipments_helper.rb:138:1: C: Extra empty line detected at method body beginning.
+shipments_helper.rb:139:3: C: Use 2 (not 4) spaces for indentation.
+      response = RestClient.post "#{ENV['NOTIFICATIONS_URL']}mailer/shipment_confirmation",
+  ^^^^
+shipments_helper.rb:139:7: W: Useless assignment to variable - response.
+      response = RestClient.post "#{ENV['NOTIFICATIONS_URL']}mailer/shipment_confirmation",
+      ^^^^^^^^
+shipments_helper.rb:139:81: C: Line is too long. [91/80]
+      response = RestClient.post "#{ENV['NOTIFICATIONS_URL']}mailer/shipment_confirmation",
+                                                                                ^^^^^^^^^^^
+shipments_helper.rb:140:9: C: Align the parameters of a method call if they span more than one line.
+        {"recipients" => recipients,  ...
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:140:9: C: Space inside { missing.
+        {"recipients" => recipients, 
+        ^
+shipments_helper.rb:140:10: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        {"recipients" => recipients, 
+         ^^^^^^^^^^^^
+shipments_helper.rb:140:37: C: Trailing whitespace detected.
+        {"recipients" => recipients, 
+                                    ^
+shipments_helper.rb:141:11: C: Align the elements of a hash literal if they span more than one line.
+          "sender_user" => sender_user,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:141:11: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+          "sender_user" => sender_user,
+          ^^^^^^^^^^^^^
+shipments_helper.rb:142:11: C: Align the elements of a hash literal if they span more than one line.
+          "receiver_user" => receiver_user,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:142:11: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+          "receiver_user" => receiver_user,
+          ^^^^^^^^^^^^^^^
+shipments_helper.rb:143:11: C: Align the elements of a hash literal if they span more than one line.
+          "shipment" => shipment_email,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:143:11: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+          "shipment" => shipment_email,
+          ^^^^^^^^^^
+shipments_helper.rb:144:11: C: Align the elements of a hash literal if they span more than one line.
+          "cadet" => cadet_to_send,
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:144:11: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+          "cadet" => cadet_to_send,
+          ^^^^^^^
+shipments_helper.rb:145:11: C: Align the elements of a hash literal if they span more than one line.
+          "payed_by" => shipment_payment_type,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:145:11: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+          "payed_by" => shipment_payment_type,
+          ^^^^^^^^^^
+shipments_helper.rb:146:11: C: Align the elements of a hash literal if they span more than one line.
+          "url_image" => url_image}.to_json,
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:146:11: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+          "url_image" => url_image}.to_json,
+          ^^^^^^^^^^^
+shipments_helper.rb:146:35: C: Space inside } missing.
+          "url_image" => url_image}.to_json,
+                                  ^
+shipments_helper.rb:147:9: C: Align the parameters of a method call if they span more than one line.
+        {accept: 'application/json', ...
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:147:9: C: Space inside { missing.
+        {accept: 'application/json',
+        ^
+shipments_helper.rb:147:9: C: Redundant curly braces around a hash parameter.
+        {accept: 'application/json', ...
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:148:9: C: Align the elements of a hash literal if they span more than one line.
+        content_type: :json}
+        ^^^^^^^^^^^^^^^^^^^
+shipments_helper.rb:148:28: C: Space inside } missing.
+        content_type: :json}
+                           ^
+shipments_helper.rb:149:1: C: Extra empty line detected at method body end.
+shipments_helper.rb:152:1: C: Extra blank line detected.
+shipments_helper.rb:153:3: C: Use empty lines between method definitions.
+  def self.convert_to_bool(data)
+  ^^^
+shipments_helper.rb:154:1: C: Extra empty line detected at method body beginning.
+shipments_helper.rb:155:5: C: Space after keyword if is missing.
+    if(data == 'true')
+    ^^
+shipments_helper.rb:155:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if(data == 'true')
+    ^^
+shipments_helper.rb:156:7: C: Redundant return detected.
+      return true
+      ^^^^^^
+shipments_helper.rb:158:7: C: Redundant return detected.
+      return false
+      ^^^^^^
+shipments_helper.rb:161:1: C: Extra empty line detected at module body end.
+log_helper.rb:2:1: C: Missing top-level module documentation comment.
+module LogHelper
+^^^^^^
+log_helper.rb:3:1: C: Extra empty line detected at module body beginning.
+log_helper.rb:4:12: C: Use snake_case for method names.
+  def self.saveInfoInLog(message)
+           ^^^^^^^^^^^^^
+log_helper.rb:6:1: C: Extra empty line detected at method body end.
+log_helper.rb:9:12: C: Use snake_case for method names.
+  def self.saveErrorInLog(message)
+           ^^^^^^^^^^^^^^
+log_helper.rb:10:1: C: Extra empty line detected at method body beginning.
+log_helper.rb:14:1: C: Extra blank line detected.
+log_helper.rb:14:1: C: Extra empty line detected at module body end.
+log_helper.rb:15:4: C: Final newline missing.
+end
+   
+rates_helper.rb:1:1: C: Module has too many lines. [138/100]
+module RatesHelper ...
+^^^^^^^^^^^^^^^^^^
+rates_helper.rb:1:1: C: Missing top-level module documentation comment.
+module RatesHelper
+^^^^^^
+rates_helper.rb:2:1: C: Extra empty line detected at module body beginning.
+rates_helper.rb:3:12: C: Use snake_case for method names.
+  def self.getAreaId(areas,latitude,longitude)
+           ^^^^^^^^^
+rates_helper.rb:3:27: C: Space missing after comma.
+  def self.getAreaId(areas,latitude,longitude)
+                          ^
+rates_helper.rb:3:36: C: Space missing after comma.
+  def self.getAreaId(areas,latitude,longitude)
+                                   ^
+rates_helper.rb:4:1: C: Extra empty line detected at method body beginning.
+rates_helper.rb:6:1: C: Extra empty line detected at block body beginning.
+rates_helper.rb:7:1: C: Extra blank line detected.
+rates_helper.rb:8:16: C: Surrounding space missing for operator =.
+      poly_text=a['polygon']
+               ^
+rates_helper.rb:10:7: C: Space after keyword if is missing.
+      if(isInPolygon(poly_text, latitude,longitude))
+      ^^
+rates_helper.rb:10:7: C: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+      if(isInPolygon(poly_text, latitude,longitude))
+      ^^
+rates_helper.rb:10:41: C: Space missing after comma.
+      if(isInPolygon(poly_text, latitude,longitude))
+                                        ^
+rates_helper.rb:14:1: C: Extra empty line detected at block body end.
+rates_helper.rb:16:1: C: Extra empty line detected at method body end.
+rates_helper.rb:19:1: C: Extra blank line detected.
+rates_helper.rb:20:3: C: Use empty lines between method definitions.
+  def self.getPriceBetweenAreas(areas,origin_area_id,destination_area_id)
+  ^^^
+rates_helper.rb:20:12: C: Use snake_case for method names.
+  def self.getPriceBetweenAreas(areas,origin_area_id,destination_area_id)
+           ^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:20:38: C: Space missing after comma.
+  def self.getPriceBetweenAreas(areas,origin_area_id,destination_area_id)
+                                     ^
+rates_helper.rb:20:53: C: Space missing after comma.
+  def self.getPriceBetweenAreas(areas,origin_area_id,destination_area_id)
+                                                    ^
+rates_helper.rb:21:1: C: Extra empty line detected at method body beginning.
+rates_helper.rb:22:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if origin_area_id== destination_area_id
+    ^^
+rates_helper.rb:22:22: C: Surrounding space missing for operator ==.
+    if origin_area_id== destination_area_id
+                     ^^
+rates_helper.rb:24:7: C: Redundant return detected.
+      return 0
+      ^^^^^^
+rates_helper.rb:27:1: C: Extra empty line detected at block body beginning.
+rates_helper.rb:28:9: C: Space after keyword if is missing.
+        if(a['id']==origin_area_id)
+        ^^
+rates_helper.rb:28:19: C: Surrounding space missing for operator ==.
+        if(a['id']==origin_area_id)
+                  ^^
+rates_helper.rb:30:1: C: Extra blank line detected.
+rates_helper.rb:36:1: C: Extra blank line detected.
+rates_helper.rb:38:1: C: Extra empty line detected at method body end.
+rates_helper.rb:41:1: C: Extra blank line detected.
+rates_helper.rb:42:3: C: Use empty lines between method definitions.
+  def self.getCostFromRecords(originLatitude,originLongitude,destinationLatitude,destinationLongitude)
+  ^^^
+rates_helper.rb:42:3: C: Assignment Branch Condition size for getCostFromRecords is too high. [20.83/15]
+  def self.getCostFromRecords(originLatitude,originLongitude,destinationLatitude,destinationLongitude)
+  ^^^
+rates_helper.rb:42:3: C: Method has too many lines. [17/10]
+  def self.getCostFromRecords(originLatitude,originLongitude,destinationLatitude,destinationLongitude) ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:42:12: C: Use snake_case for method names.
+  def self.getCostFromRecords(originLatitude,originLongitude,destinationLatitude,destinationLongitude)
+           ^^^^^^^^^^^^^^^^^^
+rates_helper.rb:42:31: C: Use snake_case for variable names.
+  def self.getCostFromRecords(originLatitude,originLongitude,destinationLatitude,destinationLongitude)
+                              ^^^^^^^^^^^^^^
+rates_helper.rb:42:45: C: Space missing after comma.
+  def self.getCostFromRecords(originLatitude,originLongitude,destinationLatitude,destinationLongitude)
+                                            ^
+rates_helper.rb:42:46: C: Use snake_case for variable names.
+  def self.getCostFromRecords(originLatitude,originLongitude,destinationLatitude,destinationLongitude)
+                                             ^^^^^^^^^^^^^^^
+rates_helper.rb:42:61: C: Space missing after comma.
+  def self.getCostFromRecords(originLatitude,originLongitude,destinationLatitude,destinationLongitude)
+                                                            ^
+rates_helper.rb:42:62: C: Use snake_case for variable names.
+  def self.getCostFromRecords(originLatitude,originLongitude,destinationLatitude,destinationLongitude)
+                                                             ^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:42:81: C: Space missing after comma.
+  def self.getCostFromRecords(originLatitude,originLongitude,destinationLatitude,destinationLongitude)
+                                                                                ^
+rates_helper.rb:42:81: C: Line is too long. [102/80]
+  def self.getCostFromRecords(originLatitude,originLongitude,destinationLatitude,destinationLongitude)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:42:82: C: Use snake_case for variable names.
+  def self.getCostFromRecords(originLatitude,originLongitude,destinationLatitude,destinationLongitude)
+                                                                                 ^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:43:1: C: Extra empty line detected at method body beginning.
+rates_helper.rb:44:21: C: Surrounding space missing for operator =.
+    three_last_costs=0
+                    ^
+rates_helper.rb:45:15: C: Surrounding space missing for operator =.
+    final_cost=0
+              ^
+rates_helper.rb:47:17: C: Don't use parentheses around a method call.
+    last_area = (last_record)['area']
+                ^^^^^^^^^^^^^
+rates_helper.rb:49:17: C: Don't use parentheses around a method call.
+    last_time = (last_record)['created_at']
+                ^^^^^^^^^^^^^
+rates_helper.rb:53:1: C: Extra blank line detected.
+rates_helper.rb:54:19: C: Surrounding space missing for operator =.
+    id_origin_area= RatesHelper.getAreaId(last_area,originLatitude,originLongitude)
+                  ^
+rates_helper.rb:54:52: C: Space missing after comma.
+    id_origin_area= RatesHelper.getAreaId(last_area,originLatitude,originLongitude)
+                                                   ^
+rates_helper.rb:54:67: C: Space missing after comma.
+    id_origin_area= RatesHelper.getAreaId(last_area,originLatitude,originLongitude)
+                                                                  ^
+rates_helper.rb:54:81: C: Line is too long. [83/80]
+    id_origin_area= RatesHelper.getAreaId(last_area,originLatitude,originLongitude)
+                                                                                ^^^
+rates_helper.rb:56:24: C: Surrounding space missing for operator =.
+    id_destination_area=RatesHelper.getAreaId( last_area,destinationLatitude,destinationLongitude)
+                       ^
+rates_helper.rb:56:47: C: Space inside parentheses detected.
+    id_destination_area=RatesHelper.getAreaId( last_area,destinationLatitude,destinationLongitude)
+                                              ^
+rates_helper.rb:56:57: C: Space missing after comma.
+    id_destination_area=RatesHelper.getAreaId( last_area,destinationLatitude,destinationLongitude)
+                                                        ^
+rates_helper.rb:56:77: C: Space missing after comma.
+    id_destination_area=RatesHelper.getAreaId( last_area,destinationLatitude,destinationLongitude)
+                                                                            ^
+rates_helper.rb:56:81: C: Line is too long. [98/80]
+    id_destination_area=RatesHelper.getAreaId( last_area,destinationLatitude,destinationLongitude)
+                                                                                ^^^^^^^^^^^^^^^^^^
+rates_helper.rb:58:1: C: Extra blank line detected.
+rates_helper.rb:59:5: C: Space after keyword if is missing.
+    if( TimeDifference.between(Time.zone.now, last_time).in_minutes>10)
+    ^^
+rates_helper.rb:59:8: C: Space inside parentheses detected.
+    if( TimeDifference.between(Time.zone.now, last_time).in_minutes>10)
+       ^
+rates_helper.rb:59:68: C: Surrounding space missing for operator >.
+    if( TimeDifference.between(Time.zone.now, last_time).in_minutes>10)
+                                                                   ^
+rates_helper.rb:61:1: C: Extra blank line detected.
+rates_helper.rb:63:7: C: Use 2 (not 0) spaces for indentation.
+      cost_between_areas= RatesHelper.getPriceBetweenAreas(record,id_origin_area,id_destination_area)
+      
+rates_helper.rb:63:25: C: Surrounding space missing for operator =.
+      cost_between_areas= RatesHelper.getPriceBetweenAreas(record,id_origin_area,id_destination_area)
+                        ^
+rates_helper.rb:63:66: C: Space missing after comma.
+      cost_between_areas= RatesHelper.getPriceBetweenAreas(record,id_origin_area,id_destination_area)
+                                                                 ^
+rates_helper.rb:63:81: C: Space missing after comma.
+      cost_between_areas= RatesHelper.getPriceBetweenAreas(record,id_origin_area,id_destination_area)
+                                                                                ^
+rates_helper.rb:63:81: C: Line is too long. [101/80]
+      cost_between_areas= RatesHelper.getPriceBetweenAreas(record,id_origin_area,id_destination_area)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:65:1: C: Extra empty line detected at block body end.
+rates_helper.rb:68:17: C: Surrounding space missing for operator =.
+      final_cost=three_last_costs/(areas_record.length)
+                ^
+rates_helper.rb:68:34: C: Surrounding space missing for operator /.
+      final_cost=three_last_costs/(areas_record.length)
+                                 ^
+rates_helper.rb:68:35: C: Don't use parentheses around a method call.
+      final_cost=three_last_costs/(areas_record.length)
+                                  ^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:72:17: C: Surrounding space missing for operator =.
+      final_cost= RatesHelper.getPriceBetweenAreas(last_area,id_origin_area,id_destination_area)
+                ^
+rates_helper.rb:72:61: C: Space missing after comma.
+      final_cost= RatesHelper.getPriceBetweenAreas(last_area,id_origin_area,id_destination_area)
+                                                            ^
+rates_helper.rb:72:76: C: Space missing after comma.
+      final_cost= RatesHelper.getPriceBetweenAreas(last_area,id_origin_area,id_destination_area)
+                                                                           ^
+rates_helper.rb:72:81: C: Line is too long. [96/80]
+      final_cost= RatesHelper.getPriceBetweenAreas(last_area,id_origin_area,id_destination_area)
+                                                                                ^^^^^^^^^^^^^^^^
+rates_helper.rb:74:1: C: Extra blank line detected.
+rates_helper.rb:77:5: C: Redundant return detected.
+    return final_cost
+    ^^^^^^
+rates_helper.rb:78:1: C: Extra empty line detected at method body end.
+rates_helper.rb:81:12: C: Use snake_case for method names.
+  def self.costIsEstimated
+           ^^^^^^^^^^^^^^^
+rates_helper.rb:82:1: C: Extra empty line detected at method body beginning.
+rates_helper.rb:83:5: C: Use snake_case for variable names.
+    isEstimated=false
+    ^^^^^^^^^^^
+rates_helper.rb:83:16: C: Surrounding space missing for operator =.
+    isEstimated=false
+               ^
+rates_helper.rb:85:17: C: Don't use parentheses around a method call.
+    last_time = (last_record)['created_at']
+                ^^^^^^^^^^^^^
+rates_helper.rb:87:5: C: Space after keyword if is missing.
+    if( TimeDifference.between(Time.zone.now, last_time).in_minutes>10)
+    ^^
+rates_helper.rb:87:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if( TimeDifference.between(Time.zone.now, last_time).in_minutes>10)
+    ^^
+rates_helper.rb:87:8: C: Space inside parentheses detected.
+    if( TimeDifference.between(Time.zone.now, last_time).in_minutes>10)
+       ^
+rates_helper.rb:87:68: C: Surrounding space missing for operator >.
+    if( TimeDifference.between(Time.zone.now, last_time).in_minutes>10)
+                                                                   ^
+rates_helper.rb:89:7: W: Useless assignment to variable - isEstimated.
+      isEstimated=true
+      ^^^^^^^^^^^
+rates_helper.rb:89:7: C: Use snake_case for variable names.
+      isEstimated=true
+      ^^^^^^^^^^^
+rates_helper.rb:89:18: C: Surrounding space missing for operator =.
+      isEstimated=true
+                 ^
+rates_helper.rb:94:1: C: Extra empty line detected at method body end.
+rates_helper.rb:97:3: C: Assignment Branch Condition size for getKgPriceFromRecord is too high. [17.52/15]
+  def self.getKgPriceFromRecord
+  ^^^
+rates_helper.rb:97:3: C: Method has too many lines. [14/10]
+  def self.getKgPriceFromRecord ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:97:12: C: Use snake_case for method names.
+  def self.getKgPriceFromRecord
+           ^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:98:1: C: Extra empty line detected at method body beginning.
+rates_helper.rb:99:24: C: Surrounding space missing for operator =.
+    three_last_kg_price=0
+                       ^
+rates_helper.rb:100:13: C: Surrounding space missing for operator =.
+    final_kg=0
+            ^
+rates_helper.rb:102:17: C: Don't use parentheses around a method call.
+    last_time = (last_record)['created_at']
+                ^^^^^^^^^^^^^
+rates_helper.rb:103:22: C: Don't use parentheses around a method call.
+    last_kg_record = (last_record)['kgCost']
+                     ^^^^^^^^^^^^^
+rates_helper.rb:107:5: C: Space after keyword if is missing.
+    if( TimeDifference.between(Time.zone.now, last_time).in_minutes>10)
+    ^^
+rates_helper.rb:107:8: C: Space inside parentheses detected.
+    if( TimeDifference.between(Time.zone.now, last_time).in_minutes>10)
+       ^
+rates_helper.rb:107:68: C: Surrounding space missing for operator >.
+    if( TimeDifference.between(Time.zone.now, last_time).in_minutes>10)
+                                                                   ^
+rates_helper.rb:109:5: C: Use 2 (not 0) spaces for indentation.
+    kg_record.each do |price|
+    
+rates_helper.rb:110:7: C: Use 2 (not 0) spaces for indentation.
+      three_last_kg_price += price.to_i
+      
+rates_helper.rb:111:15: C: Surrounding space missing for operator =.
+      final_kg=three_last_kg_price/(kg_record.length)
+              ^
+rates_helper.rb:111:35: C: Surrounding space missing for operator /.
+      final_kg=three_last_kg_price/(kg_record.length)
+                                  ^
+rates_helper.rb:111:36: C: Don't use parentheses around a method call.
+      final_kg=three_last_kg_price/(kg_record.length)
+                                   ^^^^^^^^^^^^^^^^^^
+rates_helper.rb:112:7: W: end at 112, 6 is not aligned with kg_record.each do |price| at 109, 4.
+      end
+      ^^^
+rates_helper.rb:114:7: C: Align else with if.
+      else
+      ^^^^
+rates_helper.rb:116:7: C: Use 2 (not 0) spaces for indentation.
+      final_kg= last_kg_record.to_f
+      
+rates_helper.rb:116:15: C: Surrounding space missing for operator =.
+      final_kg= last_kg_record.to_f
+              ^
+rates_helper.rb:117:7: W: end at 117, 6 is not aligned with if at 107, 4.
+      end
+      ^^^
+rates_helper.rb:119:5: C: Redundant return detected.
+    return final_kg
+    ^^^^^^
+rates_helper.rb:121:1: C: Extra blank line detected.
+rates_helper.rb:121:1: C: Extra empty line detected at method body end.
+rates_helper.rb:124:1: C: Extra blank line detected.
+rates_helper.rb:125:3: C: Use empty lines between method definitions.
+  def self.noCostRecords
+  ^^^
+rates_helper.rb:125:12: C: Use snake_case for method names.
+  def self.noCostRecords
+           ^^^^^^^^^^^^^
+rates_helper.rb:126:1: C: Extra empty line detected at method body beginning.
+rates_helper.rb:127:12: C: Surrounding space missing for operator =.
+    no_cost=false
+           ^
+rates_helper.rb:130:5: C: Space after keyword if is missing.
+    if(records_length==0)
+    ^^
+rates_helper.rb:130:5: C: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+    if(records_length==0)
+    ^^
+rates_helper.rb:130:8: C: Use records_length.zero? instead of records_length==0.
+    if(records_length==0)
+       ^^^^^^^^^^^^^^^^^
+rates_helper.rb:130:22: C: Surrounding space missing for operator ==.
+    if(records_length==0)
+                     ^^
+rates_helper.rb:131:14: C: Surrounding space missing for operator =.
+      no_cost=true
+             ^
+rates_helper.rb:133:5: C: Redundant return detected.
+    return no_cost
+    ^^^^^^
+rates_helper.rb:134:1: C: Extra empty line detected at method body end.
+rates_helper.rb:137:1: C: Extra blank line detected.
+rates_helper.rb:138:3: C: Use empty lines between method definitions.
+  def self.defaultCost(packageWeight)
+  ^^^
+rates_helper.rb:138:12: C: Use snake_case for method names.
+  def self.defaultCost(packageWeight)
+           ^^^^^^^^^^^
+rates_helper.rb:138:24: C: Use snake_case for variable names.
+  def self.defaultCost(packageWeight)
+                       ^^^^^^^^^^^^^
+rates_helper.rb:139:1: C: Extra empty line detected at method body beginning.
+rates_helper.rb:140:10: C: Surrounding space missing for operator =.
+    price=(packageWeight.to_f*100)
+         ^
+rates_helper.rb:140:30: C: Surrounding space missing for operator *.
+    price=(packageWeight.to_f*100)
+                             ^
+rates_helper.rb:141:5: C: Redundant return detected.
+    return price.to_f
+    ^^^^^^
+rates_helper.rb:144:1: C: Extra blank line detected.
+rates_helper.rb:145:3: C: Use empty lines between method definitions.
+  def self.saveRecordValues(areas, kg_price) 
+  ^^^
+rates_helper.rb:145:12: C: Use snake_case for method names.
+  def self.saveRecordValues(areas, kg_price) 
+           ^^^^^^^^^^^^^^^^
+rates_helper.rb:145:45: C: Trailing whitespace detected.
+  def self.saveRecordValues(areas, kg_price) 
+                                            ^
+rates_helper.rb:146:1: C: Extra empty line detected at method body beginning.
+rates_helper.rb:147:1: C: Extra blank line detected.
+rates_helper.rb:148:5: C: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+    if (Record.all.length == 3)
+    ^^
+rates_helper.rb:148:8: C: Don't use parentheses around the condition of an if.
+    if (Record.all.length == 3)
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:149:1: C: Trailing whitespace detected.
+rates_helper.rb:154:20: C: Use the new Ruby 1.9 hash syntax.
+    Record.create!(:area => areas, :kgCost => kg_price)
+                   ^^^^^^^^
+rates_helper.rb:154:36: C: Use the new Ruby 1.9 hash syntax.
+    Record.create!(:area => areas, :kgCost => kg_price)
+                                   ^^^^^^^^^^
+rates_helper.rb:155:1: C: Extra empty line detected at method body end.
+rates_helper.rb:158:3: C: Assignment Branch Condition size for calculateFinalCostWhenApiWorking is too high. [25.96/15]
+  def self.calculateFinalCostWhenApiWorking(shipment)
+  ^^^
+rates_helper.rb:158:3: C: Method has too many lines. [14/10]
+  def self.calculateFinalCostWhenApiWorking(shipment) ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:158:12: C: Use snake_case for method names.
+  def self.calculateFinalCostWhenApiWorking(shipment)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:159:1: C: Extra empty line detected at method body beginning.
+rates_helper.rb:160:1: C: Use 2 (not -2) spaces for indentation.
+puts 'entro al calculateFinalCostWhenApiWorking'
+^^
+rates_helper.rb:162:5: C: Inconsistent indentation detected.
+    last_area = (last_record)['area']
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:162:17: C: Don't use parentheses around a method call.
+    last_area = (last_record)['area']
+                ^^^^^^^^^^^^^
+rates_helper.rb:163:5: C: Inconsistent indentation detected.
+    last_kg_record = (last_record)['kgCost']
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:163:22: C: Don't use parentheses around a method call.
+    last_kg_record = (last_record)['kgCost']
+                     ^^^^^^^^^^^^^
+rates_helper.rb:165:1: C: Extra blank line detected.
+rates_helper.rb:166:5: C: Inconsistent indentation detected.
+    id_origin_area= RatesHelper.getAreaId(last_area,shipment.origin_latitude,shipment.origin_longitude)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:166:19: C: Surrounding space missing for operator =.
+    id_origin_area= RatesHelper.getAreaId(last_area,shipment.origin_latitude,shipment.origin_longitude)
+                  ^
+rates_helper.rb:166:52: C: Space missing after comma.
+    id_origin_area= RatesHelper.getAreaId(last_area,shipment.origin_latitude,shipment.origin_longitude)
+                                                   ^
+rates_helper.rb:166:77: C: Space missing after comma.
+    id_origin_area= RatesHelper.getAreaId(last_area,shipment.origin_latitude,shipment.origin_longitude)
+                                                                            ^
+rates_helper.rb:166:81: C: Line is too long. [103/80]
+    id_origin_area= RatesHelper.getAreaId(last_area,shipment.origin_latitude,shipment.origin_longitude)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:167:5: C: Inconsistent indentation detected.
+    puts 'entro al primer get area id'
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:169:5: C: Inconsistent indentation detected.
+    id_destination_area=RatesHelper.getAreaId(last_area,shipment.destination_latitude,shipment.destination_longitude)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:169:24: C: Surrounding space missing for operator =.
+    id_destination_area=RatesHelper.getAreaId(last_area,shipment.destination_latitude,shipment.destination_longitude)
+                       ^
+rates_helper.rb:169:56: C: Space missing after comma.
+    id_destination_area=RatesHelper.getAreaId(last_area,shipment.destination_latitude,shipment.destination_longitude)
+                                                       ^
+rates_helper.rb:169:81: C: Line is too long. [117/80]
+    id_destination_area=RatesHelper.getAreaId(last_area,shipment.destination_latitude,shipment.destination_longitude)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:169:86: C: Space missing after comma.
+    id_destination_area=RatesHelper.getAreaId(last_area,shipment.destination_latitude,shipment.destination_longitude)
+                                                                                     ^
+rates_helper.rb:170:5: C: Inconsistent indentation detected.
+    puts 'entro al segundo get area id'
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:172:5: C: Inconsistent indentation detected.
+    final_cost_per_area= RatesHelper.getPriceBetweenAreas(last_area,id_origin_area,id_destination_area)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:172:24: C: Surrounding space missing for operator =.
+    final_cost_per_area= RatesHelper.getPriceBetweenAreas(last_area,id_origin_area,id_destination_area)
+                       ^
+rates_helper.rb:172:68: C: Space missing after comma.
+    final_cost_per_area= RatesHelper.getPriceBetweenAreas(last_area,id_origin_area,id_destination_area)
+                                                                   ^
+rates_helper.rb:172:81: C: Line is too long. [103/80]
+    final_cost_per_area= RatesHelper.getPriceBetweenAreas(last_area,id_origin_area,id_destination_area)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:172:83: C: Space missing after comma.
+    final_cost_per_area= RatesHelper.getPriceBetweenAreas(last_area,id_origin_area,id_destination_area)
+                                                                                  ^
+rates_helper.rb:175:5: C: Inconsistent indentation detected.
+    price_per_kg= last_kg_record.to_f
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:175:17: C: Surrounding space missing for operator =.
+    price_per_kg= last_kg_record.to_f
+                ^
+rates_helper.rb:176:5: C: Inconsistent indentation detected.
+    LogHelper.saveInfoInLog("Se han actualizado los costos por area y el costo por kilo. Fecha y horario:  "+ Time.zone.now.to_s)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:176:29: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    LogHelper.saveInfoInLog("Se han actualizado los costos por area y el costo por kilo. Fecha y horario:  "+ Time.zone.now.to_s)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:176:81: C: Line is too long. [129/80]
+    LogHelper.saveInfoInLog("Se han actualizado los costos por area y el costo por kilo. Fecha y horario:  "+ Time.zone.now.to_s)
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:176:109: C: Surrounding space missing for operator +.
+    LogHelper.saveInfoInLog("Se han actualizado los costos por area y el costo por kilo. Fecha y horario:  "+ Time.zone.now.to_s)
+                                                                                                            ^
+rates_helper.rb:178:5: C: Inconsistent indentation detected.
+    final_cost= (shipment.package_weight * price_per_kg)+final_cost_per_area
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:178:15: C: Surrounding space missing for operator =.
+    final_cost= (shipment.package_weight * price_per_kg)+final_cost_per_area
+              ^
+rates_helper.rb:178:57: C: Surrounding space missing for operator +.
+    final_cost= (shipment.package_weight * price_per_kg)+final_cost_per_area
+                                                        ^
+rates_helper.rb:181:5: C: Inconsistent indentation detected.
+    return final_cost
+    ^^^^^^^^^^^^^^^^^
+rates_helper.rb:181:5: C: Redundant return detected.
+    return final_cost
+    ^^^^^^
+rates_helper.rb:184:1: C: Extra blank line detected.
+rates_helper.rb:185:3: C: Keep a blank line before and after private.
+  private
+  ^^^^^^^
+rates_helper.rb:185:3: W: Useless private access modifier.
+  private
+  ^^^^^^^
+rates_helper.rb:186:5: C: Inconsistent indentation detected.
+    def self.isInPolygon(poly_text, latitude,longitude) ...
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:186:5: W: private (on line 185) does not make singleton methods private. Use private_class_method or private inside a class << self block instead.
+    def self.isInPolygon(poly_text, latitude,longitude)
+    ^^^
+rates_helper.rb:186:5: C: Assignment Branch Condition size for isInPolygon is too high. [16.16/15]
+    def self.isInPolygon(poly_text, latitude,longitude)
+    ^^^
+rates_helper.rb:186:5: C: Method has too many lines. [16/10]
+    def self.isInPolygon(poly_text, latitude,longitude) ...
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:186:14: C: Use snake_case for method names.
+    def self.isInPolygon(poly_text, latitude,longitude)
+             ^^^^^^^^^^^
+rates_helper.rb:186:45: C: Space missing after comma.
+    def self.isInPolygon(poly_text, latitude,longitude)
+                                            ^
+rates_helper.rb:187:1: C: Extra empty line detected at method body beginning.
+rates_helper.rb:188:5: C: Use 2 (not 0) spaces for indentation.
+    points = []
+    
+rates_helper.rb:190:15: C: Surrounding space missing for operator =.
+    start_pos =10
+              ^
+rates_helper.rb:192:55: C: Missing space after #.
+    cutted_poly_str = poly_text[start_pos..final_pos] #puts "-34.8928128641208630 -56.3013267517089844, ..., -34.8928128641208630 -56.3013267517089844"
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:192:81: C: Line is too long. [151/80]
+    cutted_poly_str = poly_text[start_pos..final_pos] #puts "-34.8928128641208630 -56.3013267517089844, ..., -34.8928128641208630 -56.3013267517089844"
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:194:56: C: Missing space after #.
+    splitted_coordinates = cutted_poly_str.split(', ') #puts ["-34.8928128641208630 -56.3013267517089844", ..., "-34.8928128641208630 -56.3013267517089844"]
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:194:81: C: Line is too long. [156/80]
+    splitted_coordinates = cutted_poly_str.split(', ') #puts ["-34.8928128641208630 -56.3013267517089844", ..., "-34.8928128641208630 -56.3013267517089844"]
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:196:29: C: Missing space after #.
+      lat = c.split(' ')[0] #inside "-34.8928128641208630 -56.3013267517089844" puts "-34.8928128641208630"
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:196:81: C: Line is too long. [107/80]
+      lat = c.split(' ')[0] #inside "-34.8928128641208630 -56.3013267517089844" puts "-34.8928128641208630"
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:197:29: C: Missing space after #.
+      lng = c.split(' ')[1] #inside "-34.8928128641208630 -56.3013267517089844" puts "-56.3013267517089844"
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:197:81: C: Line is too long. [107/80]
+      lng = c.split(' ')[1] #inside "-34.8928128641208630 -56.3013267517089844" puts "-56.3013267517089844"
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:198:46: C: Missing space after #.
+      points << Geokit::LatLng.new(lat, lng) #fill with LatLng object type
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:201:47: C: Missing space after #.
+    arr_polygon = Geokit::Polygon.new(points) #create the polygon from the array
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:203:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if arr_polygon.contains? Geokit::LatLng.new(latitude, longitude) #check whether point is within the polygon, should return true
+    ^^
+rates_helper.rb:203:70: C: Missing space after #.
+    if arr_polygon.contains? Geokit::LatLng.new(latitude, longitude) #check whether point is within the polygon, should return true
+                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:203:81: C: Line is too long. [131/80]
+    if arr_polygon.contains? Geokit::LatLng.new(latitude, longitude) #check whether point is within the polygon, should return true
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:210:5: C: Inconsistent indentation detected.
+    def self.last_record ...
+    ^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:210:5: W: private (on line 185) does not make singleton methods private. Use private_class_method or private inside a class << self block instead.
+    def self.last_record
+    ^^^
+rates_helper.rb:215:9: C: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+        if (r.id > max_id)
+        ^^
+rates_helper.rb:215:12: C: Don't use parentheses around the condition of an if.
+        if (r.id > max_id)
+           ^^^^^^^^^^^^^^^
+rates_helper.rb:221:7: C: Redundant return detected.
+      return last_record_obj
+      ^^^^^^
+rates_helper.rb:224:5: C: Inconsistent indentation detected.
+    def self.min_record_id ...
+    ^^^^^^^^^^^^^^^^^^^^^^
+rates_helper.rb:224:5: W: private (on line 185) does not make singleton methods private. Use private_class_method or private inside a class << self block instead.
+    def self.min_record_id
+    ^^^
+rates_helper.rb:229:9: C: Space after keyword if is missing.
+        if(r.id < min_id)
+        ^^
+rates_helper.rb:229:9: C: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+        if(r.id < min_id)
+        ^^
+rates_helper.rb:233:7: C: Redundant return detected.
+      return min_id
+      ^^^^^^
+rates_helper.rb:236:1: C: Extra blank line detected.
+rates_helper.rb:236:1: C: Extra empty line detected at module body end.
+rates_helper.rb:237:4: C: Final newline missing.
+end
+   
+application_helper.rb:1:1: C: Missing top-level module documentation comment.
+module ApplicationHelper
+^^^^^^
+
+4 files inspected, 423 offenses detected

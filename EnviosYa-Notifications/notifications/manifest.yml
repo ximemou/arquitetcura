@@ -1,0 +1,13 @@
+---
+stack: cflinuxfs2
+buildpack: "https://github.com/cloudfoundry/ruby-buildpack.git#v1.7.3"
+applications:
+- name: enviosya-notifications-moure-puricelli
+  instances: 1
+  memory: 128M
+  disk_quota: 1024M
+  routes:
+  - route: enviosya-notifications-moure-puricelli.mybluemix.net
+  command: rails server -p $PORT
+  services:
+  - availability-monitoring-auto

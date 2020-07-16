@@ -1,0 +1,199 @@
+
+<div class="container">
+
+  <h2> Registrar cadete</h2>
+  <br>
+
+ <% if !@cadet.errors.empty? %>
+      <div class ="alert alert-danger">
+
+        <ul>
+          <% @cadet.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+              <%end%>
+        </ul>
+
+      </div>
+  <%end%>
+
+<%= form_tag '/cadets/', :html => { :onsubmit => "return validate_id_card()"}, multipart: true, data:{toggle: "validator"}, method:"post" do %>
+
+ <div class="form-group">
+
+   <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input id="name" type="text" class="form-control" name="cadet[name]" placeholder="Name" required>
+    </div>
+   </div>
+
+    <br>
+    <br>
+
+      <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input id="lastname" type="text" class="form-control" name="cadet[lastname]" placeholder="Apellido" required>
+    </div>
+      </div>
+
+    <br>
+    <br>
+
+      <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input id="email" type="email" class="form-control" name="cadet[email]" placeholder="Email" data-error="Mail no valido" required>
+    </div>
+   <div class="help-block with-errors"></div>
+      </div>
+    <br>
+    <br>
+
+      <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <input id="password" type="password" class="form-control" name="cadet[password]" placeholder="Contraseña" required>
+      <div class="alert alert-danger" id="id_card_error" style="display: none" role="alert">
+
+
+      </div>
+
+    </div>
+
+      </div>
+    <br>
+    <br>
+
+      <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <input id="password_confirmation" type="password" class="form-control" name="cadet[password_confirmation]" placeholder=" Confirme contraseña" data-match="#password" data-match-error="Las contraseñas no coinciden" required>
+    </div>
+        <div class="help-block with-errors">
+
+        </div>
+      </div>
+    <br>
+    <br>
+
+
+
+      <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="  glyphicon glyphicon-credit-card"></i></span>
+      <input id="id_card" type="text" class="form-control" name="cadet[id_card]" placeholder="Cédula de identidad " data-minlength="8" data-maxlength="8" required>
+
+      <div class="alert alert-danger" id="id_card_error" style="display: none" role="alert">
+
+
+      </div>
+    </div>
+        <div class="help-block">Debe tener 8 digitos</div>
+      </div>
+    <br>
+    <br>
+
+
+      <div class="form-group">
+   <label for='cadet[profile_image]'> Imagen de perfil </label>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="  glyphicon glyphicon-picture"></i></span>
+         <%= file_field_tag "cadet[profile_image]" ,required:true, class: "form-control" %>
+
+    </div>
+      </div>
+
+    <br>
+    <br>
+
+      <div class="form-group">
+   <label for='cadet[driver_license_image]'> Imagen de la licencia de conducir </label>
+   <div class="input-group">
+      <span class="input-group-addon"><i class="  glyphicon glyphicon-picture"></i></span>
+        <%= file_field_tag "cadet[driver_license_image]", required:true, class: "form-control" %>
+    </div>
+      </div>
+
+    <br>
+    <br>
+
+      <div class="form-group">
+   <label for='cadet[vehicle_information]'> Documentación del vehiculo</label>
+   <div class="input-group">
+        <span class="input-group-addon"><i class="  glyphicon glyphicon-book"></i></span>
+
+         <%= file_field_tag "cadet[vehicle_information]", required:true, class:"form-control" %>
+
+   </div>
+      </div>
+
+    <br>
+    <br>
+
+
+  <input class="btn btn-primary btn-block" type='submit' value='Registrar'>
+
+ </div>
+
+<%end %>
+
+</div>
+
+
+
+<script>
+
+  function hello(){
+      alert("hello");
+  }
+
+
+    function validation_digit(ci){
+        var a = 0;
+        var i = 0;
+        if(ci.length <= 6){
+            for(i = ci.length; i < 7; i++){
+                ci = '0' + ci;
+            }
+        }
+        for(i = 0; i < 7; i++){
+            a += (parseInt("2987634"[i]) * parseInt(ci[i])) % 10;
+        }
+        if(a%10 === 0){
+            return 0;
+        }else{
+            return 10 - a % 10;
+        }
+    }
+
+    function validate_id_card(){
+        ci=$('#id_card').val();
+        ci = clean_ci(ci);
+        var dig = ci[ci.length - 1];
+        ci = ci.replace(/[0-9]$/, '');
+        if((dig == validation_digit(ci))){
+
+
+            $('#id_card_error').empty();
+            $('#id_card_error').css({"display":"none"});
+            return true;
+        }
+        else{
+
+            $('#id_card_error').empty();
+            $('#id_card_error').append("Cedula ingresada no es valida");
+            $('#id_card_error').css({"display":"block"});
+            return false;
+        }
+
+    }
+
+
+    function clean_ci(ci){
+        return ci.replace(/\D/g, '');
+    }
+
+</script>
+
+

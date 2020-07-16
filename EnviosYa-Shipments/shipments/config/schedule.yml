@@ -1,0 +1,4 @@
+cost:
+  cron: "*/10 * * * *" # execute at every 10 minutes
+  class: "CostJob"
+  queue: default

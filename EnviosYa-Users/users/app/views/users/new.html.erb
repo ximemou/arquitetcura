@@ -1,0 +1,128 @@
+<div class="container">
+
+
+  <h2> Complete su perfil</h2>
+  <br>
+  <br>
+  <br>
+
+<%= form_for :user, :url => '/users', :html => { :onsubmit => "return validate_ci()" },class: "form form-vertical", data:{toggle: "validator"}, multipart: true, method:"post" do %>
+
+  <div class="row">
+    <div class="col-sm-4 text-center">
+      <div class="kv-avatar">
+        <div class="file-loading">
+          <%= image_tag("#{@user.profile_image}", height: '150px' ,width:'150px',class: 'img-rounded' ) %>
+        </div>
+      </div>
+      <div class="kv-avatar-hint"><small>Imagen de perfil</small></div>
+    </div>
+    <div class="col-sm-8">
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="fname">Nombre</label>
+            <input type="text" class="form-control" value="<%= @user.name %>" name="user[name]" readonly>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="lname">Apellido</label>
+            <input type="text" class="form-control" value="<%= @user.lastname %>" name="user[lastname]" readonly>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="fname">Cédula de identidad </label>
+            <input type="text" class="form-control" name="user[id_card]" id="id_card"  data-minlength="8" data-maxlength="8" required>
+            <div class="alert alert-danger" id="id_card_error" style="display: none" role="alert">
+
+
+            </div>
+            <div class="help-block">Debe tener 8 digitos</div>
+
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="email">Email <span class="kv-reqd">*</span></label>
+            <input type="email" class="form-control" value=<%= @user.email%> name="user[email]" readonly>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <hr>
+        <div class="text-right">
+          <button type="submit" class="btn btn-primary">Guardar datos</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <div id="profile_image" style="display: none">
+
+        <input type="text" class="form-control" value=<%= @user.profile_image%> name="user[profile_image]">
+
+        </div>
+
+      </div>
+<%end%>
+<div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
+
+</div>
+
+<script>
+
+  function validation_digit(ci){
+  var a = 0;
+  var i = 0;
+  if(ci.length <= 6){
+  for(i = ci.length; i < 7; i++){
+  ci = '0' + ci;
+  }
+  }
+  for(i = 0; i < 7; i++){
+  a += (parseInt("2987634"[i]) * parseInt(ci[i])) % 10;
+  }
+  if(a%10 === 0){
+  return 0;
+  }else{
+  return 10 - a % 10;
+  }
+  }
+
+  function validate_ci(){
+      ci=$('#id_card').val();
+  ci = clean_ci(ci);
+  var dig = ci[ci.length - 1];
+  ci = ci.replace(/[0-9]$/, '');
+  if((dig == validation_digit(ci))){
+
+      $('#id_card_error').empty();
+      return true;
+  }
+  else{
+      $('#id_card_error').empty();
+      $('#id_card_error').append("Cedula ingresada no es valida")
+      $('#id_card_error').css({"display":"block"});
+      return false;
+  }
+
+  }
+
+
+  function clean_ci(ci){
+  return ci.replace(/\D/g, '');
+  }
+
+</script>
+
+

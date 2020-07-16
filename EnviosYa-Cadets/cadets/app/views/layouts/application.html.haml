@@ -1,0 +1,28 @@
+!!! 5
+%html
+  %head
+    %title Envios Ya
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+  = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}"
+
+  = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'
+  = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+  = stylesheet_link_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+  = stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+
+  =javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+  =javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"
+
+
+  = csrf_meta_tags
+
+  %body
+
+    - if flash[:notice]
+      #notice.message= flash[:notice]
+    - elsif flash[:warning]
+      #warning.message= flash[:warning]
+
+    #main
+      = yield

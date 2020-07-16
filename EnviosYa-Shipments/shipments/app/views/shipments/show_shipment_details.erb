@@ -1,0 +1,92 @@
+<div class="container">
+
+
+  <h1 style="color:blue;">Detalles del envio</h1>
+
+  <br>
+  <br>
+
+  <div class="table-responsive">
+
+<table class="table">
+
+  <tr> <td><i class="fa fa-id-card-o" aria-hidden="true"></i>  Id: </td>
+    <td><%= @shipment.id%> </td>
+  </tr>
+  <tr>
+    <td> <i class="fa fa-location-arrow" aria-hidden="true"></i> Coordenadas origen:</td>
+    <td><%= @shipment.origin_latitude%> , <%= @shipment.origin_longitude%></td>
+  </tr>
+  <tr>
+    <td> <i class="fa fa-location-arrow" aria-hidden="true"></i>  Coordenadas destino: </td>
+    <td><%= @shipment.destination_latitude%> , <%= @shipment.destination_longitude%></td>
+  </tr>
+  <tr>
+    <td><i class="fa fa-map-marker" aria-hidden="true"></i> Direccion origen: </td>
+    <td> <%= @shipment.origin_address%></td>
+  </tr>
+  <tr>
+    <td><i class="fa fa-map-marker" aria-hidden="true"></i> Direccion destino : </td>
+    <td> <%= @shipment.destination_address%> </td>
+  </tr>
+  <tr>
+    <td><i class="fa fa-money" aria-hidden="true"></i> Precio estimado:</td>
+    <td> <%= @shipment.estimated_price%></td>
+  </tr>
+  <tr>
+    <td><i class="fa fa-money" aria-hidden="true"></i> Precio final:</td>
+    <td> <%= @shipment.price%></td>
+  </tr>
+  <tr>
+    <td><i class="fa fa-envelope-o" aria-hidden="true"></i> Codigo postal origen: </td>
+    <td> <%= @shipment.origin_postal_code%></td>
+  </tr>
+  <tr>
+    <td><i class="fa fa-envelope-o" aria-hidden="true"></i> Codigo postal destino:</td>
+    <td> <%= @shipment.destination_postal_code%></td>
+  </tr>
+  <tr>
+    <td> <i class="fa fa-user" aria-hidden="true"></i> Nombre persona que envia: </td>
+    <td><%= @sender_user['name']%>  <%= @sender_user['lastname']%></td>
+  </tr>
+  <tr>
+    <td> <i class="fa fa-user" aria-hidden="true"></i> Nombre persona que recibe:</td>
+    <td> <%= @receiver_user['name']%> <%= @receiver_user['lastname']%></td>
+  </tr>
+  <tr>
+    <td> <i class="fa fa-clock-o" aria-hidden="true"></i> Hora solicitud de envio:</td>
+    <td> <%= @shipment.shipment_solicitude_time%></td>
+  </tr>
+        <% if @shipment.delivered %>
+      <tr>
+        <td> <i class="fa fa-clock-o" aria-hidden="true"></i> Hora recepcion del envio: </td>
+        <td> <%= @shipment.shipment_delivery_time%></td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-picture-o" aria-hidden="true"></i> Firma destinatario: </td>
+        <td> <%= image_tag(@shipment.receiver_signature_image_url , height: '250', width: '240')%>  </td>
+      </tr>
+
+        <%end%>
+</table>
+
+<% if !@shipment.delivered && @shipment.price %>
+<button class="btn btn-primary btn-block" onclick="location.href= '/shipments/<%= @shipment.id%>/confirm?Authorization=<%= @token %>'"> Confirmar envio</button>
+
+<%end%>
+
+
+
+
+  </div>
+
+
+  <br>
+  <br>
+
+
+  <button class="btn btn-primary btn-block" onclick="location.href= '/shipments?cadetId=<%= @logged_cadet%>&Authorization=<%= @token %>'"> Volver</button>
+
+
+</div>
+

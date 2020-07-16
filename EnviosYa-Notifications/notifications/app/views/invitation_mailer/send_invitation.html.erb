@@ -1,0 +1,21 @@
+<html>
+   
+   <head>
+      <meta content = 'text/html; charset = UTF-8' http-equiv = 'Content-Type' />
+   </head>
+   
+   <body>
+      <h1>EnviosYa</h1>
+      <h2>Usted ha sido invitado a unirse a EnviosYa por <%= @sender_name %> <%= @sender_lastname %></h2>
+      
+      <p>
+         EnviosYa le permite enviar sus encomiendas de forma segura y confiable.
+         Unase a traves del siguiente link y obtendra un 50% de descuento en su primer envio.
+
+         <%= link_to 'Registrese', "#{ENV['USERS_URL']}users/auth/facebook" %>
+
+         <br>
+      </p>
+      
+   </body>
+</html>
