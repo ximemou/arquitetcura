@@ -145,7 +145,8 @@ GEM
     pg (0.20.0)
     powerpack (0.1.1)
     public_suffix (3.0.1)
-    puma (3.10.0)
+    puma (4.3.8)
+      nio4r (~> 2.0)
     rack (2.0.3)
     rack-cors (1.0.2)
     rack-protection (2.0.0)
@@ -292,7 +293,7 @@ DEPENDENCIES
   logging
   okcomputer
   pg (= 0.20.0)
-  puma (~> 3.7)
+  puma (~> 4.3)
   rack-cors
   rails (~> 5.1.4)
   redis
